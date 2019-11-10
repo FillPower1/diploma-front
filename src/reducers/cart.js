@@ -1,30 +1,5 @@
 const initialState = {
-    items: [
-        {
-            "id": 10,
-            "title": "Магия утра. Как первый час дня определяет ваш успех",
-            "author": "Хэл Элрод",
-            "image": "https://cv1.litres.ru/pub/c/elektronnaya-kniga/cover_415/19063017-hel-elrod-magiya-utra.jpg",
-            "price": 829,
-            "rating": 1
-        },
-        {
-            "id": 10,
-            "title": "Магия утра. Как первый час дня определяет ваш успех",
-            "author": "Хэл Элрод",
-            "image": "https://cv1.litres.ru/pub/c/elektronnaya-kniga/cover_415/19063017-hel-elrod-magiya-utra.jpg",
-            "price": 829,
-            "rating": 1
-        },
-        {
-            "id": 10,
-            "title": "Магия утра. Как первый час дня определяет ваш успех",
-            "author": "Хэл Элрод",
-            "image": "https://cv1.litres.ru/pub/c/elektronnaya-kniga/cover_415/19063017-hel-elrod-magiya-utra.jpg",
-            "price": 829,
-            "rating": 1
-        }
-    ],
+    items: [],
     isOpenModal: false
 }
 

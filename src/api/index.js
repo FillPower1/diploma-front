@@ -10,7 +10,7 @@ export default {
             .then((res => res.data))
     },
 
-    getProductImage(url) {
-        return instance.get(url).then(res => console.log(res))
-    }
+    // getProductImage(url) {
+    //     return instance.get(url).then(res => console.log(res))
+    // }
 }

@@ -1,14 +1,13 @@
-import React from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-// import { Col, Row } from 'reactstrap'
+import _ from 'lodash'
 import Spinner from '../spinner'
 import Filter from '../filter'
 import ProductListItem from '../product-list-item'
-import { getData } from '../../actions/products'
 import { setFilter, setSearhField } from '../../actions/filter'
-import _ from 'lodash'
+import { getData } from '../../actions/products'
 
-class ProductList extends React.Component {
+class ProductList extends Component {
 
     componentDidMount() {
         this.props.getData()
@@ -22,22 +21,21 @@ class ProductList extends React.Component {
 
     render() {
         const { isFetching, items, setSearhField,
-            setFilter, filter, searchField } = this.props
+                setFilter, filter, searchField } = this.props
 
-        const content = !isFetching ? <Spinner /> : this.renderCards(items)
         return (
-            <React.Fragment>
+            <Fragment>
                 <Filter
                     setSearchField={setSearhField}
                     searchFieldValue={searchField}
                     filterBy={filter}
-                    setFilter={setFilter} />
-                {/* <Row> */}
+                    setFilter={setFilter}
+                />
+
                 <div className="products">
-                    {content}
+                    {!isFetching ? <Spinner /> : this.renderCards(items)}
                 </div>
-                {/* </Row> */}
-            </React.Fragment>
+            </Fragment>
         )
     }
 }
