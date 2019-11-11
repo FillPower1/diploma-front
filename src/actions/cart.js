@@ -1,5 +1,6 @@
-export const toggleShowModal = () => ({
-    type: 'TOGGLE_SHOW_MODAL'
+export const toggleShowModal = (bool) => ({
+    type: 'TOGGLE_SHOW_MODAL',
+    payload: bool
 })
 
 export const addItemToCart = (item) => ({

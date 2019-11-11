@@ -2,7 +2,7 @@
     display: none;
     position: absolute;
     right: 0;
-    top: 56px;
+    top: 57px;
     min-width: 450px;
     background-color: #fff;
     z-index: 1;
@@ -37,14 +37,13 @@
         justify-content: space-between;
         align-items: center;
 
-        img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        &:hover {
+            background-color: rgba(204, 204, 204, .2);
         }
-    }
 
-    &-item:hover {
-        background-color: rgba(204, 204, 204, .2);
+        img {
+            width: 60px;
+            height: 60px;
+        }
     }
 }

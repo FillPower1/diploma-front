@@ -27,12 +27,12 @@ const Header = (props) => {
                 <ul className="navigation-right">
                     <button
                         className="btn btn-outline-secondary"
-                        onClick={props.toggleShowModal}>
+                        onMouseEnter={() => props.toggleShowModal(true)}>
                         <i className="icon fa fa-shopping-cart"></i>
                         <span className="badge badge-light">{countItems}</span>
                     </button>
-                    <button className="btn btn-outline-warning">Login</button>
                     <CartModal />
+                    <button className="btn btn-outline-warning">Login</button>
                 </ul>
             </nav>
         </header>

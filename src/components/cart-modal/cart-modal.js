@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import * as actions from '../../actions'
 import './cart-modal.scss'
 
 const CartModal = (props) => {
@@ -8,7 +9,7 @@ const CartModal = (props) => {
     const clazz = isOpenModal ? 'show' : ''
 
     return (
-        <div className={`popup ${clazz}`}>
+        <div className={`popup ${clazz}`} onMouseLeave={() => props.toggleShowModal(false)}>
             <div className="popup__content">
                 <ul className="list-group">
                     {
@@ -38,4 +39,8 @@ const mapStateToProps = state => ({
     items: state.cart.items
 })
 
-export default connect(mapStateToProps)(CartModal)
+const mapDispatchToProps = {
+    toggleShowModal: actions.toggleShowModal
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartModal)

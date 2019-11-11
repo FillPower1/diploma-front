@@ -25,7 +25,7 @@ const reducer = (state = initialState, action) => {
                     count: 1
                 }
             }
-            console.log(newItem)
+
             if (itemIndx < 0) {
                 return {
                     ...state,
@@ -53,7 +53,7 @@ const reducer = (state = initialState, action) => {
         case 'TOGGLE_SHOW_MODAL':
             return {
                 ...state,
-                isOpenModal: !state.isOpenModal
+                isOpenModal: action.payload
             }
         case 'CALC_CART':
             const total = state.items.reduce((sum, currentItem) => sum + currentItem.price, 0)
