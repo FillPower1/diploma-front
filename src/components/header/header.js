@@ -6,6 +6,7 @@ import { toggleShowModal } from '../../actions/cart'
 import './header.scss'
 
 const Header = (props) => {
+    const { countItems } = props
     return (
         <header>
             <nav className="navigation">
@@ -21,11 +22,11 @@ const Header = (props) => {
                     </li>
                 </ul>
                 <ul className="navigation-right">
-                    <button 
+                    <button
                         className="btn btn-outline-secondary"
                         onClick={props.toggleShowModal}>
                         <i className="icon fa fa-shopping-cart"></i>
-                        <span className="badge badge-light">{5}</span>
+                        <span className="badge badge-light">{countItems}</span>
                     </button>
                     <button className="btn btn-outline-warning">Login</button>
                     <CartModal />
@@ -35,4 +36,8 @@ const Header = (props) => {
     )
 }
 
-export default connect(null, { toggleShowModal })(Header)
+const mapStateToProps = state => ({
+    countItems: state.cart.items.length
+})
+ 
+export default connect(mapStateToProps, { toggleShowModal })(Header)

@@ -2,7 +2,7 @@ import React from 'react'
 import './product-list-item.scss'
 
 const ProductListItem = (props) => {
-    const { title, imageSrc, price } = props
+    const { title, imageSrc, price, onAddToCart } = props
 
     return (
         <div className="product">
@@ -14,7 +14,7 @@ const ProductListItem = (props) => {
                 <div className="stars"></div>
                 <span className="price">{price} руб.</span>
                 <div className="add-to-cart">
-                    <button className="cart-button">В корзину</button>
+                    <button onClick={() => onAddToCart(props)} className="cart-button">В корзину</button>
                 </div>
             </div>
         </div>

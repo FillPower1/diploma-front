@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './cart-modal.scss'
 
 const CartModal = (props) => {
-    const { isOpenModal } = props
+    const { isOpenModal, totalPrice } = props
     const clazz = isOpenModal ? 'show' : ''
 
     return (
@@ -22,7 +22,7 @@ const CartModal = (props) => {
                         <span className="btn btn-danger">&times;</span>
                     </li>
                 </ul>
-                <p className="list-group-item total">Итого: 10000</p>
+                <p className="list-group-item total">Итого: {totalPrice}</p>
                 <div className="popup__route">
                     <Link to="/cart" className="btn btn-primary">Перейти в корзину</Link>
                 </div>
@@ -32,7 +32,8 @@ const CartModal = (props) => {
 }
 
 const mapStateToProps = state => ({
-    isOpenModal: state.cart.isOpenModal
+    isOpenModal: state.cart.isOpenModal,
+    totalPrice: state.cart.items.reduce((sum, currentItem) => sum + currentItem.price, 0)
 })
 
 export default connect(mapStateToProps)(CartModal)

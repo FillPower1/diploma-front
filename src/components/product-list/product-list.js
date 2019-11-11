@@ -5,6 +5,7 @@ import Spinner from '../spinner'
 import Filter from '../filter'
 import ProductListItem from '../product-list-item'
 import { setFilter, setSearhField } from '../../actions/filter'
+import { addItemToCart } from '../../actions/cart'
 import { getData } from '../../actions/products'
 
 class ProductList extends Component {
@@ -15,8 +16,12 @@ class ProductList extends Component {
 
     renderCards = (items) => {
         return items.map(item => (
-            <ProductListItem key={item.id} {...item} />
+            <ProductListItem key={item.id} {...item} onAddToCart={this.addItemToCartHandler} />
         ))
+    }
+
+    addItemToCartHandler = (item) => {
+        this.props.addItemToCart(item)
     }
 
     render() {
@@ -77,6 +82,7 @@ export default connect(
     {
         setFilter,
         setSearhField,
+        addItemToCart,
         getData
     }
 )(ProductList)
