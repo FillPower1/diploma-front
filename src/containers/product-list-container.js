@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import _ from 'lodash'
-import { getData } from '../actions/products'
-import { addItemToCart, calcCart } from '../actions/cart'
-import { setFilter, setSearhField } from '../actions/filter'
+import * as actions from '../actions'
 import ProductList from '../components/product-list'
 
 class ProductListContainer extends Component {
@@ -29,7 +27,7 @@ class ProductListContainer extends Component {
 
     sortProducts = (products, filter, str) => {
         products = this.search(products, str)
-    
+
         switch (filter) {
             case 'expensive':
                 return _.orderBy(products, 'price', 'desc')
@@ -45,8 +43,8 @@ class ProductListContainer extends Component {
         const items = this.sortProducts(products, filter, searchField)
 
         return (
-            <ProductList 
-                {...this.props} 
+            <ProductList
+                {...this.props}
                 products={items}
                 onAddToCart={this.addItemToCartHandler} />
         )
@@ -55,21 +53,20 @@ class ProductListContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        products: state.items.products,
-        isFetching: state.items.isFetching,
         error: state.items.error,
         filter: state.filter.filterBy,
+        products: state.items.products,
+        isFetching: state.items.isFetching,
         searchField: state.filter.searchField
     }
 }
 
-export default connect(
-    mapStateToProps,
-    {
-        setFilter,
-        setSearhField,
-        addItemToCart,
-        getData,
-        calcCart
-    }
-)(ProductListContainer)
+const mapDispatchToProps = {
+    getData: actions.getData,
+    calcCart: actions.calcCart,
+    setFilter: actions.setFilter,
+    setSearhField: actions.setSearhField,
+    addItemToCart: actions.addItemToCart,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductListContainer)

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import CartModal from '../cart-modal'
-import { toggleShowModal } from '../../actions/cart'
+import * as actions from '../../actions'
 import './header.scss'
 
 const Header = (props) => {
@@ -39,5 +39,9 @@ const Header = (props) => {
 const mapStateToProps = state => ({
     countItems: state.cart.countItems
 })
- 
-export default connect(mapStateToProps, { toggleShowModal })(Header)
+
+const mapDispatchToProps = {
+    toggleShowModal: actions.toggleShowModal
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
