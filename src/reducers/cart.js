@@ -25,7 +25,7 @@ const reducer = (state = initialState, action) => {
                     count: 1
                 }
             }
-
+            console.log(newItem)
             if (itemIndx < 0) {
                 return {
                     ...state,

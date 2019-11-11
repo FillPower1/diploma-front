@@ -28,13 +28,19 @@ const CartPage = (props) => {
                                     <th>{i + 1}</th>
                                     <td>{item.title}</td>
                                     <td>
-                                        <button className="btn btn-primary mr-1">-</button>
+                                        <button className="btn btn-primary mr-1">
+                                            <i class="fa fa-minus" aria-hidden="true"></i>
+                                        </button>
                                         {item.count}
-                                        <button className="btn btn-primary ml-1">+</button>
+                                        <button className="btn btn-primary ml-1">
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </button>
                                     </td>
                                     <td>{item.price}.</td>
                                     <td>
-                                        <button className="btn btn-danger">x</button>
+                                        <button className="btn btn-danger">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             )

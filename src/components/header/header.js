@@ -20,6 +20,9 @@ const Header = (props) => {
                     <li className="navigation__item">
                         <Link to="/products" className="navigation__link">Товары</Link>
                     </li>
+                    <li className="navigation__item">
+                        <Link to="/cart" className="navigation__link">Корзина</Link>
+                    </li>
                 </ul>
                 <ul className="navigation-right">
                     <button

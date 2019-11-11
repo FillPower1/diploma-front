@@ -66,7 +66,7 @@ const mapDispatchToProps = {
     calcCart: actions.calcCart,
     setFilter: actions.setFilter,
     setSearhField: actions.setSearhField,
-    addItemToCart: actions.addItemToCart,
+    addItemToCart: actions.addItemToCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductListContainer)
