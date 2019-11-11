@@ -7,6 +7,7 @@ import ProductListItem from '../product-list-item'
 import { setFilter, setSearhField } from '../../actions/filter'
 import { addItemToCart } from '../../actions/cart'
 import { getData } from '../../actions/products'
+import ErrorIndicator from '../error-indicator'
 
 class ProductList extends Component {
 
@@ -14,9 +15,13 @@ class ProductList extends Component {
         this.props.getData()
     }
 
-    renderCards = (items) => {
-        return items.map(item => (
-            <ProductListItem key={item.id} {...item} onAddToCart={this.addItemToCartHandler} />
+    renderCards = (products) => {
+        return products.map(item => (
+            <ProductListItem
+                {...item}
+                key={item.id}
+                onAddToCart={this.addItemToCartHandler}
+            />
         ))
     }
 
@@ -25,8 +30,12 @@ class ProductList extends Component {
     }
 
     render() {
-        const { isFetching, items, setSearhField,
-                setFilter, filter, searchField } = this.props
+        const { isFetching, products, setSearhField,
+                setFilter, filter, searchField, error } = this.props
+
+        if (error) {
+            return <ErrorIndicator />
+        }
 
         return (
             <Fragment>
@@ -38,42 +47,43 @@ class ProductList extends Component {
                 />
 
                 <div className="products">
-                    {!isFetching ? <Spinner /> : this.renderCards(items)}
+                    {isFetching ? <Spinner /> : this.renderCards(products)}
                 </div>
             </Fragment>
         )
     }
 }
 
-const search = (items, str) => {
+const search = (products, str) => {
     if (str.length === 0) {
-        return items
+        return products
     }
 
-    return items.filter(item => {
-        return item.title.toLowerCase().indexOf(str.toLowerCase()) > -1
+    return products.filter(product => {
+        return product.title.toLowerCase().indexOf(str.toLowerCase()) > -1
     })
 }
 
-const sortProducts = (items, filter, str) => {
-    items = search(items, str)
+const sortProducts = (products, filter, str) => {
+    products = search(products, str)
 
     switch (filter) {
         case 'expensive':
-            return _.orderBy(items, 'price', 'desc')
+            return _.orderBy(products, 'price', 'desc')
         case 'cheap':
-            return _.orderBy(items, 'price', 'asc')
+            return _.orderBy(products, 'price', 'asc')
         default:
-            return items
+            return products
     }
 }
 
 const mapStateToProps = state => {
     return {
-        items: sortProducts(state.items.products, state.filter.filterBy, state.filter.searchField),
+        products: sortProducts(state.items.products, state.filter.filterBy, state.filter.searchField),
         isFetching: state.items.isFetching,
         filter: state.filter.filterBy,
-        searchField: state.filter.searchField
+        searchField: state.filter.searchField,
+        error: state.items.error
     }
 }
 

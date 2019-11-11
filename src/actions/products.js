@@ -1,12 +1,16 @@
 import api from '../api'
+
 export const getData = () => {
     return dispatch => {
+        dispatch({
+            type: 'GET_DATA_REQUEST'
+        })
+
         api.getData()
             .then(data => {
                 dispatch({
                     type: 'GET_DATA_SUCCESS',
-                    payload: data,
-                    isFetching: true
+                    payload: data
                 })
             })
             .catch(error => {
