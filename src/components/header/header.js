@@ -37,7 +37,7 @@ const Header = (props) => {
 }
 
 const mapStateToProps = state => ({
-    countItems: state.cart.items.length
+    countItems: state.cart.countItems
 })
  
 export default connect(mapStateToProps, { toggleShowModal })(Header)

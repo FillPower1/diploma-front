@@ -14,7 +14,7 @@ const ProductListItem = (props) => {
                 <div className="stars"></div>
                 <span className="price">{price} руб.</span>
                 <div className="add-to-cart">
-                    <button onClick={() => onAddToCart(props)} className="cart-button">В корзину</button>
+                    <button onClick={() => onAddToCart(props)} className="cart-button">Добавить в корзину</button>
                 </div>
             </div>
         </div>

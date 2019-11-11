@@ -4,7 +4,7 @@ import { Container } from 'reactstrap'
 import Header from '../header'
 import MainPage from '../pages/main'
 import CartPage from '../pages/cart'
-import ProductListContainer from '../containers/product-list-container'
+import ProductListContainer from '../../containers/product-list-container'
 import './app.scss'
 
 const App = () => {

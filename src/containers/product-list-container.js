@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import _ from 'lodash'
-import { getData } from '../../actions/products'
-import { addItemToCart } from '../../actions/cart'
-import { setFilter, setSearhField } from '../../actions/filter'
-import ProductList from '../product-list'
+import { getData } from '../actions/products'
+import { addItemToCart, calcCart } from '../actions/cart'
+import { setFilter, setSearhField } from '../actions/filter'
+import ProductList from '../components/product-list'
 
 class ProductListContainer extends Component {
 
@@ -14,6 +14,7 @@ class ProductListContainer extends Component {
 
     addItemToCartHandler = (item) => {
         this.props.addItemToCart(item)
+        this.props.calcCart()
     }
 
     search = (products, str) => {
@@ -56,9 +57,9 @@ const mapStateToProps = state => {
     return {
         products: state.items.products,
         isFetching: state.items.isFetching,
+        error: state.items.error,
         filter: state.filter.filterBy,
-        searchField: state.filter.searchField,
-        error: state.items.error
+        searchField: state.filter.searchField
     }
 }
 
@@ -68,6 +69,7 @@ export default connect(
         setFilter,
         setSearhField,
         addItemToCart,
-        getData
+        getData,
+        calcCart
     }
 )(ProductListContainer)
