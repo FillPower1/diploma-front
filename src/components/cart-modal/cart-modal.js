@@ -5,7 +5,7 @@ import * as actions from '../../actions'
 import './cart-modal.scss'
 
 const CartModal = (props) => {
-    const { isOpenModal, totalPrice, items } = props
+    const { isOpenModal, totalPrice, items, removeItem } = props
     const clazz = isOpenModal ? 'show' : ''
 
     return (
@@ -18,7 +18,7 @@ const CartModal = (props) => {
                                 <li className="list-group-item" key={item.id}>
                                     <img src={`http://localhost:3000/${item.imageSrc}`} alt="product" />
                                     <div className="popup__text">{item.title} ({item.count})</div>
-                                    <span className="popup__btn">&times;</span>
+                                    <span onClick={() => removeItem(item.id)} className="popup__btn">&times;</span>
                                 </li>
                             )
                         })
@@ -35,12 +35,13 @@ const CartModal = (props) => {
 
 const mapStateToProps = state => ({
     isOpenModal: state.cart.isOpenModal,
-    totalPrice: state.cart.total,
-    items: state.cart.items
+    items: state.cart.items,
+    totalPrice: state.cart.total
 })
 
 const mapDispatchToProps = {
-    toggleShowModal: actions.toggleShowModal
+    toggleShowModal: actions.toggleShowModal,
+    removeItem: actions.removeItemFromCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartModal)

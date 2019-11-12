@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import * as actions from '../../../actions'
 
 const CartPage = (props) => {
-    const { items } = props
+    const { items, removeItem } = props
 
     if (!items.length) {
         return <h2 className="text-center">Корзина пуста</h2>
@@ -38,7 +39,7 @@ const CartPage = (props) => {
                                     </td>
                                     <td>{item.price}.</td>
                                     <td>
-                                        <button className="btn btn-sm btn-danger">
+                                        <button onClick={() => removeItem(item.id)} className="btn btn-sm btn-danger">
                                             <i className="fa fa-trash" aria-hidden="true"></i>
                                         </button>
                                     </td>
@@ -60,4 +61,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(CartPage)
+const mapDispatchToProps = {
+    removeItem: actions.removeItemFromCart
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartPage)

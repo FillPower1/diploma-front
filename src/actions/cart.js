@@ -9,3 +9,8 @@ export const addItemToCart = (item) => ({
 })
 
 export const calcCart = () => ({ type: 'CALC_CART' })
+
+export const removeItemFromCart = (itemId) => dispatch => {
+    dispatch({ type: 'REMOVE_FROM_CART', payload: itemId })
+    dispatch(calcCart())
+}
