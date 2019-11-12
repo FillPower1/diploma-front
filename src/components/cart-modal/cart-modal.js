@@ -34,9 +34,9 @@ const CartModal = (props) => {
 }
 
 const mapStateToProps = state => ({
-    isOpenModal: state.cart.isOpenModal,
     items: state.cart.items,
-    totalPrice: state.cart.total
+    totalPrice: state.cart.total,
+    isOpenModal: state.cart.isOpenModal
 })
 
 const mapDispatchToProps = {

@@ -72,7 +72,7 @@
 
   .cart-button {
     color: #8C877C;
-    padding-top: 10px;
+    padding: 10px 0;
     transition: .4s linear;
     background: none;
     border: none;
@@ -87,6 +87,7 @@
   }
 
   .add-to-cart:hover .cart-button {
-    color: #E34D38;
+    background-color: darken(#fff, 10%);
+    color: #000;
   }
 }

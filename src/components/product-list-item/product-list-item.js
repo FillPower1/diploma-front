@@ -1,8 +1,8 @@
 import React from 'react'
 import './product-list-item.scss'
 
-const ProductListItem = (props) => {
-    const { title, imageSrc, price, onAddToCart } = props
+const ProductListItem = (product) => {
+    const { title, imageSrc, price, onAddToCart } = product
 
     return (
         <div className="product">
@@ -14,7 +14,11 @@ const ProductListItem = (props) => {
                 <div className="stars"></div>
                 <span className="price">{price} руб.</span>
                 <div className="add-to-cart">
-                    <button onClick={() => onAddToCart(props)} className="cart-button">Добавить в корзину</button>
+                    <button
+                        className="cart-button"
+                        onClick={() => onAddToCart(product)}>
+                        Добавить в корзину
+                    </button>
                 </div>
             </div>
         </div>
