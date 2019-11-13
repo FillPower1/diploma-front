@@ -78,6 +78,7 @@ const reducer = (state = initialState, action) => {
         case 'CALC_CART':
             const totalPrice = state.items.reduce((sum, currentItem) => sum + currentItem.price, 0)
             const totalCountItems = state.items.reduce((sum, currentItem) => sum + currentItem.count, 0)
+
             return { ...state, totalPrice, totalCountItems }
         default:
             return state
