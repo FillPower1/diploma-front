@@ -6,64 +6,64 @@ const initialState = {
     startingProductsPrices: new Set()
 }
 
-const updateCartItems = (state, newItem, itemIndex) => {
+const updateCartItems = (items, newItem, itemIndex) => {
     if (newItem && newItem.count < 1) {
         return [
-            ...state.items.slice(0, itemIndex),
-            ...state.items.slice(itemIndex + 1)
+            ...items.slice(0, itemIndex),
+            ...items.slice(itemIndex + 1)
+        ]
+    }
+
+    if (itemIndex === -1) {
+        return [
+            ...items,
+            newItem
         ]
     }
 
     return [
-        ...state.items.slice(0, itemIndex),
+        ...items.slice(0, itemIndex),
         newItem,
-        ...state.items.slice(itemIndex + 1)
+        ...items.slice(itemIndex + 1)
     ]
 }
 
-const updateCart = (state, action, quantity) => {
+const updateCartItem = (startingProducts, item, action, quantity) => {
+    if (item) {
+        return {
+            ...item,
+            count: item.count + quantity,
+            price: item.price + quantity * startingProducts.price
+        }
+    } else {
+        return {
+            ...action.payload,
+            count: 1
+        }
+    }
+}
+
+const updateOrder = (state, action, quantity) => {
     const itemId = action.payload.id
     state.startingProductsPrices.add(action.payload)
     const startingProducts = [...state.startingProductsPrices].find(item => item.id === itemId)
     const itemIndx = state.items.findIndex(item => item.id === itemId)
     const item = state.items[itemIndx]
 
-    let newItem
-    if (item) {
-        newItem = {
-            ...item,
-            count: item.count + quantity,
-            price: item.price + quantity * startingProducts.price
-        }
-    } else {
-        newItem = {
-            ...action.payload,
-            count: 1
-        }
-    }
+    const newItem = updateCartItem(startingProducts, item, action, quantity)
 
-    if (itemIndx < 0) {
-        return {
-            ...state,
-            items: [
-                ...state.items,
-                newItem
-            ]
-        }
-    } else {
-        return {
-            ...state,
-            items: updateCartItems(state, newItem, itemIndx)
-        }
+    return {
+        ...state,
+        items: updateCartItems(state.items, newItem, itemIndx)
     }
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
-            return updateCart(state, action, 1)
+            return updateOrder(state, action, 1)
         case 'REMOVE_ITEM_FROM_CART':
-        return updateCart(state, action, -1)
+            return updateOrder(state, action, -1)
         case 'REMOVE_ALL_FROM_CART':
             return {
                 ...state,
