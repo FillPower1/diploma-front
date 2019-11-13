@@ -57,13 +57,13 @@ const CartPage = (props) => {
 const mapStateToProps = (state) => {
     return {
         items: state.cart.items,
-        totalPrice: state.cart.total
+        totalPrice: state.cart.totalPrice
     }
 }
 
 const mapDispatchToProps = {
     onIncrease: actions.addItemToCart,
-    onDecrease: actions.removeItemToCart,
+    onDecrease: actions.removeItemFromCart,
     removeItem: actions.removeAllFromCart
 }
 

@@ -1,4 +1,4 @@
-import api from '../api'
+// import api from '../api'
 
 export const toggleShowModal = (bool) => ({
     type: 'TOGGLE_SHOW_MODAL',
@@ -7,20 +7,17 @@ export const toggleShowModal = (bool) => ({
 
 export const calcCart = () => ({ type: 'CALC_CART' })
 
+// добавляет товар в корзину при клике "Добавить в корзину" 
+// также прибавляет +1 товар при клике на кнопку "+"
 export const addItemToCart = (item) => dispatch => {
-    api.getSpecificProduct(item.id)
-        .then(data => {
-            dispatch({ type: 'ADD_TO_CART', payload: data })
-            dispatch(calcCart())
-        })
+    dispatch({ type: 'ADD_TO_CART', payload: item })
+    dispatch(calcCart())
 }
 
-export const removeItemToCart = (item) => dispatch => {
-    api.getSpecificProduct(item.id)
-        .then(data => {
-            dispatch({ type: 'REMOVE_ITEM_FROM_CART', payload: data })
-            dispatch(calcCart())
-        })
+// уменьшает на -1 кол-во товаров при клике на "-"
+export const removeItemFromCart = item => dispatch => {
+    dispatch({ type: 'REMOVE_ITEM_FROM_CART', payload: item })
+    dispatch(calcCart())
 }
 
 export const removeAllFromCart = (itemId) => dispatch => {

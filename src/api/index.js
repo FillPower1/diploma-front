@@ -9,7 +9,6 @@ export default {
         return instance.get('/products')
             .then((res => res.data))
     },
-
     getSpecificProduct(id) {
         return instance.get(`/products/${id}`).then(res => res.data)
     }

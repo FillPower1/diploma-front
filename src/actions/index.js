@@ -1,6 +1,6 @@
 import { getData } from './products'
 import { setFilter, setSearhField } from './filter'
-import { toggleShowModal, addItemToCart, calcCart, removeAllFromCart, removeItemToCart } from './cart'
+import { toggleShowModal, addItemToCart, calcCart, removeAllFromCart, removeItemFromCart } from './cart'
 
 export {
     toggleShowModal,
@@ -9,6 +9,6 @@ export {
     setSearhField,
     getData,
     addItemToCart,
-    removeItemToCart,
+    removeItemFromCart,
     removeAllFromCart
 }

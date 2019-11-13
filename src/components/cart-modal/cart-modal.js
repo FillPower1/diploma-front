@@ -35,7 +35,7 @@ const CartModal = (props) => {
 
 const mapStateToProps = state => ({
     items: state.cart.items,
-    totalPrice: state.cart.total,
+    totalPrice: state.cart.totalPrice,
     isOpenModal: state.cart.isOpenModal
 })
 
