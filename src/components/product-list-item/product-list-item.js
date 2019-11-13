@@ -13,13 +13,11 @@ const ProductListItem = (product) => {
                 <h3>{title}</h3>
                 <div className="stars"></div>
                 <span className="price">{price} руб.</span>
-                <div className="add-to-cart">
-                    <button
-                        className="cart-button"
-                        onClick={() => onAddToCart(product)}>
-                        Добавить в корзину
-                    </button>
-                </div>
+                <button
+                    className="cart-button"
+                    onClick={() => onAddToCart(product)}>
+                    Добавить в корзину
+                </button>
             </div>
         </div>
     )

@@ -6,7 +6,7 @@ import * as actions from '../../actions'
 import './header.scss'
 
 const Header = (props) => {
-    const { countItems } = props
+    const { totalCountItems } = props
     return (
         <header>
             <nav className="navigation">
@@ -29,7 +29,7 @@ const Header = (props) => {
                         className="btn btn-outline-secondary"
                         onMouseEnter={() => props.toggleShowModal(true)}>
                         <i className="icon fa fa-shopping-cart"></i>
-                        <span className="badge badge-light">{countItems}</span>
+                        <span className="badge badge-light">{totalCountItems}</span>
                     </button>
                     <CartModal />
                     <button className="btn btn-outline-warning">Login</button>
@@ -40,7 +40,7 @@ const Header = (props) => {
 }
 
 const mapStateToProps = state => ({
-    countItems: state.cart.countItems
+    totalCountItems: state.cart.totalCountItems
 })
 
 const mapDispatchToProps = {

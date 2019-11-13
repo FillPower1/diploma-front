@@ -36,7 +36,7 @@
   }
 
   &__list {
-    margin-top: 15px;
+    margin-top: auto;
     position: relative;
 
     h3 {
@@ -86,7 +86,7 @@
     }
   }
 
-  .add-to-cart:hover .cart-button {
+  .cart-button:hover {
     background-color: darken(#fff, 10%);
     color: #000;
   }

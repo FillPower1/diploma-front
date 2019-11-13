@@ -41,7 +41,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     toggleShowModal: actions.toggleShowModal,
-    removeItem: actions.removeItemFromCart
+    removeItem: actions.removeAllFromCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartModal)

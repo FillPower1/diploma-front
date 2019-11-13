@@ -10,11 +10,6 @@ class ProductListContainer extends Component {
         this.props.getData()
     }
 
-    addItemToCartHandler = (item) => {
-        this.props.addItemToCart(item)
-        this.props.calcCart()
-    }
-
     search = (products, str) => {
         if (str.length === 0) {
             return products
@@ -39,14 +34,14 @@ class ProductListContainer extends Component {
     }
 
     render() {
-        const { products, filter, searchField } = this.props
+        const { products, filter, searchField, addItemToCart } = this.props
         const items = this.sortProducts(products, filter, searchField)
 
         return (
             <ProductList
                 {...this.props}
                 products={items}
-                onAddToCart={this.addItemToCartHandler} />
+                onAddToCart={addItemToCart} />
         )
     }
 }

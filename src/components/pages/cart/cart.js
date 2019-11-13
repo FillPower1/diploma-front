@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../../actions'
 
 const CartPage = (props) => {
-    const { items, removeItem } = props
+    const { items, removeItem, onIncrease, onDecrease } = props
 
     if (!items.length) {
         return <h2 className="text-center">Корзина пуста</h2>
@@ -25,19 +25,19 @@ const CartPage = (props) => {
                     {
                         items.map((item, i) => {
                             return (
-                                <tr key={i}>
+                                <tr key={item.id}>
                                     <th>{i + 1}</th>
                                     <td>{item.title}</td>
                                     <td>
-                                        <button className="btn btn-sm btn-primary mr-1">
+                                        <button onClick={() => onDecrease(item)} className="btn btn-sm btn-primary mr-1">
                                             <i className="fa fa-minus" aria-hidden="true"></i>
                                         </button>
                                         {item.count}
-                                        <button className="btn btn-sm btn-primary ml-1">
+                                        <button onClick={() => onIncrease(item)} className="btn btn-sm btn-primary ml-1">
                                             <i className="fa fa-plus" aria-hidden="true"></i>
                                         </button>
                                     </td>
-                                    <td>{item.price}.</td>
+                                    <td>{item.price}</td>
                                     <td>
                                         <button onClick={() => removeItem(item.id)} className="btn btn-sm btn-danger">
                                             <i className="fa fa-trash" aria-hidden="true"></i>
@@ -62,7 +62,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    removeItem: actions.removeItemFromCart
+    onIncrease: actions.addItemToCart,
+    onDecrease: actions.removeItemToCart,
+    removeItem: actions.removeAllFromCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartPage)
