@@ -12,7 +12,9 @@ const ProductListItem = (product) => {
             <div className="product__list">
                 <h3>{title}</h3>
                 <div className="stars"></div>
-                <span className="price">{price} руб.</span>
+                <span className="price">
+                    {price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
+                </span>
                 <button
                     className="cart-button"
                     onClick={() => onAddToCart(product)}>

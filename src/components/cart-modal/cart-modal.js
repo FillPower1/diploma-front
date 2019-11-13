@@ -24,7 +24,7 @@ const CartModal = (props) => {
                         })
                     }
                 </ul>
-                <p className="list-group-item total">Итого: {totalPrice}</p>
+                <p className="list-group-item total">Итого: {totalPrice.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}</p>
                 <div className="popup__route">
                     <Link to="/cart" className="btn btn-warning">Перейти в корзину</Link>
                 </div>

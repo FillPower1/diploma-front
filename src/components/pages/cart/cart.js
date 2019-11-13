@@ -37,7 +37,7 @@ const CartPage = (props) => {
                                             <i className="fa fa-plus" aria-hidden="true"></i>
                                         </button>
                                     </td>
-                                    <td>{item.price}</td>
+                                    <td>{item.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}</td>
                                     <td>
                                         <button onClick={() => removeItem(item.id)} className="btn btn-sm btn-danger">
                                             <i className="fa fa-trash" aria-hidden="true"></i>
@@ -49,7 +49,9 @@ const CartPage = (props) => {
                     }
                 </tbody>
             </table>
-            <h2 className="total float-right">Итого: {props.totalPrice} руб.</h2>
+            <h3 className="total float-right">
+                Итого: {props.totalPrice.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
+            </h3>
         </>
     )
 }

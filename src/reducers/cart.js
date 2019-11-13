@@ -3,14 +3,11 @@ const initialState = {
     totalPrice: 0,
     totalCountItems: 0,
     isOpenModal: false,
-    startingProductsPrices: [] // стартовые продукты (неизменные), пушатся только один раз
+    startingProductsPrices: new Set()
 }
 
-const updateCartItems = (state, item, newItem, itemIndex) => {
-    // тут баг, стейт в этот момент item.count === 1, но показывает клиенту 0, а он должен удалять
-    // элемент из массива корзины, не пойму в какой момент нужно сделать проверку, чтобы очистить массив корзины
-    console.log(state.items)
-    if (item && item.count === 0) {
+const updateCartItems = (state, newItem, itemIndex) => {
+    if (newItem && newItem.count < 1) {
         return [
             ...state.items.slice(0, itemIndex),
             ...state.items.slice(itemIndex + 1)
@@ -25,26 +22,18 @@ const updateCartItems = (state, item, newItem, itemIndex) => {
 }
 
 const updateCart = (state, action, quantity) => {
-    const { startingProductsPrices, items } = state
-    const { id } = action.payload
+    const itemId = action.payload.id
+    state.startingProductsPrices.add(action.payload)
+    const startingProducts = [...state.startingProductsPrices].find(item => item.id === itemId)
+    const itemIndx = state.items.findIndex(item => item.id === itemId)
+    const item = state.items[itemIndx]
 
-    if (!startingProductsPrices.length ||
-        !startingProductsPrices.find(item => item === action.payload)) {
-
-        startingProductsPrices.push(action.payload)
-
-    }
-
-    const startingItem = state.startingProductsPrices.find(item => item.id === id)
-    const itemIndex = items.findIndex(item => item.id === id)
-    const item = items[itemIndex]
-
-    let newItem = {}
+    let newItem
     if (item) {
         newItem = {
             ...item,
             count: item.count + quantity,
-            price: item.price + (quantity * startingItem.price)
+            price: item.price + quantity * startingProducts.price
         }
     } else {
         newItem = {
@@ -53,9 +42,19 @@ const updateCart = (state, action, quantity) => {
         }
     }
 
-    return {
-        ...state,
-        items: updateCartItems(state, item, newItem, itemIndex)
+    if (itemIndx < 0) {
+        return {
+            ...state,
+            items: [
+                ...state.items,
+                newItem
+            ]
+        }
+    } else {
+        return {
+            ...state,
+            items: updateCartItems(state, newItem, itemIndx)
+        }
     }
 }
 
@@ -64,7 +63,7 @@ const reducer = (state = initialState, action) => {
         case 'ADD_TO_CART':
             return updateCart(state, action, 1)
         case 'REMOVE_ITEM_FROM_CART':
-            return updateCart(state, action, -1)
+        return updateCart(state, action, -1)
         case 'REMOVE_ALL_FROM_CART':
             return {
                 ...state,

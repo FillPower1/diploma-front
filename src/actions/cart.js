@@ -1,5 +1,3 @@
-// import api from '../api'
-
 export const toggleShowModal = (bool) => ({
     type: 'TOGGLE_SHOW_MODAL',
     payload: bool

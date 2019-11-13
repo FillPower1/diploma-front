@@ -11,7 +11,7 @@ class ProductListContainer extends Component {
     }
 
     search = (products, str) => {
-        if (str.length === 0) {
+        if (!str.length) {
             return products
         }
 
@@ -58,7 +58,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     getData: actions.getData,
-    calcCart: actions.calcCart,
     setFilter: actions.setFilter,
     setSearhField: actions.setSearhField,
     addItemToCart: actions.addItemToCart
