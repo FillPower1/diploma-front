@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   width: 300px;
-  padding: 10px 10px 5px 10px;
+  padding: 10px 10px 0 10px;
   border: 1px solid #eee;
   background: white;
   font-family: "Open Sans";
@@ -70,16 +70,8 @@
   }
 
   .cart-button {
-    // cursor: pointer;
-    // color: #8C877C;
-    // padding: 10px 0;
-    // transition: .4s linear;
-    // background: none;
-    // border: none;
-    // border-top: 1px solid #ddd;
     width: 100%;
-    // display: block;
-    // margin: 0 auto;
+    margin-bottom: 7px;
 
     :before {
       content: "\f07a";

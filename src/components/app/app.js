@@ -12,11 +12,11 @@ const App = () => {
         <>
             <Header />
             <Route path="/" exact component={MainPage} />
+            <Route path="/cart" component={CartPage} />
             <Route path="/products" exact component={ProductListContainer} />
             <Route path="/products/:productId" render={
                 ({ match }) => <ProductDetails productId={match.params.productId} />
             } />
-            <Route path="/cart" component={CartPage} />
         </>
     )
 }

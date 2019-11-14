@@ -1,53 +1,64 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import * as actions from '../../actions'
 import CartModal from '../cart-modal'
-import Popup from "reactjs-popup";
+import Popup from "reactjs-popup"
 
 import './header.scss'
 
 const Header = (props) => {
-    const { totalCountItems } = props
+    const { totalCountItems, searchField, setSearhField } = props
+    console.log(props)
     return (
         <header>
-            <nav className="grey darken-3">
-                <div className="container">
-                    <div className="nav-wrapper">
-                        <Link to="/" className="brand-logo">StoreApp</Link>
-                        <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li><Link to="/">Главная</Link></li>
-                            <li><Link to="/products">Товары</Link></li>
-                            <li><Link to="/cart">Корзина</Link></li>
-                            <li><Link to="">Авторизация</Link></li>
-                            <li>
-                                <Popup
-                                    trigger={
-                                        <Link to="#">
-                                            <i className="icon fa fa-shopping-cart"></i>
-                                            <span className="new badge" data-badge-caption="">{totalCountItems}</span>
-                                        </Link>
-                                    }
-                                    position="bottom center"
-                                    on="hover"
-                                >
-                                    <CartModal />
-                                </Popup>
-
-                            </li>
-                        </ul>
+            <div className="navbar-fixed">
+                <nav className="grey darken-3 ">
+                    <div className="container">
+                        <div className="nav-wrapper">
+                            <Link to="/" className="brand-logo">StoreApp</Link>
+                            <ul id="nav-mobile" className="right">
+                                <li>
+                                    <input
+                                        className="form-control"
+                                        placeholder="Поиск..."
+                                        value={searchField}
+                                        onChange={e => setSearhField(e.target.value)} />
+                                </li>
+                                <li><Link to="/">Главная</Link></li>
+                                <li><Link to="/products">Товары</Link></li>
+                                <li><Link to="/cart">Корзина</Link></li>
+                                <li><Link to="">Авторизация</Link></li>
+                                <li>
+                                    <Popup
+                                        trigger={
+                                            <Link to="#">
+                                                <i className="icon fa fa-shopping-cart"></i>
+                                                <span className="new badge" data-badge-caption="">{totalCountItems}</span>
+                                            </Link>
+                                        }
+                                        position="bottom center"
+                                        on="hover"
+                                    >
+                                        <CartModal />
+                                    </Popup>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </header>
     )
 }
 
 const mapStateToProps = state => ({
-    totalCountItems: state.cart.totalCountItems
+    totalCountItems: state.cart.totalCountItems,
+    searchField: state.filter.searchField
 })
 
 const mapDispatchToProps = {
-    
+    setSearhField: actions.setSearhField
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

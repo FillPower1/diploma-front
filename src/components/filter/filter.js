@@ -11,7 +11,7 @@ class Filter extends React.Component {
     }
 
     render() {
-        const { filterBy, setSearchField } = this.props
+        const { filterBy } = this.props
 
         return (
             <div className="row">
@@ -41,13 +41,6 @@ class Filter extends React.Component {
                         className={`waves-effect waves-light btn-small ${filterBy === 'cheap' && 'active'}`}>
                         Сначала дешевые
                     </Link>
-                </div>
-                <div className="col s3 offset-s3">
-                    <input
-                        className="form-control"
-                        placeholder="Поиск..."
-                        value={this.props.searchFieldValue}
-                        onChange={e => setSearchField(e.target.value)} />
                 </div>
             </div>
         )

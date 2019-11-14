@@ -13,6 +13,7 @@ class ProductListContainer extends Component {
 
     selectedProductHandler = (id) => {
         this.props.history.push(`/products/${id}`)
+        this.props.toggleFetching()
     }
 
     search = (products, str) => {
@@ -65,8 +66,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     getData: actions.getData,
     setFilter: actions.setFilter,
-    setSearhField: actions.setSearhField,
-    addItemToCart: actions.addItemToCart
+    addItemToCart: actions.addItemToCart,
+    toggleFetching : actions.toggleFetching
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProductListContainer))

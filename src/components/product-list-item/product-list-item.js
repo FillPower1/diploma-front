@@ -19,7 +19,7 @@ const ProductListItem = (product) => {
                 </span>
                 <button
                     onClick={() => onSelectedProductHandler(product.id)}
-                    className="cart-button waves-effect purple btn-small">
+                    className="cart-button waves-effect blue-grey darken-4 btn-small">
                     Подробнее
                 </button>
                 <button

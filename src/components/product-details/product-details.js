@@ -14,10 +14,10 @@ const ProductDetails = (props) => {
         content = (
             <div className="card">
                 <div className="card-image waves-effect waves-block waves-light">
-                    <img className="activator" src={`http://localhost:3000/${imageSrc}`} alt="product-img" />
+                    <img src={`http://localhost:3000/${imageSrc}`} alt="product-img" />
                 </div>
                 <div className="card-content">
-                    {price}
+                    Цена: {price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
                 </div>
                 <div className="card-tabs">
                     <ul className="tabs tabs-fixed-width">
@@ -72,7 +72,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    getSpecificProduct: actions.getSpecificProduct
+    getSpecificProduct: actions.getSpecificProduct,
+    toggleFetching: actions.toggleFetching
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailsContainer)
