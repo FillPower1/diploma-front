@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import _ from 'lodash'
 import * as actions from '../actions'
 import ProductList from '../components/product-list'
@@ -8,6 +9,10 @@ class ProductListContainer extends Component {
 
     componentDidMount() {
         this.props.getData()
+    }
+
+    selectedProductHandler = (id) => {
+        this.props.history.push(`/products/${id}`)
     }
 
     search = (products, str) => {
@@ -41,6 +46,7 @@ class ProductListContainer extends Component {
             <ProductList
                 {...this.props}
                 products={items}
+                selectedProductHandler={this.selectedProductHandler}
                 onAddToCart={addItemToCart} />
         )
     }
@@ -63,4 +69,4 @@ const mapDispatchToProps = {
     addItemToCart: actions.addItemToCart
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductListContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProductListContainer))

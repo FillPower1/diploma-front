@@ -1,12 +1,12 @@
 import React from 'react'
-import Spinner from '../spinner'
 import Filter from '../filter'
-import ProductListItem from '../product-list-item'
+import Spinner from '../spinner'
 import ErrorIndicator from '../error-indicator'
+import ProductListItem from '../product-list-item'
 
 const ProductList = (props) => {
     const { isFetching, products, setSearhField, onAddToCart,
-        setFilter, filter, searchField, error } = props
+        setFilter, filter, searchField, error, selectedProductHandler } = props
 
     const renderCards = (
         products.map(item => (
@@ -14,6 +14,7 @@ const ProductList = (props) => {
                 {...item}
                 key={item.id}
                 onAddToCart={onAddToCart}
+                onSelectedProductHandler={selectedProductHandler}
             />
         ))
     )

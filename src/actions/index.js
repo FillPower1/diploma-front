@@ -1,14 +1,14 @@
-import { getData } from './products'
+import { getData, getSpecificProduct } from './products'
 import { setFilter, setSearhField } from './filter'
-import { toggleShowModal, addItemToCart, calcCart, removeAllFromCart, removeItemFromCart } from './cart'
+import { addItemToCart, calcCart, removeAllFromCart, removeItemFromCart } from './cart'
 
 export {
-    toggleShowModal,
     calcCart,
     setFilter,
     setSearhField,
     getData,
     addItemToCart,
     removeItemFromCart,
-    removeAllFromCart
+    removeAllFromCart,
+    getSpecificProduct
 }

@@ -1,8 +1,10 @@
 import React from 'react'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './product-list-item.scss'
 
 const ProductListItem = (product) => {
-    const { title, imageSrc, price, onAddToCart } = product
+    const { title, imageSrc, price, onAddToCart, onSelectedProductHandler } = product
 
     return (
         <div className="product">
@@ -16,10 +18,28 @@ const ProductListItem = (product) => {
                     {price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
                 </span>
                 <button
-                    className="cart-button waves-effect waves-light btn-small"
-                    onClick={() => onAddToCart(product)}>
+                    onClick={() => onSelectedProductHandler(product.id)}
+                    className="cart-button waves-effect purple btn-small">
+                    Подробнее
+                </button>
+                <button
+                    onClick={() => onAddToCart(product)}
+                    className="cart-button waves-effect waves-light btn-small">
                     Добавить в корзину
                 </button>
+
+                {/* Здесь настройки для библиотеки react-toastify, всплывающие уведомления при клике */}
+                <ToastContainer
+                    position="bottom-right"
+                    autoClose={2000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover={false}
+                />
             </div>
         </div>
     )

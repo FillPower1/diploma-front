@@ -2,7 +2,6 @@ const initialState = {
     items: [],
     totalPrice: 0,
     totalCountItems: 0,
-    isOpenModal: false,
     startingProductsPrices: new Set()
 }
 
@@ -67,12 +66,7 @@ const reducer = (state = initialState, action) => {
         case 'REMOVE_ALL_FROM_CART':
             return {
                 ...state,
-                items: state.items.filter(item => item.id !== action.payload)
-            }
-        case 'TOGGLE_SHOW_MODAL':
-            return {
-                ...state,
-                isOpenModal: action.payload
+                items: state.items.filter(item => item.id !== action.payload.id)
             }
         case 'CALC_CART':
             const totalPrice = state.items.reduce((sum, currentItem) => sum + currentItem.price, 0)

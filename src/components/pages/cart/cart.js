@@ -44,7 +44,7 @@ const CartPage = (props) => {
                                         </span>
                                     </td>
                                     <td>
-                                        <button onClick={() => removeItem(item.id)} className="btn btn-small">
+                                        <button onClick={() => removeItem(item)} className="btn btn-small">
                                             <i className="fa fa-trash" aria-hidden="true"></i>
                                         </button>
                                     </td>

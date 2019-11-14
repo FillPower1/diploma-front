@@ -1,5 +1,6 @@
 const initialState = {
     products: [],
+    specificProduct: null,
     isFetching: true,
     error: null
 }
@@ -13,6 +14,13 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 products: action.payload,
+                error: null
+            }
+        case 'FETCH_PRODUCT_SUCCESS':
+            return {
+                ...state,
+                isFetching: false,
+                specificProduct: action.payload,
                 error: null
             }
         case 'FETCH_DATA_FAIL':

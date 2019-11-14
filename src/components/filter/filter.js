@@ -21,7 +21,6 @@ class Filter extends React.Component {
                         name="all"
                         onClick={this.handleItemClick}
                         className={`waves-effect waves-light btn-small ${filterBy === 'all' && 'active'}`}>
-                        {/* <i className="material-icons right">cloud</i> */}
                         Все
                     </Link>
                 </div>
@@ -31,7 +30,6 @@ class Filter extends React.Component {
                         name="expensive"
                         onClick={this.handleItemClick}
                         className={`aves-effect waves-light btn-small ${filterBy === 'expensive' && 'active'}`}>
-                        {/* <i className="material-icons right">cloud</i> */}
                         Сначала дорогие
                     </Link>
                 </div>
@@ -41,11 +39,10 @@ class Filter extends React.Component {
                         name="cheap"
                         onClick={this.handleItemClick}
                         className={`waves-effect waves-light btn-small ${filterBy === 'cheap' && 'active'}`}>
-                        {/* <i className="material-icons right">cloud</i> */}
                         Сначала дешевые
                     </Link>
                 </div>
-                <div className="col s3 offset-s4">
+                <div className="col s3 offset-s3">
                     <input
                         className="form-control"
                         placeholder="Поиск..."
