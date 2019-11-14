@@ -39,6 +39,7 @@
   &__list {
     margin-top: auto;
     position: relative;
+    padding: 10px 0;
 
     h3 {
       font-weight: 700;
@@ -69,26 +70,22 @@
     margin-bottom: 12px;
   }
 
-  .add-to-cart {}
-
   .cart-button {
-    color: #8C877C;
-    padding: 10px 0;
-    transition: .4s linear;
-    background: none;
-    border: none;
-    border-top: 1px solid #ddd;
+    // cursor: pointer;
+    // color: #8C877C;
+    // padding: 10px 0;
+    // transition: .4s linear;
+    // background: none;
+    // border: none;
+    // border-top: 1px solid #ddd;
     width: 100%;
+    // display: block;
+    // margin: 0 auto;
 
     :before {
       content: "\f07a";
       font-family: FontAwesome;
       margin-right: 10px;
     }
-  }
-
-  .cart-button:hover {
-    background-color: darken(#fff, 10%);
-    color: #000;
   }
 }

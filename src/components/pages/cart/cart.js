@@ -1,17 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../../actions'
+import './cart.scss'
 
 const CartPage = (props) => {
     const { items, removeItem, onIncrease, onDecrease } = props
 
-    if (!items.length) {
-        return <h2 className="text-center">Корзина пуста</h2>
-    }
+    const emptyCart = (
+        <h4 className="center-align">Корзина пуста</h4>
+    )
 
-    return (
+    const renderTableCart = (
         <>
-            <table className="table">
+            <table className="bordered">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -29,17 +30,21 @@ const CartPage = (props) => {
                                     <th>{i + 1}</th>
                                     <td>{item.title}</td>
                                     <td>
-                                        <button onClick={() => onDecrease(item)} className="btn btn-sm btn-primary mr-1">
+                                        <button onClick={() => onDecrease(item)} className="btn btn-small">
                                             <i className="fa fa-minus" aria-hidden="true"></i>
                                         </button>
-                                        {item.count}
-                                        <button onClick={() => onIncrease(item)} className="btn btn-sm btn-primary ml-1">
+                                        <span className="cart-counter">{item.count}</span>
+                                        <button onClick={() => onIncrease(item)} className="btn btn-small">
                                             <i className="fa fa-plus" aria-hidden="true"></i>
                                         </button>
                                     </td>
-                                    <td>{item.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}</td>
                                     <td>
-                                        <button onClick={() => removeItem(item.id)} className="btn btn-sm btn-danger">
+                                        <span className="cart-price">
+                                            {item.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => removeItem(item.id)} className="btn btn-small">
                                             <i className="fa fa-trash" aria-hidden="true"></i>
                                         </button>
                                     </td>
@@ -49,10 +54,18 @@ const CartPage = (props) => {
                     }
                 </tbody>
             </table>
-            <h3 className="total float-right">
+            <h4 className="right-align">
                 Итого: {props.totalPrice.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
-            </h3>
+            </h4>
         </>
+    )
+
+    return (
+        <div className="cart">
+            <div className="container">
+                {!items.length ? emptyCart : renderTableCart}
+            </div>
+        </div>
     )
 }
 

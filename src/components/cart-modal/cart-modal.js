@@ -11,11 +11,11 @@ const CartModal = (props) => {
     return (
         <div className={`popup ${clazz}`} onMouseLeave={() => props.toggleShowModal(false)}>
             <div className="popup__content">
-                <ul className="list-group">
+                <ul className="collection">
                     {
                         items.map(item => {
                             return (
-                                <li className="list-group-item" key={item.id}>
+                                <li className="collection-item" key={item.id}>
                                     <img src={`http://localhost:3000/${item.imageSrc}`} alt="product" />
                                     <div className="popup__text">{item.title} ({item.count})</div>
                                     <span onClick={() => removeItem(item.id)} className="popup__btn">&times;</span>
@@ -24,9 +24,11 @@ const CartModal = (props) => {
                         })
                     }
                 </ul>
-                <p className="list-group-item total">Итого: {totalPrice.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}</p>
+                <p className="popup__total">
+                    Итого: {totalPrice.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
+                </p>
                 <div className="popup__route">
-                    <Link to="/cart" className="btn btn-warning">Перейти в корзину</Link>
+                    <Link to="/cart" className="btn btn-small waves-effect waves-ligh">Перейти в корзину</Link>
                 </div>
             </div>
         </div>

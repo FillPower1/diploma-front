@@ -12,7 +12,7 @@
 
     &__route {
         text-align: center;
-        padding: 15px 0 7px 0;
+        line-height: 3.2;
     }
 
     &__text {
@@ -23,24 +23,32 @@
         cursor: pointer;
         font-size: 26px;
     }
+
+    &__total {
+        line-height: 2.2;
+        color: #000;
+        text-align: center;
+        font-size: 1.3rem;
+        margin: 0;
+        padding: 0 10px;
+    }
 }
 
 .show {
     display: block;
 }
 
-.list-group {
+.collection {
     transition: all .5s;
+    display: flex;
+    flex-direction: column;
+    margin: 0 !important;
 
     &-item {
         display: flex !important;
         justify-content: space-between;
         align-items: center;
-
-        &:hover {
-            background-color: rgba(204, 204, 204, .2);
-        }
-
+        color: #000;
         img {
             width: 60px;
             height: 60px;

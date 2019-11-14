@@ -16,7 +16,7 @@ const ProductListItem = (product) => {
                     {price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
                 </span>
                 <button
-                    className="cart-button"
+                    className="cart-button waves-effect waves-light btn-small"
                     onClick={() => onAddToCart(product)}>
                     Добавить в корзину
                 </button>

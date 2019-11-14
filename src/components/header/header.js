@@ -9,31 +9,25 @@ const Header = (props) => {
     const { totalCountItems } = props
     return (
         <header>
-            <nav className="navigation">
-                <ul className="navigation-left">
-                    <li className="navigation__item logo">
-                        <Link to="/" className="navigation__link">StoreApp</Link>
-                    </li>
-                    <li className="navigation__item">
-                        <Link to="/" className="navigation__link">Главное</Link>
-                    </li>
-                    <li className="navigation__item">
-                        <Link to="/products" className="navigation__link">Товары</Link>
-                    </li>
-                    <li className="navigation__item">
-                        <Link to="/cart" className="navigation__link">Корзина</Link>
-                    </li>
-                </ul>
-                <ul className="navigation-right">
-                    <button
-                        className="btn btn-outline-secondary"
-                        onMouseEnter={() => props.toggleShowModal(true)}>
-                        <i className="icon fa fa-shopping-cart"></i>
-                        <span className="badge badge-light">{totalCountItems}</span>
-                    </button>
-                    <CartModal />
-                    <button className="btn btn-outline-warning">Login</button>
-                </ul>
+            <nav className="grey darken-3">
+                <div className="container">
+                    <div className="nav-wrapper">
+                        <Link to="/" className="brand-logo">StoreApp</Link>
+                        <ul id="nav-mobile" className="right hide-on-med-and-down">
+                            <li><Link to="/">Главное</Link></li>
+                            <li><Link to="/products">Товары</Link></li>
+                            <li><Link to="/cart">Корзина</Link></li>
+                            <li><Link to="">Авторизация</Link></li>
+                            <li>
+                                <Link to="#" onMouseEnter={() => props.toggleShowModal(true)}>
+                                    <i className="icon fa fa-shopping-cart"></i>
+                                    <span className="new badge" data-badge-caption="">{totalCountItems}</span>
+                                </Link>
+                                <CartModal />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
         </header>
     )

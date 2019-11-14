@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Button } from 'reactstrap'
+import { Link } from 'react-router-dom'
 import './filter.scss'
 
 class Filter extends React.Component {
@@ -14,35 +14,45 @@ class Filter extends React.Component {
         const { filterBy, setSearchField } = this.props
 
         return (
-            <Row className="mb-2">
-                <Col>
-                    <Button
+            <div className="row">
+                <div className="col">
+                    <Link
+                        to="#"
                         name="all"
-                        className={`${filterBy === 'all' && 'active'} mr-1`}
-                        outline onClick={this.handleItemClick}>
+                        onClick={this.handleItemClick}
+                        className={`waves-effect waves-light btn-small ${filterBy === 'all' && 'active'}`}>
+                        {/* <i className="material-icons right">cloud</i> */}
                         Все
-                    </Button>
-                    <Button
+                    </Link>
+                </div>
+                <div className="col">
+                    <Link
+                        to="#"
                         name="expensive"
-                        className={`${filterBy === 'expensive' && 'active'} mr-1`}
-                        outline onClick={this.handleItemClick}>
+                        onClick={this.handleItemClick}
+                        className={`aves-effect waves-light btn-small ${filterBy === 'expensive' && 'active'}`}>
+                        {/* <i className="material-icons right">cloud</i> */}
                         Сначала дорогие
-                    </Button>
-                    <Button
+                    </Link>
+                </div>
+                <div className="col">
+                    <Link
+                        to="#"
                         name="cheap"
-                        className={`${filterBy === 'cheap' && 'active'}`}
-                        outline onClick={this.handleItemClick}>
+                        onClick={this.handleItemClick}
+                        className={`waves-effect waves-light btn-small ${filterBy === 'cheap' && 'active'}`}>
+                        {/* <i className="material-icons right">cloud</i> */}
                         Сначала дешевые
-                    </Button>
-                </Col>
-                <Col lg="3">
+                    </Link>
+                </div>
+                <div className="col s3 offset-s4">
                     <input
                         className="form-control"
                         placeholder="Поиск..."
                         value={this.props.searchFieldValue}
                         onChange={e => setSearchField(e.target.value)} />
-                </Col>
-            </Row>
+                </div>
+            </div>
         )
     }
 }
