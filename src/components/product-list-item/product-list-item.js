@@ -1,5 +1,4 @@
 import React from 'react'
-import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './product-list-item.scss'
 
@@ -27,19 +26,6 @@ const ProductListItem = (product) => {
                     className="cart-button waves-effect waves-light btn-small">
                     Добавить в корзину
                 </button>
-
-                {/* Здесь настройки для библиотеки react-toastify, всплывающие уведомления при клике */}
-                <ToastContainer
-                    position="bottom-right"
-                    autoClose={2000}
-                    hideProgressBar
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnVisibilityChange
-                    draggable
-                    pauseOnHover={false}
-                />
             </div>
         </div>
     )

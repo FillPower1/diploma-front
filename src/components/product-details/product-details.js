@@ -5,12 +5,17 @@ import Tabs from '../tabs'
 import Characteristics from './characteristics'
 import Description from './description'
 import View from './view'
+import ErrorIndicator from '../error-indicator'
 import * as actions from '../../actions'
 import './product-details.scss'
 
 const ProductDetails = (props) => {
 
-    const { isFetching, product, addItemToCart } = props
+    const { isFetching, product, addItemToCart, error } = props
+    
+    if (error) {
+        return <ErrorIndicator/>
+    }
 
     let content
     if (isFetching) {
@@ -81,7 +86,8 @@ class ProductDetailsContainer extends React.Component {
 const mapStateToProps = state => {
     return {
         product: state.items.specificProduct,
-        isFetching: state.items.isFetching
+        isFetching: state.items.isFetching,
+        error: state.items.error
     }
 }
 
