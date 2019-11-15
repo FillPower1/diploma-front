@@ -9,7 +9,7 @@ const ProductListItem = (product) => {
     return (
         <div className="product">
             <div className="product__img">
-                <img src={`http://localhost:3000/${imageSrc}`} alt="product-img" />
+                <img src={`http://localhost:5000/${imageSrc}`} alt="product-img" />
             </div>
             <div className="product__list">
                 <h3>{title}</h3>

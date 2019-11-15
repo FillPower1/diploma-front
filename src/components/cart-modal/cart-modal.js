@@ -15,7 +15,7 @@ const CartModal = (props) => {
                         items.map(item => {
                             return (
                                 <li className="collection-item" key={item.id}>
-                                    <img src={`http://localhost:3000/${item.imageSrc}`} alt="product" />
+                                    <img src={`http://localhost:5000/${item.imageSrc}`} alt="product" />
                                     <div className="popup__text">{item.title} ({item.count})</div>
                                     <span onClick={() => removeItem(item)} className="popup__btn">&times;</span>
                                 </li>
