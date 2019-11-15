@@ -4,6 +4,7 @@ import * as actions from '../../../actions'
 import './cart.scss'
 
 const CartPage = (props) => {
+
     const { items, removeItem, onIncrease, onDecrease } = props
 
     const emptyCart = (
@@ -30,11 +31,11 @@ const CartPage = (props) => {
                                     <th>{i + 1}</th>
                                     <td>{item.title}</td>
                                     <td>
-                                        <button onClick={() => onDecrease(item)} className="btn btn-small">
+                                        <button className="btn btn-small" onClick={() => onDecrease(item)}>
                                             <i className="fa fa-minus" aria-hidden="true"></i>
                                         </button>
                                         <span className="cart-counter">{item.count}</span>
-                                        <button onClick={() => onIncrease(item)} className="btn btn-small">
+                                        <button className="btn btn-small" onClick={() => onIncrease(item)}>
                                             <i className="fa fa-plus" aria-hidden="true"></i>
                                         </button>
                                     </td>

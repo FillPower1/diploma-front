@@ -2,10 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Spinner from '../spinner'
 import Tabs from '../tabs'
+import Characteristics from './characteristics'
+import Description from './description'
+import View from './view'
 import * as actions from '../../actions'
 import './product-details.scss'
 
 const ProductDetails = (props) => {
+
     const { isFetching, product, addItemToCart } = props
 
     let content
@@ -13,19 +17,9 @@ const ProductDetails = (props) => {
         content = <Spinner />
     } else {
         const { imageSrc, description,
-                price, title, video, id,
-                characteristics:
-                { amountOfMemory,
-                    color,
-                    processor,
-                    camera,
-                    diagonal,
-                    resolution,
-                    authentication,
-                    additionals,
-                    weight,
-                    zoom
-                 } } = product
+            price, title, video, id,
+            characteristics } = product
+
         content = (
             <div className="product-info">
                 <h2 className="product-title">{title}</h2>
@@ -41,56 +35,13 @@ const ProductDetails = (props) => {
                     </div>
                     <Tabs>
                         <div label="Описание">
-                            <p>{description}</p>
+                            <Description description={description} />
                         </div>
                         <div label="Характеристики">
-                            <table className="striped">
-                                <tbody>
-                                    <tr>
-                                        <td>Объем памяти</td>
-                                        <td>{amountOfMemory} GB</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Процессор</td>
-                                        <td>{processor}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Цвет</td>
-                                        <td>{color}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Диагональ</td>
-                                        <td>{diagonal}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Разрешение</td>
-                                        <td>{resolution}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Камера</td>
-                                        <td>{camera}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Зум</td>
-                                        <td>{zoom}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Аутентификация</td>
-                                        <td>{authentication}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Доп. возможности</td>
-                                        <td>{additionals}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Вес</td>
-                                        <td>{weight}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <Characteristics characteristics={characteristics} />
                         </div>
                         <div label="Обзор">
-                            <iframe src={video} title={id} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                            <View id={id} video={video} />
                         </div>
                     </Tabs>
                 </div>
