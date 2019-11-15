@@ -1,3 +1,8 @@
+import {
+    SET_FILTER,
+    SET_SEARCH_FIELD
+} from '../action-types'
+
 const initialState = {
     searchField: '',
     filterBy: 'all'
@@ -5,12 +10,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'SET_FILTER':
+        case SET_FILTER:
             return {
                 ...state,
                 filterBy: action.payload
             }
-        case 'SET_SEARCH_FIELD':
+        case SET_SEARCH_FIELD:
             return {
                 ...state,
                 searchField: action.payload

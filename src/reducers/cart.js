@@ -1,3 +1,10 @@
+import {
+    ADD_TO_CART,
+    REMOVE_ITEM_FROM_CART,
+    REMOVE_ALL_FROM_CART,
+    CALC_CART
+} from '../action-types'
+
 const initialState = {
     items: [],
     totalPrice: 0,
@@ -59,16 +66,16 @@ const updateOrder = (state, action, quantity) => {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_TO_CART':
+        case ADD_TO_CART:
             return updateOrder(state, action, 1)
-        case 'REMOVE_ITEM_FROM_CART':
+        case REMOVE_ITEM_FROM_CART:
             return updateOrder(state, action, -1)
-        case 'REMOVE_ALL_FROM_CART':
+        case REMOVE_ALL_FROM_CART:
             return {
                 ...state,
                 items: state.items.filter(item => item.id !== action.payload.id)
             }
-        case 'CALC_CART':
+        case CALC_CART:
             const totalPrice = state.items.reduce((sum, currentItem) => sum + currentItem.price, 0)
             const totalCountItems = state.items.reduce((sum, currentItem) => sum + currentItem.count, 0)
 
