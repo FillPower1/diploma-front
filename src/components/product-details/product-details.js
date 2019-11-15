@@ -6,15 +6,18 @@ import Characteristics from './characteristics'
 import Description from './description'
 import View from './view'
 import ErrorIndicator from '../error-indicator'
+import ProductPrice from '../product-price'
+import AddToCartBtn from '../add-to-cart-btn'
+import ProductImage from '../product-image'
 import * as actions from '../../actions'
 import './product-details.scss'
 
 const ProductDetails = (props) => {
 
     const { isFetching, product, addItemToCart, error } = props
-    
+
     if (error) {
-        return <ErrorIndicator/>
+        return <ErrorIndicator />
     }
 
     let content
@@ -29,14 +32,14 @@ const ProductDetails = (props) => {
             <div className="product-info">
                 <h2 className="product-title">{title}</h2>
                 <div className="product-image">
-                    <img src={`http://localhost:5000/${imageSrc}`} alt="product-img" />
+                    <ProductImage img={imageSrc} />
                 </div>
                 <div className="product-descr">
                     <div className="product-price">
-                        Цена: {price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
+                        <ProductPrice price={price} />
                     </div>
                     <div className="product-add-to-cart">
-                        <button className="btn" onClick={() => addItemToCart(product)}>Добавить в корзину</button>
+                        <AddToCartBtn onAddToCart={addItemToCart} product={product} />
                     </div>
                     <Tabs>
                         <div label="Описание">

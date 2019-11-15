@@ -1,4 +1,5 @@
 import React from 'react'
+import ProductImage from '../../product-image'
 
 const CartModalItem = (item) => {
 
@@ -6,7 +7,7 @@ const CartModalItem = (item) => {
 
     return (
         <li className="collection-item" key={id}>
-            <img src={`http://localhost:5000/${imageSrc}`} alt="product" />
+            <ProductImage img={imageSrc} />
             <div className="popup__text">{title} ({count})</div>
             <span className="popup__btn" onClick={() => onRemoveItem(item)}>&times;</span>
         </li>

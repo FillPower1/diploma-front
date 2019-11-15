@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as actions from '../../actions'
 import CartModalItem from './cart-modal-item'
+import ProductPrice from '../product-price'
 import './cart-modal.scss'
 
 const CartModal = (props) => {
@@ -24,7 +25,7 @@ const CartModal = (props) => {
                     }
                 </ul>
                 <p className="popup__total">
-                    Итого: {totalPrice.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
+                    <ProductPrice price={totalPrice} />
                 </p>
                 <div className="popup__link">
                     <Link to="/cart" className="btn btn-small">Перейти в корзину</Link>

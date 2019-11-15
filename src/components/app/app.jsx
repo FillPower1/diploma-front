@@ -6,6 +6,7 @@ import CartPage from '../pages/cart'
 import ProductDetails from '../product-details'
 import { ToastContainer } from 'react-toastify'
 import { ProductListContainer } from '../../containers'
+import 'react-toastify/dist/ReactToastify.css'
 import './app.scss'
 
 const App = () => {

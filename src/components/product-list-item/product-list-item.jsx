@@ -1,31 +1,32 @@
 import React from 'react'
-import 'react-toastify/dist/ReactToastify.css'
+import AddToCartBtn from '../add-to-cart-btn'
+import ProductPrice from '../product-price'
+import ProductImage from '../product-image'
 import './product-list-item.scss'
 
 const ProductListItem = (product) => {
-    const { title, imageSrc, price, onAddToCart, onSelectedProductHandler } = product
+    const { title, imageSrc, price, onAddToCart,
+            onSelectedProductHandler } = product
 
     return (
         <div className="product">
             <div className="product__img">
-                <img src={`http://localhost:5000/${imageSrc}`} alt="product-img" />
+                <ProductImage img={imageSrc} />
             </div>
             <div className="product__list">
                 <h3>{title}</h3>
                 <div className="stars"></div>
                 <span className="price">
-                    {price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
+                    <ProductPrice price={price} />
                 </span>
                 <button
                     onClick={() => onSelectedProductHandler(product.id)}
                     className="cart-button waves-effect light-blue darken-3 btn-small">
                     Подробнее
                 </button>
-                <button
-                    onClick={() => onAddToCart(product)}
-                    className="cart-button waves-effect waves-light btn-small">
-                    Добавить в корзину
-                </button>
+                <div className="cart-button">
+                    <AddToCartBtn onAddToCart={onAddToCart} product={product} />
+                </div>
             </div>
         </div>
     )
