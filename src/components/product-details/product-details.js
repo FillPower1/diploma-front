@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import Spinner from '../spinner'
 import Tabs from '../tabs'
 import Characteristics from './characteristics'
@@ -9,7 +8,6 @@ import ErrorIndicator from '../error-indicator'
 import ProductPrice from '../product-price'
 import AddToCartBtn from '../add-to-cart-btn'
 import ProductImage from '../product-image'
-import * as actions from '../../actions'
 import './product-details.scss'
 
 const ProductDetails = (props) => {
@@ -72,32 +70,4 @@ const ProductDetails = (props) => {
     )
 }
 
-class ProductDetailsContainer extends React.Component {
-
-    componentDidMount() {
-        const productId = this.props.productId
-        this.props.getSpecificProduct(productId)
-    }
-
-    render() {
-        return (
-            <ProductDetails {...this.props} />
-        )
-    }
-}
-
-const mapStateToProps = state => {
-    return {
-        product: state.items.specificProduct,
-        isFetching: state.items.isFetching,
-        error: state.items.error
-    }
-}
-
-const mapDispatchToProps = {
-    getSpecificProduct: actions.getSpecificProduct,
-    toggleFetching: actions.toggleFetching,
-    addItemToCart: actions.addItemToCart
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailsContainer)
+export default ProductDetails
