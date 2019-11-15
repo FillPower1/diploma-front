@@ -1,6 +1,6 @@
 import React from 'react'
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import './product-list-item.scss'
 
 const ProductListItem = (product) => {
@@ -19,7 +19,7 @@ const ProductListItem = (product) => {
                 </span>
                 <button
                     onClick={() => onSelectedProductHandler(product.id)}
-                    className="cart-button waves-effect blue-grey darken-4 btn-small">
+                    className="cart-button waves-effect light-blue darken-3 btn-small">
                     Подробнее
                 </button>
                 <button

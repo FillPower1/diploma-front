@@ -20,7 +20,7 @@ class Filter extends React.Component {
                         to="#"
                         name="all"
                         onClick={this.handleItemClick}
-                        className={`waves-effect waves-light btn-small ${filterBy === 'all' && 'active'}`}>
+                        className={`waves-effect waves-light pink lighten-2 btn-small`}>
                         Все
                     </Link>
                 </div>
@@ -29,7 +29,7 @@ class Filter extends React.Component {
                         to="#"
                         name="expensive"
                         onClick={this.handleItemClick}
-                        className={`aves-effect waves-light btn-small ${filterBy === 'expensive' && 'active'}`}>
+                        className={`waves-effect waves-light btn-small blue lighten-1`}>
                         Сначала дорогие
                     </Link>
                 </div>

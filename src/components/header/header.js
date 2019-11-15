@@ -9,26 +9,29 @@ import './header.scss'
 
 const Header = (props) => {
     const { totalCountItems, searchField, setSearhField } = props
-    console.log(props)
+
     return (
         <header>
             <div className="navbar-fixed">
-                <nav className="grey darken-3 ">
+                <nav className="grey darken-3">
                     <div className="container">
                         <div className="nav-wrapper">
                             <Link to="/" className="brand-logo">StoreApp</Link>
-                            <ul id="nav-mobile" className="right">
+                            <ul className="right">
                                 <li>
-                                    <input
-                                        className="form-control"
-                                        placeholder="Поиск..."
-                                        value={searchField}
-                                        onChange={e => setSearhField(e.target.value)} />
+                                    <form className="search">
+                                        <input
+                                            className="input"
+                                            type="search"
+                                            value={searchField}
+                                            placeholder="поиск..."
+                                            onChange={e => setSearhField(e.target.value)} />
+                                    </form>
                                 </li>
                                 <li><Link to="/">Главная</Link></li>
                                 <li><Link to="/products">Товары</Link></li>
                                 <li><Link to="/cart">Корзина</Link></li>
-                                <li><Link to="">Авторизация</Link></li>
+                                <li><Link to="/auth">Авторизация</Link></li>
                                 <li>
                                     <Popup
                                         trigger={

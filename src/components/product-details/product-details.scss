@@ -1,0 +1,33 @@
+.product {
+    &-title {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.8rem;
+        padding: 0;
+        margin: 0 0 1.5rem 0;
+    }
+    &-info {
+        margin-top: 1.5rem;
+        box-shadow: 4px 4px 14px 10px rgb(204, 204, 204);
+        padding: 1.5rem;
+    }
+
+    &-price {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-align: right;
+        margin-bottom: 1rem;
+    }
+
+    &-add-to-cart {
+        text-align: right;
+    }
+
+    &-image {
+        
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
