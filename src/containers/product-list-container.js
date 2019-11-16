@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import _ from 'lodash'
-import * as actions from '../actions'
+import * as actions from '../data/actions'
 import ProductList from '../components/product-list'
 
 class ProductListContainer extends Component {

@@ -10,7 +10,7 @@ class Tabs extends Component {
     }
 
     state = {
-        activeTab: this.props.children[0].props.label
+        activeTab: this.props.children[0].props.id
     }
 
     clickTabItemHandler = (tab) => {
@@ -25,13 +25,13 @@ class Tabs extends Component {
             <div className="tabs-wrap">
                 <ul className="tab-list">
                     {children.map((child) => {
-                        const { label } = child.props
+                        const { id } = child.props
 
                         return (
                             <Tab
                                 activeTab={activeTab}
-                                key={label}
-                                label={label}
+                                key={id}
+                                id={id}
                                 onClickTabItem={this.clickTabItemHandler}
                             />
                         )
@@ -39,7 +39,7 @@ class Tabs extends Component {
                 </ul>
                 <div className="tab-content">
                     {children.map((child) => {
-                        if (child.props.label !== activeTab) return undefined
+                        if (child.props.id !== activeTab) return undefined
                         return child.props.children
                     })}
                 </div>

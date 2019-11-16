@@ -1,70 +1,48 @@
 import React from 'react'
-import Spinner from '../spinner'
 import Tabs from '../tabs'
+import ProductPrice from '../common/product-price'
+import AddToCartBtn from '../common/add-to-cart-btn'
+import ProductImage from '../common/product-image'
 import Characteristics from './characteristics'
-import Description from './description'
-import View from './view'
-import ErrorIndicator from '../error-indicator'
-import ProductPrice from '../product-price'
-import AddToCartBtn from '../add-to-cart-btn'
-import ProductImage from '../product-image'
 import './product-details.scss'
 
 const ProductDetails = (props) => {
 
-    const { isFetching, product, addItemToCart, error } = props
+    const { product, addItemToCart } = props
 
-    if (error) {
-        return <ErrorIndicator />
-    }
-
-    let content
-    if (isFetching) {
-        content = <Spinner />
-    } else {
-        const { imageSrc, description,
-            price, title, video, id,
-            characteristics } = product
-
-        content = (
-            <div className="product-info">
-                <h2 className="product-title">{title}</h2>
-                <div className="product-image">
-                    <ProductImage img={imageSrc} />
-                </div>
-                <div className="product-descr">
-                    <div className="product-price">
-                        <ProductPrice price={price} />
-                    </div>
-                    <div className="product-add-to-cart">
-                        <AddToCartBtn onAddToCart={addItemToCart} product={product} />
-                    </div>
-                    <Tabs>
-                        <div label="Описание">
-                            <Description description={description} />
-                        </div>
-                        <div label="Характеристики">
-                            <Characteristics characteristics={characteristics} />
-                        </div>
-                        <div label="Обзор">
-                            <View id={id} video={video} />
-                        </div>
-                    </Tabs>
-                </div>
-            </div>
-        )
-    }
+    const { imageSrc, description, price,
+            title, video, id, characteristics } = product
 
     return (
-        <div className="product-wrap">
-            <div className="container">
-                <div className="row">
-                    <div className="col s9 offset-s2">
-                        {
-                            content
-                        }
-                    </div>
+        <div className="product-info">
+            <h2 className="product-title">{title}</h2>
+            <div className="product-image">
+                <ProductImage img={imageSrc} />
+            </div>
+            <div className="product-descr">
+                <div className="product-price">
+                    <ProductPrice price={price} />
                 </div>
+                <div className="product-add-to-cart">
+                    <AddToCartBtn onAddToCart={addItemToCart} product={product} />
+                </div>
+                <Tabs>
+                    <div id="Описание">
+                        <p>{description}</p>
+                    </div>
+                    <div id="Характеристики">
+                        <Characteristics characteristics={characteristics} />
+                    </div>
+                    <div id="Обзор">
+                        <iframe
+                            src={video}
+                            title={id}
+                            frameBorder="0"
+                            allowFullScreen
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        />
+                    </div>
+                </Tabs>
             </div>
         </div>
     )

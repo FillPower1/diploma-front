@@ -2,7 +2,7 @@ import React from 'react'
 import Filter from '../filter'
 import Spinner from '../spinner'
 import ErrorIndicator from '../error-indicator'
-import ProductListItem from '../product-list-item'
+import ProductListItem from './product-list-item'
 
 const ProductList = (props) => {
     const { isFetching, products, setSearhField, onAddToCart,

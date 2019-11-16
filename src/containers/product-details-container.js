@@ -1,18 +1,34 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as actions from '../actions'
+import * as actions from '../data/actions'
+import ErrorIndicator from '../components/common/error-indicator'
 import ProductDetails from '../components/product-details'
+import Spinner from '../components/common/spinner'
 
 class ProductDetailsContainer extends Component {
 
     componentDidMount() {
-        const productId = this.props.productId
+        const { productId } = this.props
         this.props.getSpecificProduct(productId)
     }
 
     render() {
+        const { error, isFetching } = this.props
+
+        if (error) {
+            return <ErrorIndicator />
+        }
+
         return (
-            <ProductDetails {...this.props} />
+            <div className="product-wrap">
+                <div className="container">
+                    <div className="row">
+                        <div className="col s9 offset-s2">
+                            {isFetching ? <Spinner /> : <ProductDetails {...this.props} />}
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

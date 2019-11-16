@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import * as actions from '../../actions'
+import * as actions from '../../data/actions'
 import CartModal from '../cart-modal'
 import Search from '../search'
 import Popup from "reactjs-popup"

@@ -1,7 +1,7 @@
 import React from 'react'
-import AddToCartBtn from '../add-to-cart-btn'
-import ProductPrice from '../product-price'
-import ProductImage from '../product-image'
+import AddToCartBtn from '../../common/add-to-cart-btn'
+import ProductPrice from '../../common/product-price'
+import ProductImage from '../../common/product-image'
 import './product-list-item.scss'
 
 const ProductListItem = (product) => {
