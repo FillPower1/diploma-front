@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductImage from '../../product-image'
+import ProductImage from '../../common/product-image'
 
 const CartModalItem = (item) => {
 

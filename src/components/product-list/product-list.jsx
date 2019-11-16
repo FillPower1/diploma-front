@@ -1,7 +1,7 @@
 import React from 'react'
 import Filter from '../filter'
-import Spinner from '../spinner'
-import ErrorIndicator from '../error-indicator'
+import Spinner from '../common/spinner'
+import ErrorIndicator from '../common/error-indicator'
 import ProductListItem from './product-list-item'
 
 const ProductList = (props) => {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as actions from '../../data/actions'
 import CartModalItem from './cart-modal-item'
-import ProductPrice from '../product-price'
+import ProductPrice from '../common/product-price'
 import './cart-modal.scss'
 
 const CartModal = (props) => {
