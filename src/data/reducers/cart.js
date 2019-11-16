@@ -2,7 +2,7 @@ import {
     ADD_TO_CART,
     REMOVE_ITEM_FROM_CART,
     REMOVE_ALL_FROM_CART,
-    CALC_CART
+    CALC_CART,
 } from '../action-types'
 
 const initialState = {

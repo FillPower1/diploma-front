@@ -3,8 +3,8 @@ import { Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import Header from '../header'
 import MainPage from '../../pages/main'
-import CartPage from '../../pages/cart'
-import { ProductListContainer, ProductDetailsContainer } from '../../containers'
+import CartOrder from '../../pages/cart-order'
+import { ProductListContainer, ProductDetailsContainer, CartContainer } from '../../containers'
 import 'react-toastify/dist/ReactToastify.css'
 import './app.scss'
 
@@ -13,7 +13,8 @@ const App = () => {
         <>
             <Header />
             <Route path="/" exact component={MainPage} />
-            <Route path="/cart" component={CartPage} />
+            <Route path="/cart" exact component={CartContainer} />
+            <Route path="/cart/order" component={CartOrder} />
             <Route path="/products" exact component={ProductListContainer} />
             <Route path="/products/:productId" render={
                 ({ match }) => <ProductDetailsContainer productId={match.params.productId} />

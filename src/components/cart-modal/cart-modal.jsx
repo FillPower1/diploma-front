@@ -25,7 +25,7 @@ const CartModal = (props) => {
                     }
                 </ul>
                 <p className="popup__total">
-                    <ProductPrice price={totalPrice} />
+                    Итого: <ProductPrice price={totalPrice} />
                 </p>
                 <div className="popup__link">
                     <Link to="/cart" className="btn btn-small">Перейти в корзину</Link>
