@@ -1,3 +1,40 @@
 .cart-order {
     margin-top: 2rem;
+    padding: 1.8rem;
+    box-shadow: -1px 3px 26px 1px rgba(0, 0, 0, 0.36);
+    border-radius: 10px;
+
+    &__title {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .input-field {
+        margin-bottom: 0;
+    }
+
+    textarea {
+        padding: 1rem;
+        height: 60px !important;
+    }
+}
+
+.field {
+    &__error {
+        font-size: 12px;
+        color: #ff0000;
+    }
+
+    &__item {
+        margin: 0 !important;
+
+        &:focus.error {
+            border-bottom: none !important;
+        }
+
+        &.error {
+            border-bottom: 1px solid red !important;
+        }
+    }
 }
