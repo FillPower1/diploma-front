@@ -9,6 +9,7 @@ import {
     FETCH_DATA_SUCCESS,
     FETCH_DATA_FAIL,
     FETCH_PRODUCT_SUCCESS,
+    SET_EMPTY_CART
 } from './action-types'
 
 export {
@@ -22,4 +23,5 @@ export {
     FETCH_DATA_SUCCESS,
     FETCH_DATA_FAIL,
     FETCH_PRODUCT_SUCCESS,
+    SET_EMPTY_CART
 }

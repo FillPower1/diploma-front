@@ -3,7 +3,7 @@ import {
     FETCH_DATA_REQUEST,
     FETCH_DATA_SUCCESS,
     FETCH_DATA_FAIL,
-    FETCH_PRODUCT_SUCCESS
+    FETCH_PRODUCT_SUCCESS,
 } from '../action-types'
 
 export const getData = () => {

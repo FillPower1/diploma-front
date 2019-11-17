@@ -13,7 +13,7 @@ const email = value => (
         : undefined
 )
 const minLength = min => value =>
-    value && value.length < min ? `Должно быть минимум ${min} символом или больше` : undefined
+    value && value.length < min ? `Должно быть минимум ${min} символов или больше` : undefined
 const minLength2 = minLength(5)
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
@@ -87,6 +87,7 @@ const cartOrderForm = props => {
                         component={"textarea"}
                         label="Комментарии к заказу"
                         placeholder={"Комментарии к заказу"}
+                        className="materialize-textarea"
                     />
                 </div>
             </div>
@@ -106,7 +107,7 @@ const cartOrderForm = props => {
                 </div>
             </div>
             <button className="align-center btn btn-small">Заказать</button>
-        </form>
+        </form >
     )
 }
 

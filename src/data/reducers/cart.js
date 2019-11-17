@@ -3,13 +3,15 @@ import {
     REMOVE_ITEM_FROM_CART,
     REMOVE_ALL_FROM_CART,
     CALC_CART,
+    SET_EMPTY_CART
 } from '../action-types'
 
 const initialState = {
     items: [],
     totalPrice: 0,
     totalCountItems: 0,
-    startingProductsPrices: new Set()
+    startingProductsPrices: new Set(),
+    finishOrder: false
 }
 
 const updateCartItems = (items, newItem, itemIndex) => {
@@ -80,6 +82,8 @@ const reducer = (state = initialState, action) => {
             const totalCountItems = state.items.reduce((sum, currentItem) => sum + currentItem.count, 0)
 
             return { ...state, totalPrice, totalCountItems }
+        case SET_EMPTY_CART:
+            return { ...state, items: [] }
         default:
             return state
     }
