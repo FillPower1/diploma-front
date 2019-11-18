@@ -25,16 +25,12 @@ export default {
                         email: userData.email
                     }
 
-                    try {
-                        const res = await this.registration(data)
-                        return res
-                    } catch (error) {
-                        return console.log(error)
-                    }
+                    return await this.registration(data)
                 }
 
                 return res.data
             })
+            .catch(err => console.log(err))
 
     },
     async registration(user) {
@@ -43,7 +39,7 @@ export default {
             return response.data
         }
         catch (err) {
-            return console.log(err)
+            return err.response.data
         }
     }
 }

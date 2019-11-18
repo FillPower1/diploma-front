@@ -31,6 +31,7 @@ const CompleteOrder = props => {
                             </div>
                             <div className="complete-order__subtitle">Спасибо за заказ!</div>
                             {props.isFetching ? <Spinner /> : userData()}
+                            {props.userInfo.message ? <div>{props.userInfo.message}</div> : null}
                         </div>
                     </div>
                 </div>
