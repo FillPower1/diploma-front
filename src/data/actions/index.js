@@ -4,6 +4,7 @@ import {
     addItemToCart, calcCart, removeAllFromCart,
     removeItemFromCart, setEmptyCart
 } from './cart'
+import { setUserInfo, setEmptyUserInfo } from './user'
 
 export {
     calcCart,
@@ -15,5 +16,7 @@ export {
     removeAllFromCart,
     getSpecificProduct,
     toggleFetching,
-    setEmptyCart
+    setEmptyCart,
+    setUserInfo,
+    setEmptyUserInfo
 }

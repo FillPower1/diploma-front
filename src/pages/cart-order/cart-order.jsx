@@ -3,17 +3,20 @@ import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router-dom'
 import * as actions from '../../data/actions'
 import CartOrderForm from '../../components/cart-order-form'
+import api from '../../api'
 import './cart-order.scss'
 
 const CartOrder = props => {
 
-    const { items, setEmptyCart } = props
+    const { items, setEmptyCart, setUserInfo, setEmptyUserInfo } = props
 
     const submitHandler = (data) => {
-        console.log(data)
-        
+        setEmptyUserInfo() // очищаю инфу про предыдущего юзера
+
+        api.setOrder(data, items).then(res => setUserInfo(res))
+
         setEmptyCart() // обнуляю корзину
-        props.history.push('/cart/order-complete')
+        props.history.push('/cart/order-complete') // переход на страницу завершения заказа
     }
 
     return (
@@ -31,12 +34,13 @@ const CartOrder = props => {
 }
 
 const mapStateToProps = state => ({
-    items: state.cart.items,
-    isFinishOrder: state.cart.finishOrder
+    items: state.cart.items
 })
 
 const mapDispatchToProps = {
-    setEmptyCart: actions.setEmptyCart
+    setEmptyCart: actions.setEmptyCart,
+    setUserInfo: actions.setUserInfo,
+    setEmptyUserInfo: actions.setEmptyUserInfo
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CartOrder))
