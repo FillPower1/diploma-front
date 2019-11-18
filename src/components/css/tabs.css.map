@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAGK,AAAD,SAAM,CAAC;EACH,YAAY,EAAE,CAAC;CAiBlB;;AAfI,AAAD,cAAM,CAAC;EACH,OAAO,EAAE,YAAY;EACrB,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI;EACnB,OAAO,EAAE,cAAc;EACvB,MAAM,EAAE,OAAO;EACf,gBAAgB,EAAE,wBAAwB;CAC7C;;AAEA,AAAD,gBAAQ,CAAC;EACL,gBAAgB,EAAE,OAAO;EACzB,MAAM,EAAE,UAAU;EAClB,YAAY,EAAE,aAAa;EAC3B,KAAK,EAAE,IAAI;CACd",
-    "sources": [
-        "../tabs/tabs.scss"
-    ],
-    "names": [],
-    "file": "tabs.css"
-}

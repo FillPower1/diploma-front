@@ -23,7 +23,7 @@ const Header = (props) => {
 								<li><Link to="/">Главная</Link></li>
 								<li><Link to="/products" >Товары</Link></li>
 								<li><Link to="/cart" >Корзина</Link></li>
-								<li><Link to="/auth" >Авторизация</Link></li>
+								<li><Link to="/auth">Регистрация/Вход</Link></li>
 								<li>
 									<Popup position="bottom center" on="hover"
 										trigger={

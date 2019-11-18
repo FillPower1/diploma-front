@@ -1,28 +1,12 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-
-const required = value => (value || typeof value === 'number' ? undefined : 'Это обязательное поле')
-const phoneNumber = value => (
-    value && /^((8|\+7)[- ]?)?(\(?\d{3}\)?[- ]?)?[\d\- ]{7,10}$/.test(value)
-        ? undefined
-        : 'Неверный номер телефона'
-)
-const email = value => (
-    value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
-        ? 'Неверный адрес электронной почты'
-        : undefined
-)
-const minLength = min => value =>
-    value && value.length < min ? `Должно быть минимум ${min} символов или больше` : undefined
-const minLength2 = minLength(5)
-
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-    <div className="field">
-        <input {...input} placeholder={label} type={type} className={`field__item ${touched && error ? ' error' : ''}`} />
-        {touched &&
-            ((error && <span className="field__error">{error}</span>))}
-    </div>
-)
+import renderField from '../render-field'
+import {
+    required,
+    phoneNumber,
+    email,
+    minLength5
+} from '../validators'
 
 
 const cartOrderForm = props => {
@@ -74,7 +58,7 @@ const cartOrderForm = props => {
                         name="address"
                         type="text"
                         component={renderField}
-                        validate={[required, minLength2]}
+                        validate={[required, minLength5]}
                         label="Адрес"
                     />
                 </div>
