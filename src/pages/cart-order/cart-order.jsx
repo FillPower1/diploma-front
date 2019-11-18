@@ -24,7 +24,7 @@ const CartOrder = props => {
             <div className="container">
                 <div className="col s7 offset-s3">
                     <div className="cart-order">
-                        <div className="cart-order__title">Заполните данные для заказа</div>
+                        <div className="cart-order__title">Заполните поля для заказа</div>
                         {!items.length ? <Redirect to="/" /> : <CartOrderForm onSubmit={submitHandler} />}
                     </div>
                 </div>
