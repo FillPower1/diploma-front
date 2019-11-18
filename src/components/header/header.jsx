@@ -14,16 +14,16 @@ const Header = (props) => {
 	return (
 		<header>
 			<div className="navbar-fixed">
-				<nav className="grey darken-3">
+				<nav className="grey darken-2">
 					<div className="container">
 						<div className="nav-wrapper">
 							<Link to="/" className="brand-logo">StoreApp</Link>
 							<ul className="right">
 								<li><Search field={searchField} onSearh={setSearhField} /></li>
 								<li><Link to="/">Главная</Link></li>
-								<li><Link to="/products">Товары</Link></li>
-								<li><Link to="/cart">Корзина</Link></li>
-								<li><Link to="/auth">Авторизация</Link></li>
+								<li><Link to="/products" >Товары</Link></li>
+								<li><Link to="/cart" >Корзина</Link></li>
+								<li><Link to="/auth" >Авторизация</Link></li>
 								<li>
 									<Popup position="bottom center" on="hover"
 										trigger={

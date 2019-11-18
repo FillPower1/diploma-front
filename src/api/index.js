@@ -37,8 +37,7 @@ export default {
         try {
             const response = await axios.post('/auth/register', user)
             return response.data
-        }
-        catch (err) {
+        } catch (err) {
             return err.response.data
         }
     }

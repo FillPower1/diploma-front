@@ -10,8 +10,7 @@ const initialState = {
     items: [],
     totalPrice: 0,
     totalCountItems: 0,
-    startingProductsPrices: new Set(),
-    finishOrder: false
+    startingProductsPrices: new Set()
 }
 
 const updateCartItems = (items, newItem, itemIndex) => {
