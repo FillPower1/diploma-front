@@ -5,9 +5,9 @@ import { required, email, minLength6 } from '../validators'
 
 const Registration = props => (
     <form onSubmit={props.handleSubmit}>
-        <div class="input-field">
+        <div className="input-field">
             <Field
-                name="username"
+                name="firstName"
                 type="text"
                 component={renderField}
                 validate={[required]}
@@ -16,14 +16,14 @@ const Registration = props => (
         </div>
         <div className="input-field">
             <Field
-                name="surname"
+                name="lastName"
                 type="text"
                 component={renderField}
                 validate={[required]}
                 label="Фамилия:"
             />
         </div>
-        <div class="input-field">
+        <div className="input-field">
             <Field
                 name="email"
                 type="email"
@@ -41,8 +41,8 @@ const Registration = props => (
                 label="Пароль:"
             />
         </div>
-        <div class="card-action">
-            <button class="btn waves-effect">Зарегистрироваться</button>
+        <div className="card-action">
+            <button className="btn waves-effect">Зарегистрироваться</button>
         </div>
     </form >
 )

@@ -18,6 +18,7 @@ class Tabs extends Component {
     }
 
     render() {
+        console.log(this.props.children[0].props)
         const { children } = this.props
         const { activeTab } = this.state
 

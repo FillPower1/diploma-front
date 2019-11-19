@@ -23,8 +23,8 @@ const LoginForm = props => (
                 label="Пароль:"
             />
         </div>
-        <div class="card-action">
-            <button class="btn waves-effect">Войти</button>
+        <div className="card-action">
+            <button className="btn waves-effect">Войти</button>
         </div>
     </form>
 )

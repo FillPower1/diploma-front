@@ -9,7 +9,7 @@ export default {
         const res = await axios.get(`/products/${id}`)
         return res.data
     },
-    async setOrder(userData, items) {
+    setOrder(userData, items) {
         const formData = {
             ...userData,
             items
@@ -25,7 +25,8 @@ export default {
                         email: userData.email
                     }
 
-                    return await this.registration(data)
+                    const response = await this.registration(data)
+                    return response.data
                 }
 
                 return res.data
@@ -36,9 +37,10 @@ export default {
     async registration(user) {
         try {
             const response = await axios.post('/auth/register', user)
-            return response.data
+            console.log(response)
+            return response
         } catch (err) {
-            return err.response.data
+            return err.response
         }
     }
 }

@@ -3,6 +3,7 @@ import productsReducer from './products'
 import cartReducer from './cart'
 import filterReducer from './filter'
 import userReducer from './user'
+import authReducer from './auth'
 import { reducer as formReducer } from 'redux-form'
 
 export default combineReducers({
@@ -10,5 +11,6 @@ export default combineReducers({
     cart: cartReducer,
     filter: filterReducer,
     form: formReducer,
-    user: userReducer
+    user: userReducer,
+    auth: authReducer
 })
