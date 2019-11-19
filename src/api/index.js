@@ -37,7 +37,6 @@ export default {
 	async registration(user) {
 		try {
 			const response = await axios.post('/auth/register', user)
-			console.log(response)
 			return response
 		} catch (err) {
 			return err.response

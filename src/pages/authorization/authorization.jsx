@@ -10,12 +10,7 @@ const Authorization = props => {
 
 	const onSubmit = (data) => {
 		props.userRegisterFetch(data)
-		// console.log(props.currentUser)
 	}
-
-
-
-	 console.log(props)
 
 	return (
 		<div className="auth-block">
@@ -28,7 +23,7 @@ const Authorization = props => {
 						</div>
 					</div>
 				</div>
-				<div id="Вход" selected={props.registered}>
+				<div id="Вход">
 					<div className="card">
 						<div className="card-content">
 							<span className="card-title">Вход</span>
