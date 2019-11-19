@@ -7,10 +7,10 @@ import authReducer from './auth'
 import { reducer as formReducer } from 'redux-form'
 
 export default combineReducers({
-    items: productsReducer,
-    cart: cartReducer,
-    filter: filterReducer,
-    form: formReducer,
-    user: userReducer,
-    auth: authReducer
+	items: productsReducer,
+	cart: cartReducer,
+	filter: filterReducer,
+	form: formReducer,
+	user: userReducer,
+	auth: authReducer
 })

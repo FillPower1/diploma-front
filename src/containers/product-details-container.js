@@ -7,44 +7,44 @@ import Spinner from '../components/common/spinner'
 
 class ProductDetailsContainer extends Component {
 
-    componentDidMount() {
-        const { productId } = this.props
-        this.props.getSpecificProduct(productId)
-    }
+	componentDidMount() {
+		const { productId } = this.props
+		this.props.getSpecificProduct(productId)
+	}
 
-    render() {
-        const { error, isFetching } = this.props
+	render() {
+		const { error, isFetching } = this.props
 
-        if (error) {
-            return <ErrorIndicator />
-        }
+		if (error) {
+			return <ErrorIndicator />
+		}
 
-        return (
-            <div className="product-wrap">
-                <div className="container">
-                    <div className="row">
-                        <div className="col s9 offset-s2">
-                            {isFetching ? <Spinner /> : <ProductDetails {...this.props} />}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+		return (
+			<div className="product-wrap">
+				<div className="container">
+					<div className="row">
+						<div className="col s9 offset-s2">
+							{isFetching ? <Spinner /> : <ProductDetails {...this.props} />}
+						</div>
+					</div>
+				</div>
+			</div>
+		)
+	}
 }
 
 const mapStateToProps = state => {
-    return {
-        product: state.items.specificProduct,
-        isFetching: state.items.isFetching,
-        error: state.items.error
-    }
+	return {
+		product: state.items.specificProduct,
+		isFetching: state.items.isFetching,
+		error: state.items.error
+	}
 }
 
 const mapDispatchToProps = {
-    getSpecificProduct: actions.getSpecificProduct,
-    toggleFetching: actions.toggleFetching,
-    addItemToCart: actions.addItemToCart
+	getSpecificProduct: actions.getSpecificProduct,
+	toggleFetching: actions.toggleFetching,
+	addItemToCart: actions.addItemToCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailsContainer)

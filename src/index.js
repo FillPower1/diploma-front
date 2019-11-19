@@ -7,11 +7,11 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import 'materialize-css/dist/css/materialize.css'
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router>
-            <Switch>
-                <App />
-            </Switch>
-        </Router>
-    </Provider >, document.getElementById('root')
+	<Provider store={store}>
+		<Router>
+			<Switch>
+				<App />
+			</Switch>
+		</Router>
+	</Provider >, document.getElementById('root')
 )

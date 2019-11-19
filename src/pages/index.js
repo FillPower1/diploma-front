@@ -4,8 +4,8 @@ import CompleteOrder from './complete-order'
 import MainPage from './main'
 
 export {
-    Cart,
-    CartOrder,
-    CompleteOrder,
-    MainPage
+	Cart,
+	CartOrder,
+	CompleteOrder,
+	MainPage
 }

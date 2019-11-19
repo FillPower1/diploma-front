@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,EAAE,CAAC;EACC,UAAU,EAAE,MAAM;CACrB",
-    "sources": [
-        "../error-indicator/error-indicator.scss"
-    ],
-    "names": [],
-    "file": "error-indicator.css"
-}

@@ -3,7 +3,7 @@ import ProductDetailsContainer from './product-details-container'
 import CartContainer from './cart-container'
 
 export {
-    ProductListContainer,
-    ProductDetailsContainer,
-    CartContainer
+	ProductListContainer,
+	ProductDetailsContainer,
+	CartContainer
 }
