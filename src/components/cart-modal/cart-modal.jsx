@@ -8,40 +8,40 @@ import './cart-modal.scss'
 
 const CartModal = (props) => {
 
-    const { totalPrice, items, removeItem } = props
+	const { totalPrice, items, removeItem } = props
 
-    return (
-        <div className="popup">
-            <div className="popup__content">
-                <ul className="collection">
-                    {
-                        items.map(item => (
-                            <CartModalItem
-                                {...item}
-                                key={item.id}
-                                onRemoveItem={removeItem}
-                            />
-                        ))
-                    }
-                </ul>
-                <p className="popup__total">
+	return (
+		<div className="popup">
+			<div className="popup__content">
+				<ul className="collection">
+					{
+						items.map(item => (
+							<CartModalItem
+								{...item}
+								key={item.id}
+								onRemoveItem={removeItem}
+							/>
+						))
+					}
+				</ul>
+				<p className="popup__total">
                     Итого: <ProductPrice price={totalPrice} />
-                </p>
-                <div className="popup__link">
-                    <Link to="/cart" className="btn btn-small">Перейти в корзину</Link>
-                </div>
-            </div>
-        </div>
-    )
+				</p>
+				<div className="popup__link">
+					<Link to="/cart" className="btn btn-small">Перейти в корзину</Link>
+				</div>
+			</div>
+		</div>
+	)
 }
 
 const mapStateToProps = state => ({
-    items: state.cart.items,
-    totalPrice: state.cart.totalPrice,
+	items: state.cart.items,
+	totalPrice: state.cart.totalPrice,
 })
 
 const mapDispatchToProps = {
-    removeItem: actions.removeAllFromCart
+	removeItem: actions.removeAllFromCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartModal)

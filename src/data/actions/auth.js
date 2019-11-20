@@ -3,6 +3,11 @@ import { reset } from 'redux-form'
 import { toast } from "react-toastify"
 import { LOGIN_USER, AUTH_STATUS } from '../action-types'
 
+const setUserStatusAuth = status => ({
+	type: AUTH_STATUS,
+	payload: status
+})
+
 export const userRegisterFetch = user => {
 	return dispatch => {
 		api.registration(user)
@@ -25,8 +30,3 @@ export const userRegisterFetch = user => {
 //     type: LOGIN_USER,
 //     payload: userObj
 // })
-
-const setUserStatusAuth = status => ({
-	type: AUTH_STATUS,
-	payload: status
-})
