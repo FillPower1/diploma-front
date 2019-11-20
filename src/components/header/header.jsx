@@ -12,52 +12,50 @@ const Header = (props) => {
 	const { totalCountItems, searchField, setSearhField } = props
 
 	const handleClick = () => {
-		// Удаление token из localStorage
+		// удаление token из localStorage
 		localStorage.removeItem("token")
-		// удаление из Redux хранилица
+		// удаление из Redux хранилища
 		props.logoutUser()
 	}
 
 	return (
-		<header>
-			<div className="navbar-fixed">
-				<nav className="grey darken-2">
-					<div className="container">
-						<div className="nav-wrapper">
-							<Link to="/" className="brand-logo">StoreApp</Link>
-							<ul className="right">
-								<li><Search field={searchField} onSearh={setSearhField} /></li>
-								<li><Link to="/">Главная</Link></li>
-								<li><Link to="/products" >Товары</Link></li>
-								<li><Link to="/cart" >Корзина</Link></li>
-								<li>
-									{props.currentUser.firstName
-										? <Link to="/profile">Профиль</Link>
-										: <Link to="/auth">Регистрация/Вход</Link>
-									}
-								</li>
-								<li>
-									{props.currentUser.firstName
-										? <Link to="#" onClick={handleClick}>Выход</Link>
-										: null
-									}
-								</li>
-								<li>
-									<Popup position="bottom center" on="hover"
-										trigger={
-											<Link to="#">
-												<i className="icon fa fa-shopping-cart"></i>
-												<span className="new badge" data-badge-caption="">{totalCountItems}</span>
-											</Link>
-										}>
-										<CartModal />
-									</Popup>
-								</li>
-							</ul>
-						</div>
+		<header className="navbar-fixed">
+			<nav className="grey darken-2">
+				<div className="container">
+					<div className="nav-wrapper">
+						<Link to="/" className="brand-logo">StoreApp</Link>
+						<ul className="right">
+							<li><Search field={searchField} onSearh={setSearhField} /></li>
+							<li><Link to="/">Главная</Link></li>
+							<li><Link to="/products" >Товары</Link></li>
+							<li><Link to="/cart" >Корзина</Link></li>
+							<li>
+								{props.currentUser.firstName
+									? <Link to="/profile">Профиль</Link>
+									: <Link to="/auth">Регистрация/Вход</Link>
+								}
+							</li>
+							<li>
+								{props.currentUser.firstName
+									? <Link to="#" onClick={handleClick}>Выход</Link>
+									: null
+								}
+							</li>
+							<li>
+								<Popup position="bottom center" on="hover"
+									trigger={
+										<Link to="#">
+											<i className="icon fa fa-shopping-cart"></i>
+											<span className="badge">{totalCountItems}</span>
+										</Link>
+									}>
+									<CartModal />
+								</Popup>
+							</li>
+						</ul>
 					</div>
-				</nav>
-			</div>
+				</div>
+			</nav>
 		</header>
 	)
 }
