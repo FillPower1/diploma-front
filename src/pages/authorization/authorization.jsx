@@ -16,10 +16,15 @@ const Authorization = props => {
 		props.userLoginFetch(data)
 	}
 
+	let activeTab = ''
+	if (props.registered) {
+		activeTab = 'Вход'
+	} else activeTab = 'Регистрация'
+
 	return (
 		<div className="auth-block">
-			<Tabs login={props.registered}>
-				<div id="Регистрация">
+			<Tabs login={props.registered} activeTab={activeTab}>
+				<div title="Регистрация">
 					<div className="card">
 						<div className="card-content">
 							<span className="card-title">Зарегистрироваться</span>
@@ -27,7 +32,7 @@ const Authorization = props => {
 						</div>
 					</div>
 				</div>
-				<div id="Вход">
+				<div title="Вход">
 					<div className="card">
 						<div className="card-content">
 							<span className="card-title">Вход</span>

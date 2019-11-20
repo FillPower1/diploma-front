@@ -10,7 +10,7 @@ class Tabs extends Component {
 	}
 
 	state = {
-		activeTab: this.props.children[0].props.id
+		activeTab: this.props.children[0].props.title
 	}
 
 	clickTabItemHandler = (tab) => {
@@ -19,7 +19,7 @@ class Tabs extends Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		if (this.props.login !== prevProps.login) {
-			this.setState({ activeTab: this.props.children[1].props.id })
+			this.setState({ activeTab: this.props.activeTab })
 		}
 	}
 
@@ -30,23 +30,22 @@ class Tabs extends Component {
 		return (
 			<div className="tabs-wrap">
 				<ul className="tab-list">
-					{children.map((child) => {
-						const { id } = child.props
+					{children.map(child => {
+						const { title } = child.props
 
 						return (
 							<Tab
-								id={id}
-								login={this.props.login}
+								key={title}
+								title={title}
 								activeTab={activeTab}
-								key={id}
 								onClickTabItem={this.clickTabItemHandler}
 							/>
 						)
 					})}
 				</ul>
 				<div className="tab-content">
-					{children.map((child) => {
-						if (child.props.id !== activeTab) return undefined
+					{children.map(child => {
+						if (child.props.title !== activeTab) return null
 						return child.props.children
 					})}
 				</div>

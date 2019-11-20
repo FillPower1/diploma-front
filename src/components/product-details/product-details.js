@@ -27,13 +27,13 @@ const ProductDetails = (props) => {
 					<AddToCartBtn onAddToCart={addItemToCart} product={product} />
 				</div>
 				<Tabs>
-					<div id="Описание">
+					<div title="Описание">
 						<p>{description}</p>
 					</div>
-					<div id="Характеристики">
+					<div title="Характеристики">
 						<Characteristics characteristics={characteristics} />
 					</div>
-					<div id="Обзор">
+					<div title="Обзор">
 						<iframe
 							src={video}
 							title={id}
