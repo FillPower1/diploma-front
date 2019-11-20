@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Tabs from '../../components/tabs'
-import RegistrationForm from '../../components/registration-form'
-import LoginForm from '../../components/login-form'
+import RegistrationForm from '../../components/form-components/registration-form'
+import LoginForm from '../../components/form-components/login-form'
 import * as actions from '../../data/actions'
 import './authorization.scss'
 

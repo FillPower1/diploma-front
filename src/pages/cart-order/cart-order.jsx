@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router-dom'
 import * as actions from '../../data/actions'
-import CartOrderForm from '../../components/cart-order-form'
+import CartOrderForm from '../../components/form-components/cart-order-form'
 import api from '../../api'
 import './cart-order.scss'
 
