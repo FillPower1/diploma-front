@@ -8,8 +8,12 @@ import './authorization.scss'
 
 const Authorization = props => {
 
-	const onSubmit = (data) => {
+	const onRegisterSubmit = (data) => {
 		props.userRegisterFetch(data)
+	}
+
+	const onLoginSubmit = (data) => {
+		props.userLoginFetch(data)
 	}
 
 	return (
@@ -19,7 +23,7 @@ const Authorization = props => {
 					<div className="card">
 						<div className="card-content">
 							<span className="card-title">Зарегистрироваться</span>
-							<RegistrationForm onSubmit={onSubmit} />
+							<RegistrationForm onSubmit={onRegisterSubmit} />
 						</div>
 					</div>
 				</div>
@@ -27,7 +31,7 @@ const Authorization = props => {
 					<div className="card">
 						<div className="card-content">
 							<span className="card-title">Вход</span>
-							<LoginForm onSubmit={onSubmit} />
+							<LoginForm onSubmit={onLoginSubmit} />
 						</div>
 					</div>
 				</div>
@@ -44,7 +48,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-	userRegisterFetch: actions.userRegisterFetch
+	userRegisterFetch: actions.userRegisterFetch,
+	userLoginFetch: actions.userLoginFetch
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authorization)

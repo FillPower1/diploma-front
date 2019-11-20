@@ -13,7 +13,7 @@ import {
 	SET_EMPTY_USER_INFO,
 	FETCH_USER_SUCCESS,
 	LOGIN_USER,
-	AUTH_STATUS
+	AUTH_STATUS,
 } from './action-types'
 
 export {
@@ -31,5 +31,5 @@ export {
 	SET_EMPTY_USER_INFO,
 	FETCH_USER_SUCCESS,
 	LOGIN_USER,
-	AUTH_STATUS
+	AUTH_STATUS,
 }

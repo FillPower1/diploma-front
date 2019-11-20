@@ -26,7 +26,24 @@ export const userRegisterFetch = user => {
 	}
 }
 
-// const loginUser = userObj => ({
-//     type: LOGIN_USER,
-//     payload: userObj
-// })
+const loginUser = userObj => ({
+	type: LOGIN_USER,
+	payload: userObj
+})
+
+export const userLoginFetch = data => {
+	return dispatch => {
+		api.login(data)
+			.then(res => {
+				if (res.status !== 200) {
+					console.log('ошибка', res)
+					dispatch(reset('loginForm'))
+					return toast.error(res.data.message)
+				}
+				console.log('все ок', res)
+				localStorage.setItem("token", res.data.token)
+				toast.success("Вы вошли успешно")
+				return dispatch(loginUser(res.data.user))
+			})
+	}
+}

@@ -41,5 +41,13 @@ export default {
 		} catch (err) {
 			return err.response
 		}
+	},
+	async login(data) {
+		try {
+			const response = await axios.post('/auth/login', data)
+			return response
+		} catch (error) {
+			return error.response
+		}
 	}
 }
