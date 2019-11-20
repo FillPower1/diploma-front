@@ -1,7 +1,7 @@
 import api from '../../api'
-import { reset } from 'redux-form'
+// import { reset } from 'redux-form'
 import { toast } from "react-toastify"
-import { LOGIN_USER, AUTH_STATUS } from '../action-types'
+import { LOGIN_USER, AUTH_STATUS, LOGOUT_USER } from '../action-types'
 
 const setUserStatusAuth = status => ({
 	type: AUTH_STATUS,
@@ -16,7 +16,7 @@ export const userRegisterFetch = user => {
 				if (data.status !== 201) {
 					console.log('conflict, такой email зарегистрирован')
 					toast.error("Такой email уже зарегистрирован, попробуйте другой")
-					dispatch(reset('registrationForm'))
+					// dispatch(reset('registrationForm'))
 					return dispatch(setUserStatusAuth({ registered: false }))
 				}
 				console.log('success')
@@ -37,7 +37,7 @@ export const userLoginFetch = data => {
 			.then(res => {
 				if (res.status !== 200) {
 					console.log('ошибка', res)
-					dispatch(reset('loginForm'))
+					// dispatch(reset('loginForm'))
 					return toast.error(res.data.message)
 				}
 				console.log('все ок', res)
@@ -45,5 +45,31 @@ export const userLoginFetch = data => {
 				toast.success("Вы вошли успешно")
 				return dispatch(loginUser(res.data.user))
 			})
+	}
+}
+
+export const getProfileFetch = () => {
+	return dispatch => {
+		const token = localStorage.token
+		if (token) {
+			api.getProfile(token)
+				.then(res => {
+					if (res.status !== 200) {
+						console.log(res)
+						localStorage.removeItem("token")
+						return
+					}
+
+					console.log(res)
+					return dispatch(loginUser(res.data))
+				})
+		}
+	}
+}
+
+export const logoutUser = () => {
+	toast.info("Вы вышли из системы")
+	return {
+		type: LOGOUT_USER
 	}
 }

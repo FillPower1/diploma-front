@@ -14,6 +14,7 @@ import {
 	FETCH_USER_SUCCESS,
 	LOGIN_USER,
 	AUTH_STATUS,
+	LOGOUT_USER
 } from './action-types'
 
 export {
@@ -32,4 +33,5 @@ export {
 	FETCH_USER_SUCCESS,
 	LOGIN_USER,
 	AUTH_STATUS,
+	LOGOUT_USER
 }

@@ -1,12 +1,12 @@
 import { getData, getSpecificProduct, toggleFetching } from './products'
 import { setFilter, setSearhField } from './filter'
 import { setUserInfo, setEmptyUserInfo } from './user'
-import { userRegisterFetch, userLoginFetch } from './auth'
+import { userRegisterFetch, userLoginFetch, getProfileFetch, logoutUser } from './auth'
 import {
 	addItemToCart, calcCart,
 	removeAllFromCart,
 	removeItemFromCart,
-	setEmptyCart
+	setEmptyCart,
 } from './cart'
 
 export {
@@ -23,5 +23,7 @@ export {
 	setUserInfo,
 	setEmptyUserInfo,
 	userRegisterFetch,
-	userLoginFetch
+	userLoginFetch,
+	getProfileFetch,
+	logoutUser
 }

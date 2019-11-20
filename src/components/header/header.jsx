@@ -11,6 +11,13 @@ import './header.scss'
 const Header = (props) => {
 	const { totalCountItems, searchField, setSearhField } = props
 
+	const handleClick = () => {
+		// Удаление token из localStorage
+		localStorage.removeItem("token")
+		// удаление из Redux хранилица
+		props.logoutUser()
+	}
+
 	return (
 		<header>
 			<div className="navbar-fixed">
@@ -23,7 +30,18 @@ const Header = (props) => {
 								<li><Link to="/">Главная</Link></li>
 								<li><Link to="/products" >Товары</Link></li>
 								<li><Link to="/cart" >Корзина</Link></li>
-								<li><Link to="/auth">Регистрация/Вход</Link></li>
+								<li>
+									{props.currentUser.firstName
+										? <Link to="/profile">Профиль</Link>
+										: <Link to="/auth">Регистрация/Вход</Link>
+									}
+								</li>
+								<li>
+									{props.currentUser.firstName
+										? <Link to="#" onClick={handleClick}>Выход</Link>
+										: null
+									}
+								</li>
 								<li>
 									<Popup position="bottom center" on="hover"
 										trigger={
@@ -46,11 +64,13 @@ const Header = (props) => {
 
 const mapStateToProps = state => ({
 	totalCountItems: state.cart.totalCountItems,
-	searchField: state.filter.searchField
+	searchField: state.filter.searchField,
+	currentUser: state.auth.currentUser
 })
 
 const mapDispatchToProps = {
-	setSearhField: actions.setSearhField
+	setSearhField: actions.setSearhField,
+	logoutUser: actions.logoutUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

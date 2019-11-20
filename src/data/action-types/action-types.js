@@ -16,4 +16,5 @@ export const SET_EMPTY_USER_INFO = 'SET_EMPTY_USER_INFO'
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
 
 export const LOGIN_USER = 'LOGIN_USER'
+export const LOGOUT_USER = 'LOGOUT_USER'
 export const AUTH_STATUS = 'AUTH_STATUS'
