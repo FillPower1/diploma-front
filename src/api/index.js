@@ -39,10 +39,6 @@ export default {
 	},
 	getProfile(token) {
 		console.log(token)
-		return axios.get('/profile', {
-			headers: {
-				'Authorization': token
-			}
-		}).then(res => res)
+		return axios.get('/profile', { headers: { 'Authorization': token } }).then(res => res)
 	}
 }

@@ -44,7 +44,7 @@ export const userLoginFetch = data => {
 			.catch(err => {
 				console.log('ошибка', err)
 				// dispatch(reset('loginForm'))
-				return toast.error(err.data.message)
+				return toast.error(err.response.data.message)
 			})
 	}
 }
