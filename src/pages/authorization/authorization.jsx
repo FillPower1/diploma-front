@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Tabs from '../../components/tabs'
-import RegistrationForm from '../../components/form-components/registration-form'
-import LoginForm from '../../components/form-components/login-form'
+import { Redirect } from 'react-router-dom'
 import * as actions from '../../data/actions'
+import LoginForm from '../../components/form-components/login-form'
+import RegistrationForm from '../../components/form-components/registration-form'
 import './authorization.scss'
 
 const Authorization = props => {
@@ -16,11 +17,12 @@ const Authorization = props => {
 		props.userLoginFetch(data)
 	}
 
-	let activeTab = ''
-	if (props.registered) {
-		activeTab = 'Вход'
-	} else activeTab = 'Регистрация'
+	if (localStorage.getItem('token')) {
+		return <Redirect to="/" />
+	}
 
+	// переключение таба на вход после успешной регистрации
+	const activeTab = props.registered ? 'Вход' : 'Регистрация'
 	return (
 		<div className="auth-block">
 			<Tabs login={props.registered} activeTab={activeTab}>

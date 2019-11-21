@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import * as actions from '../../data/actions'
 import CartModal from '../cart-modal'
 import Search from '../search'
@@ -11,11 +11,12 @@ import './header.scss'
 const Header = (props) => {
 	const { totalCountItems, searchField, setSearhField } = props
 
-	const handleClick = () => {
+	const logoutUserHandler = () => {
 		// удаление token из localStorage
 		localStorage.removeItem("token")
 		// удаление из Redux хранилища
 		props.logoutUser()
+		props.history.push('/auth') // тут почему-то Redirect не работает, поэтому я использовал history
 	}
 
 	return (
@@ -37,7 +38,7 @@ const Header = (props) => {
 							</li>
 							<li>
 								{props.currentUser.firstName
-									? <Link to="#" onClick={handleClick}>Выход</Link>
+									? <Link to="#" onClick={logoutUserHandler}>Выход</Link>
 									: null
 								}
 							</li>
@@ -71,4 +72,4 @@ const mapDispatchToProps = {
 	logoutUser: actions.logoutUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header))

@@ -21,7 +21,7 @@ export const userRegisterFetch = user => {
 				}
 				console.log('success')
 				toast.success("Вы успешно зарегистрировались")
-				return dispatch(setUserStatusAuth({ registered: true }))
+				dispatch(setUserStatusAuth({ registered: true }))
 			})
 	}
 }
@@ -40,10 +40,11 @@ export const userLoginFetch = data => {
 					// dispatch(reset('loginForm'))
 					return toast.error(res.data.message)
 				}
+
 				console.log('все ок', res)
 				localStorage.setItem("token", res.data.token)
 				toast.success("Вы вошли успешно")
-				return dispatch(loginUser(res.data.user))
+				dispatch(loginUser(res.data.user))
 			})
 	}
 }
@@ -61,7 +62,7 @@ export const getProfileFetch = () => {
 					}
 
 					console.log(res)
-					return dispatch(loginUser(res.data))
+					dispatch(loginUser(res.data))
 				})
 		}
 	}

@@ -1,6 +1,6 @@
 import React from 'react'
-import TabTitle from '../tab-title'
-import TabContent from '../tab-content'
+import TabTitle from './tab-title'
+import TabContent from './tab-content'
 
 const Tab = props => {
 	const { list, activeTab, clickTabItemHandler } = props
@@ -24,7 +24,7 @@ const Tab = props => {
 				</ul>
 				<div className="tab-content">
 					{list.map(child => {
-						return <TabContent child={child} activeTab={activeTab} />
+						return <TabContent key={child.props.title} child={child} activeTab={activeTab} />
 					})}
 				</div>
 			</div>
