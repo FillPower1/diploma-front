@@ -1,27 +1,35 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import TabTitle from '../tab-title'
+import TabContent from '../tab-content'
 
 const Tab = props => {
-	const { activeTab, title, onClickTabItem } = props
-    
-	let clazz = 'tab-list-item'
-	if (activeTab === title) {
-		clazz += ' tab-list-active'
-	}
+	const { list, activeTab, clickTabItemHandler } = props
 
 	return (
-		<li 
-			className={clazz} 
-			onClick={() => onClickTabItem(title)}>
-			{title}
-		</li>
-	)
-}
+		<>
+			<div className="tabs-wrap">
+				<ul className="tab-list">
+					{list.map(child => {
+						const { title } = child.props
 
-Tab.propTypes = {
-	activeTab: PropTypes.string.isRequired,
-	title: PropTypes.string.isRequired,
-	onClickTabItem: PropTypes.func.isRequired
+						return (
+							<TabTitle
+								key={title}
+								title={title}
+								activeTab={activeTab}
+								onClickTabItem={clickTabItemHandler}
+							/>
+						)
+					})}
+				</ul>
+				<div className="tab-content">
+					{list.map(child => {
+						return <TabContent child={child} activeTab={activeTab} />
+					})}
+				</div>
+			</div>
+		</>
+	)
 }
 
 export default Tab

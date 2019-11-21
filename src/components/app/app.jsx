@@ -25,11 +25,12 @@ class App extends React.Component {
 				<Route path="/cart" exact component={CartContainer} />
 				<Route path="/cart/order" exact component={CartOrder} />
 				<Route path="/cart/order-complete" exact component={CompleteOrder} />
+				<Route path="/profile" component={Profile} />
 				<Route path="/products" exact component={ProductListContainer} />
 				<Route path="/products/:productId" render={
 					({ match }) => <ProductDetailsContainer productId={match.params.productId} />
 				} />
-				<Route path="/profile" component={Profile} />
+
 				<ToastContainer
 					position="bottom-right"
 					autoClose={2500}
