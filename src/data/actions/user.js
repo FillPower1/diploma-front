@@ -1,6 +1,7 @@
 import { FETCH_USER_SUCCESS, SET_EMPTY_USER_INFO } from '../action-types'
 
 export const setUserInfo = data => {
+	console.log(data)
 	return dispatch => {
 		dispatch({
 			type: FETCH_USER_SUCCESS,

@@ -2,6 +2,7 @@ import api from '../../api'
 // import { reset } from 'redux-form'
 import { toast } from "react-toastify"
 import { LOGIN_USER, AUTH_STATUS, LOGOUT_USER } from '../action-types'
+import { setEmptyUserInfo } from '../actions/user'
 
 const setUserStatusAuth = status => ({
 	type: AUTH_STATUS,
@@ -11,17 +12,16 @@ const setUserStatusAuth = status => ({
 export const userRegisterFetch = user => {
 	return dispatch => {
 		api.registration(user)
-			.then(data => {
-
-				if (data.status !== 201) {
-					console.log('conflict, такой email зарегистрирован')
-					toast.error("Такой email уже зарегистрирован, попробуйте другой")
-					// dispatch(reset('registrationForm'))
-					return dispatch(setUserStatusAuth({ registered: false }))
-				}
+			.then(() => {
 				console.log('success')
 				toast.success("Вы успешно зарегистрировались")
 				dispatch(setUserStatusAuth({ registered: true }))
+			})
+			.catch(err => {
+				console.log('conflict, такой email зарегистрирован', err)
+				toast.error("Такой email уже зарегистрирован, попробуйте другой")
+				// dispatch(reset('registrationForm'))
+				return dispatch(setUserStatusAuth({ registered: false }))
 			})
 	}
 }
@@ -35,16 +35,16 @@ export const userLoginFetch = data => {
 	return dispatch => {
 		api.login(data)
 			.then(res => {
-				if (res.status !== 200) {
-					console.log('ошибка', res)
-					// dispatch(reset('loginForm'))
-					return toast.error(res.data.message)
-				}
-
+				setEmptyUserInfo() // очищаю юзера, если он зарегистрировался покупая товар
 				console.log('все ок', res)
 				localStorage.setItem("token", res.data.token)
 				toast.success("Вы вошли успешно")
 				dispatch(loginUser(res.data.user))
+			})
+			.catch(err => {
+				console.log('ошибка', err)
+				// dispatch(reset('loginForm'))
+				return toast.error(err.data.message)
 			})
 	}
 }
@@ -55,14 +55,12 @@ export const getProfileFetch = () => {
 		if (token) {
 			api.getProfile(token)
 				.then(res => {
-					if (res.status !== 200) {
-						console.log(res)
-						localStorage.removeItem("token")
-						return
-					}
-
-					console.log(res)
+					// console.log(res)
 					dispatch(loginUser(res.data))
+				})
+				.catch(err => {
+					// console.log({err})
+					localStorage.removeItem("token")
 				})
 		}
 	}

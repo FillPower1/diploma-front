@@ -44,4 +44,8 @@ const ProductList = (props) => {
 	)
 }
 
+ProductList.defaultProps = {
+	products: []
+}
+
 export default ProductList

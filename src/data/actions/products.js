@@ -22,7 +22,7 @@ export const getData = () => {
 			.catch(error => {
 				dispatch({
 					type: FETCH_DATA_FAIL,
-					payload: error
+					payload: error.response
 				})
 			})
 	}
