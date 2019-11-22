@@ -11,10 +11,16 @@ import {
 
 
 const cartOrderForm = props => {
-	// const { firstName, lastname, email: userEmail } = props.currentUser
-	// const { firstName, lastname } = props.initialValues
-	// console.log(firstName)
-	// console.log(lastname)
+	// console.log(props)
+	const { firstName: name, lastName: surname, email: userEmail } = props.currentUser
+	const { firstName, lastName } = props.initialValues
+
+	console.log(firstName, ' from initial')
+	console.log(lastName, ' from initial')
+
+	console.log(name, ' from STORE')
+	console.log(surname, ' from STORE')
+	console.log(userEmail, ' from STORE')
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<div className="row">
@@ -25,6 +31,7 @@ const cartOrderForm = props => {
 						component={renderField}
 						validate={[required]}
 						label="Имя"
+						defaultValue={firstName}
 					/>
 				</div>
 				<div className="input-field col s6">
@@ -115,6 +122,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(
 		form: 'cartform',
 		initialValues: {
 			firstName: 'name',
-			lastname: 'second name'
+			lastname: 'surname'
 		}
 	})(cartOrderForm))

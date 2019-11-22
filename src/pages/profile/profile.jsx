@@ -6,13 +6,6 @@ import './profile.scss'
 
 class Profile extends Component {
 
-	componentDidUpdate(prevProps, prevState) {
-		if (prevProps.currentUser !== this.props.currentUser) {
-			const { email } = this.props.currentUser
-			this.props.getCountOrders(email)
-		}
-	}
-
 	state = {
 		firstNameEditMode: false,
 		lastNameEditMode: false,
@@ -41,6 +34,9 @@ class Profile extends Component {
 	}
 
 	render() {
+		const { email } = this.props.currentUser
+		this.props.getCountOrders(email)
+
 		return (
 			<div className="row">
 				<div className="container">
@@ -80,7 +76,9 @@ class Profile extends Component {
 									onFieldChange={this.onFieldChange}
 									onDeactivateEditMode={this.deactivateEditMode}
 								/>
-								<li className="collection-item">Заказов сделано: {this.props.countOrders}</li>
+								<li className="collection-item">
+									Заказов сделано: {this.props.countOrders}
+								</li>
 							</ul>
 						</div>
 					</div>

@@ -22,6 +22,8 @@ const reducer = (state = initialState, action) => {
 		return { ...state, currentUser: action.payload }
 	case SET_COUNT_ORDERS:
 		return { ...state, countOrders: action.payload }
+	case 'SET_EMPTY_ORDERS':
+		return { ...state, countOrders: 0 }
 	default:
 		return state
 	}

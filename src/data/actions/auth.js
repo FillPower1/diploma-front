@@ -67,10 +67,17 @@ export const getProfileFetch = () => {
 	}
 }
 
+const setEmptyOrders = () => ({
+	type: 'SET_EMPTY_ORDERS'
+})
+
 export const logoutUser = () => {
 	toast.info("Вы вышли из системы")
-	return {
-		type: LOGOUT_USER
+	return dispatch => {
+		dispatch(setEmptyOrders())
+		dispatch({
+			type: LOGOUT_USER
+		})
 	}
 }
 
