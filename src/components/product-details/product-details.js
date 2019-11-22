@@ -4,6 +4,7 @@ import ProductPrice from '../common/product-price'
 import AddToCartBtn from '../common/add-to-cart-btn'
 import ProductImage from '../common/product-image'
 import Characteristics from './characteristics'
+// import Spinner from '../common/spinner'
 import './product-details.scss'
 
 const ProductDetails = (props) => {

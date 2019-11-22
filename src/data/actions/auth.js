@@ -1,6 +1,9 @@
 import api from '../../api'
 import { toast } from "react-toastify"
-import { LOGIN_USER, AUTH_STATUS, LOGOUT_USER } from '../action-types'
+import {
+	LOGIN_USER, AUTH_STATUS, LOGOUT_USER,
+	UPDATE_CURRENT_USER, SET_COUNT_ORDERS
+} from '../action-types'
 import { setEmptyUserInfo } from '../actions/user'
 
 const setUserStatusAuth = status => ({
@@ -38,7 +41,7 @@ export const userLoginFetch = data => {
 				localStorage.setItem("token", res.data.token)
 				toast.success("Вы вошли успешно")
 				dispatch(loginUser(res.data.user))
-				dispatch(setUserStatusAuth(false))// убираю статус логина (true/false), если юзер зарегистрирован
+				dispatch(setUserStatusAuth(false)) // убираю статус логина (true/false), если юзер зарегистрировался в данный момент
 			})
 			.catch(err => {
 				console.log('ошибка', err)
@@ -68,5 +71,33 @@ export const logoutUser = () => {
 	toast.info("Вы вышли из системы")
 	return {
 		type: LOGOUT_USER
+	}
+}
+
+export const updateProfile = (id, data) => {
+	return dispatch => {
+		api.updateProfile(id, data)
+			.then(res => {
+				console.log(res)
+
+				dispatch({
+					type: UPDATE_CURRENT_USER,
+					payload: res.user
+				})
+			})
+			.catch(err => console.log(err))
+	}
+}
+
+export const countOrder = email => {
+	return dispatch => {
+		api.getCountOrders(email)
+			.then(res => {
+				console.log(res)
+				dispatch({
+					type: SET_COUNT_ORDERS,
+					payload: res
+				})
+			})
 	}
 }
