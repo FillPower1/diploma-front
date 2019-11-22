@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import * as actions from '../../data/actions'
 import Spinner from '../../components/common/spinner'
 import './complete-order.scss'
 
@@ -7,7 +8,6 @@ const CompleteOrder = props => {
 
 	const userData = () => {
 		if (props.userInfo.password) {
-
 			const { email, password } = props.userInfo
 
 			return (
@@ -18,6 +18,11 @@ const CompleteOrder = props => {
 				</>
 			)
 		}
+	}
+
+	// обновление количества заказов сделанных юзером
+	if (props.currentUser !== {}) {
+		props.counOrders(props.currentUser.email)
 	}
 
 	return (
@@ -44,8 +49,13 @@ const mapStateToProps = state => {
 	return {
 		items: state.cart.items,
 		userInfo: state.user.userInfo,
-		isFetching: state.user.isFetching
+		isFetching: state.user.isFetching,
+		currentUser: state.auth.currentUser
 	}
 }
 
-export default connect(mapStateToProps)(CompleteOrder)
+const mapDispatchToProps = {
+	counOrders: actions.countOrder
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CompleteOrder)
