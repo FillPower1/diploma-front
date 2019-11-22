@@ -11,16 +11,6 @@ import {
 
 
 const cartOrderForm = props => {
-	// console.log(props)
-	const { firstName: name, lastName: surname, email: userEmail } = props.currentUser
-	const { firstName, lastName } = props.initialValues
-
-	console.log(firstName, ' from initial')
-	console.log(lastName, ' from initial')
-
-	console.log(name, ' from STORE')
-	console.log(surname, ' from STORE')
-	console.log(userEmail, ' from STORE')
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<div className="row">
@@ -31,7 +21,6 @@ const cartOrderForm = props => {
 						component={renderField}
 						validate={[required]}
 						label="Имя"
-						defaultValue={firstName}
 					/>
 				</div>
 				<div className="input-field col s6">
@@ -82,7 +71,7 @@ const cartOrderForm = props => {
 						type="text"
 						component="textarea"
 						label="Комментарии к заказу"
-						placeholder={"Комментарии к заказу"}
+						placeholder="Комментарии к заказу"
 						className="materialize-textarea"
 					/>
 				</div>
@@ -109,19 +98,16 @@ const cartOrderForm = props => {
 
 const mapStateToProps = state => {
 	return {
-		currentUser: state.auth.currentUser
+		currentUser: state.auth.currentUser,
+		initialValues: {
+			username: state.auth.currentUser.firstName,
+			surname: state.auth.currentUser.lastName,
+			email: state.auth.currentUser.email
+		}
 	}
 }
 
-const mapDispatchToProps = {
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(
+export default connect(mapStateToProps)(
 	reduxForm({
 		form: 'cartform',
-		initialValues: {
-			firstName: 'name',
-			lastname: 'surname'
-		}
 	})(cartOrderForm))
