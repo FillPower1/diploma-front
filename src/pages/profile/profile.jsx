@@ -6,6 +6,13 @@ import './profile.scss'
 
 class Profile extends Component {
 
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.currentUser !== this.props.currentUser) {
+			const { email } = this.props.currentUser
+			this.props.getCountOrders(email)
+		}
+	}
+
 	state = {
 		firstNameEditMode: false,
 		lastNameEditMode: false,
@@ -24,7 +31,7 @@ class Profile extends Component {
 
 		const { currentUser: { userId } } = this.props
 		const value = this.state[e.target.name]
-		this.props.updateProfile(userId, { [e.target.name]: value })
+		this.props.updateProfile(userId, { [e.target.name]: value }) // запрос на обновление профиля
 	}
 
 	onFieldChange = (e) => {
@@ -73,7 +80,7 @@ class Profile extends Component {
 									onFieldChange={this.onFieldChange}
 									onDeactivateEditMode={this.deactivateEditMode}
 								/>
-								<li className="collection-item">Заказов сделано: 0</li>
+								<li className="collection-item">Заказов сделано: {this.props.countOrders}</li>
 							</ul>
 						</div>
 					</div>
@@ -84,10 +91,12 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => ({
-	currentUser: state.auth.currentUser
+	currentUser: state.auth.currentUser,
+	countOrders: state.auth.countOrders
 })
 const mapDispatchToProps = {
-	updateProfile: actions.updateProfile
+	updateProfile: actions.updateProfile,
+	getCountOrders: actions.countOrder
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

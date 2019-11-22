@@ -44,5 +44,9 @@ export default {
 	updateProfile(id, data) {
 		console.log(data)
 		return axios.patch(`/profile/${id}`, data).then(res => res.data)
+	},
+	getCountOrders(email) {
+		console.log(email)
+		return axios.post(`/orders/count`, {email}).then(res => res.data)
 	}
 }

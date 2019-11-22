@@ -2,7 +2,8 @@ import { LOGIN_USER, AUTH_STATUS, LOGOUT_USER, UPDATE_CURRENT_USER } from '../ac
 
 const initialState = {
 	currentUser: {},
-	registered: false
+	registered: false,
+	countOrders: 0
 }
 
 const reducer = (state = initialState, action) => {
@@ -15,6 +16,8 @@ const reducer = (state = initialState, action) => {
 		return { ...state, registered: action.payload.registered}
 	case UPDATE_CURRENT_USER:
 		return { ...state, currentUser: action.payload }
+	case 'SET_COUNT_ORDERS':
+		return { ...state, countOrders: action.payload }
 	default:
 		return state
 	}

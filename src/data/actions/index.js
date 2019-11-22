@@ -1,6 +1,6 @@
 import { getData, getSpecificProduct, toggleFetching } from './products'
 import { setFilter, setSearhField } from './filter'
-import { setUserInfo, setEmptyUserInfo, updateProfile } from './user'
+import { setUserInfo, setEmptyUserInfo, updateProfile, countOrder } from './user'
 import {
 	userRegisterFetch,
 	userLoginFetch,
@@ -31,5 +31,6 @@ export {
 	userLoginFetch,
 	getProfileFetch,
 	logoutUser,
-	updateProfile
+	updateProfile,
+	countOrder
 }

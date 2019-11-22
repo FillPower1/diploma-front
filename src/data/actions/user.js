@@ -15,6 +15,7 @@ export const setEmptyUserInfo = () => ({
 	type: SET_EMPTY_USER_INFO
 })
 
+//
 export const updateProfile = (id, data) => {
 	return dispatch => {
 		api.updateProfile(id, data)
@@ -27,5 +28,18 @@ export const updateProfile = (id, data) => {
 				})
 			})
 			.catch(err => console.log(err))
+	}
+}
+
+export const countOrder = email => {
+	return dispatch => {
+		api.getCountOrders(email)
+			.then(res => {
+				console.log(res)
+				dispatch({
+					type: 'SET_COUNT_ORDERS',
+					payload: res
+				})
+			})
 	}
 }
