@@ -22,7 +22,7 @@ const CompleteOrder = props => {
 
 	// обновление количества заказов сделанных юзером
 	if (props.currentUser !== {}) {
-		props.counOrders(props.currentUser.email)
+		props.countOrders(props.currentUser.email)
 	}
 
 	return (
@@ -55,7 +55,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-	counOrders: actions.countOrder
+	countOrders: actions.countOrder
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompleteOrder)
