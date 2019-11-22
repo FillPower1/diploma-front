@@ -1,5 +1,4 @@
 import api from '../../api'
-// import { reset } from 'redux-form'
 import { toast } from "react-toastify"
 import { LOGIN_USER, AUTH_STATUS, LOGOUT_USER } from '../action-types'
 import { setEmptyUserInfo } from '../actions/user'
@@ -20,7 +19,6 @@ export const userRegisterFetch = user => {
 			.catch(err => {
 				console.log('conflict, такой email зарегистрирован', err)
 				toast.error("Такой email уже зарегистрирован, попробуйте другой")
-				// dispatch(reset('registrationForm'))
 				return dispatch(setUserStatusAuth({ registered: false }))
 			})
 	}
@@ -40,10 +38,10 @@ export const userLoginFetch = data => {
 				localStorage.setItem("token", res.data.token)
 				toast.success("Вы вошли успешно")
 				dispatch(loginUser(res.data.user))
+				dispatch(setUserStatusAuth(false))// убираю статус логина (true/false), если юзер зарегистрирован
 			})
 			.catch(err => {
 				console.log('ошибка', err)
-				// dispatch(reset('loginForm'))
 				return toast.error(err.response.data.message)
 			})
 	}

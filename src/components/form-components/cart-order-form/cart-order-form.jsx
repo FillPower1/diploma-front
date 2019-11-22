@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import renderField from '../render-field'
 import {
@@ -10,6 +11,10 @@ import {
 
 
 const cartOrderForm = props => {
+	// const { firstName, lastname, email: userEmail } = props.currentUser
+	// const { firstName, lastname } = props.initialValues
+	// console.log(firstName)
+	// console.log(lastname)
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<div className="row">
@@ -68,14 +73,14 @@ const cartOrderForm = props => {
 					<Field
 						name="notes"
 						type="text"
-						component={"textarea"}
+						component="textarea"
 						label="Комментарии к заказу"
 						placeholder={"Комментарии к заказу"}
 						className="materialize-textarea"
 					/>
 				</div>
 			</div>
-			<div className="row">
+			{!props.currentUser.firstName && <div className="row">
 				<div className="input-field col s12">
 					<div>
 						<label>
@@ -84,7 +89,7 @@ const cartOrderForm = props => {
 						</label>
 					</div>
 				</div>
-			</div>
+			</div>}
 			<div className="row">
 				<div className="col s12">
 					<small>Нажимая на кнопку «Заказать» вы соглашаетесь на обработку ваших данных.</small>
@@ -95,6 +100,21 @@ const cartOrderForm = props => {
 	)
 }
 
-export default reduxForm({
-	form: 'cartform'
-})(cartOrderForm)
+const mapStateToProps = state => {
+	return {
+		currentUser: state.auth.currentUser
+	}
+}
+
+const mapDispatchToProps = {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+	reduxForm({
+		form: 'cartform',
+		initialValues: {
+			firstName: 'name',
+			lastname: 'second name'
+		}
+	})(cartOrderForm))

@@ -1,37 +1,93 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import * as actions from '../../data/actions'
+import ProfileField from './profile-field'
 import './profile.scss'
 
-const Profile = props => {
-	return (
-		<div className="row">
-			<div className="container">
-				<div className="col s6 offset-s3">
-					<div className="profile-card">
-						<ul class="collection with-header">
-							<li class="collection-header">
-								<h5>Профиль</h5>
-							</li>
-							<li class="collection-item">
-								Имя: {props.currentUser.firstName} <button className="btn btn-small">изменить</button>
-							</li>
-							<li class="collection-item">
-								Фамилия: {props.currentUser.lastName}<button className="btn btn-small">изменить</button>
-							</li>
-							<li class="collection-item">
-								Логин: {props.currentUser.email}<button className="btn btn-small">изменить</button>
-							</li>
-							<li class="collection-item">Заказов сделано: 0</li>
-						</ul>
+class Profile extends Component {
+
+	state = {
+		firstNameEditMode: false,
+		lastNameEditMode: false,
+		emailEditMode: false
+	}
+
+	activateEditMode = (e) => {
+		this.setState({
+			[e.target.name + 'EditMode']: true,
+			[e.target.name]: this.props.currentUser[e.target.name]
+		})
+	}
+
+	deactivateEditMode = (e) => {
+		this.setState({ [e.target.name + 'EditMode']: false })
+
+		const { currentUser: { userId } } = this.props
+		const value = this.state[e.target.name]
+		this.props.updateProfile(userId, { [e.target.name]: value })
+	}
+
+	onFieldChange = (e) => {
+		this.setState({
+			[e.target.name]: e.target.value
+		})
+	}
+
+	render() {
+		return (
+			<div className="row">
+				<div className="container">
+					<div className="col s6 offset-s3">
+						<div className="profile-card">
+							<ul className="collection with-header">
+								<li className="collection-header">
+									<h5>Профиль</h5>
+								</li>
+								<ProfileField
+									title="Имя"
+									name="firstName"
+									label={this.props.currentUser.firstName}
+									editMode={this.state.firstNameEditMode}
+									onActivateEditMode={this.activateEditMode}
+									value={this.state.firstName}
+									onFieldChange={this.onFieldChange}
+									onDeactivateEditMode={this.deactivateEditMode}
+								/>
+								<ProfileField
+									title="Фамилия"
+									name="lastName"
+									label={this.props.currentUser.lastName}
+									editMode={this.state.lastNameEditMode}
+									onActivateEditMode={this.activateEditMode}
+									value={this.state.lastName}
+									onFieldChange={this.onFieldChange}
+									onDeactivateEditMode={this.deactivateEditMode}
+								/>
+								<ProfileField
+									title="Логин"
+									name="email"
+									label={this.props.currentUser.email}
+									editMode={this.state.emailEditMode}
+									onActivateEditMode={this.activateEditMode}
+									value={this.state.email}
+									onFieldChange={this.onFieldChange}
+									onDeactivateEditMode={this.deactivateEditMode}
+								/>
+								<li className="collection-item">Заказов сделано: 0</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	)
+		)
+	}
 }
 
 const mapStateToProps = state => ({
 	currentUser: state.auth.currentUser
 })
+const mapDispatchToProps = {
+	updateProfile: actions.updateProfile
+}
 
-export default connect(mapStateToProps)(Profile)
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)
