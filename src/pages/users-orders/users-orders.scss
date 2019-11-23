@@ -23,7 +23,8 @@
 
     & .order {
         max-width: 200px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+        border-bottom: 1px dashed black;
 
         &-status {
             padding-right: 10px;
