@@ -16,6 +16,8 @@ import {
 	setEmptyCart,
 } from './cart'
 
+import { setUsersOrders } from './users-orders'
+
 export {
 	calcCart,
 	setFilter,
@@ -34,5 +36,6 @@ export {
 	getProfileFetch,
 	logoutUser,
 	updateProfile,
-	countOrder
+	countOrder,
+	setUsersOrders
 }

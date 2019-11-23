@@ -9,7 +9,7 @@ import Popup from "reactjs-popup"
 import './header.scss'
 
 const Header = (props) => {
-	const { totalCountItems, searchField, setSearhField } = props
+	const { totalCountItems, searchField, setSearhField, currentUser } = props
 
 	const logoutUserHandler = () => {
 		// удаление token из localStorage
@@ -27,17 +27,20 @@ const Header = (props) => {
 						<Link to="/" className="brand-logo">StoreApp</Link>
 						<ul className="right">
 							<li><Search field={searchField} onSearh={setSearhField} /></li>
+							{currentUser.role === 'admin' &&
+								<li><Link to="/users-orders" className="yellow-text">Заказы</Link></li>
+							}
 							<li><Link to="/">Главная</Link></li>
 							<li><Link to="/products" >Товары</Link></li>
 							<li><Link to="/cart" >Корзина</Link></li>
 							<li>
-								{props.currentUser.firstName
+								{currentUser.firstName
 									? <Link to="/profile">Профиль</Link>
 									: <Link to="/auth">Регистрация/Вход</Link>
 								}
 							</li>
 							<li>
-								{props.currentUser.firstName
+								{currentUser.firstName
 									? <Link to="#" onClick={logoutUserHandler}>Выход</Link>
 									: null
 								}

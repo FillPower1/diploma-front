@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../data/actions'
 import Header from '../header'
 import Authorization from '../../pages/authorization'
-import { MainPage, CartOrder, CompleteOrder, Profile } from '../../pages'
+import { MainPage, CartOrder, CompleteOrder, Profile, UsersOrders } from '../../pages'
 import { ProductListContainer, ProductDetailsContainer, CartContainer } from '../../containers'
 import 'react-toastify/dist/ReactToastify.css'
 import './app.scss'
@@ -30,6 +30,7 @@ class App extends Component {
 				<Route path="/products/:productId" render={
 					({ match }) => <ProductDetailsContainer productId={match.params.productId} />
 				} />
+				<Route path="/users-orders" component={UsersOrders} />
 
 				<ToastContainer
 					position="bottom-right"

@@ -48,5 +48,8 @@ export default {
 	getCountOrders(email) {
 		console.log(email)
 		return axios.post(`/orders/count`, {email}).then(res => res.data)
+	},
+	getUsersOrders() {
+		return axios.get('/orders/users').then(res => res.data)
 	}
 }

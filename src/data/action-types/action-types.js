@@ -20,3 +20,5 @@ export const SET_COUNT_ORDERS = 'SET_COUNT_ORDERS'
 export const LOGIN_USER = 'LOGIN_USER'
 export const LOGOUT_USER = 'LOGOUT_USER'
 export const AUTH_STATUS = 'AUTH_STATUS'
+
+export const SET_USERS_ORDERS = 'SET_USERS_ORDERS'
