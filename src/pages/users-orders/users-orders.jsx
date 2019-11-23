@@ -2,57 +2,46 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../data/actions'
 import Spinner from '../../components/common/spinner'
-import UsersOrdersItems from './users-orders-items'
+import UsersOrdersTable from './users-orders-table'
 import './users-orders.scss'
 
 class UsersOrders extends Component {
+
 	componentDidMount() {
 		this.props.setUsersOrders()
 	}
 
+	updateOrder = (id) => {
+		this.props.setCompleteOrder(id)
+	}
+
+	deleteOrder = (id) => {
+		this.props.deleteUserOrder(id)
+	}
+
 	renderContent = (arr) => {
 		return arr.map(item => {
-			const { username, surname, phone, completed, items, notes } = item
 			return (
-				<tr key={item.id}>
-					<td>
-						<div className="user-info">
-							<div className="user-name">Имя: <strong>{username}</strong></div>
-							<div className="user-surname">Фамилия: <strong>{surname}</strong></div>
-							<div className="user-phone">Телефон: <strong>{phone}</strong></div>
-						</div>
-					</td>
-					<td>
-						{
-							items.map(item => {
-								const { id, title, count } = item
-								return <UsersOrdersItems key={id} title={title} count={count} />
-							})
-						}
-					</td>
-					<td>
-						<div className="user-comments">
-							{!notes ? 'Комментариев нет' : notes}
-						</div>
-					</td>
-					<td>
-						<div className="order-status">{!completed ? 'Не отправлен' : 'Отправлен'}</div>
-					</td>
-					<td className="orders-actions">
-						<button className="order-btn btn-small">Отправить</button>
-						<button className="order-btn btn-small">Удалить</button>
-					</td>
-				</tr>
+				<UsersOrdersTable
+					key={item.id}
+					{...item}
+					deleteOrder={this.deleteOrder}
+					updateOrder={this.updateOrder}
+				/>
 			)
 		})
 	}
 
 	render() {
 
-		const { usersOrders } = this.props
+		const { usersOrders, isFetching } = this.props
+
+		if (isFetching) {
+			return <Spinner />
+		}
 
 		if (!usersOrders.length) {
-			return <Spinner />
+			return <h4 className="center-align">Заказов нет</h4>
 		}
 
 		const orders = this.renderContent(usersOrders)
@@ -81,11 +70,14 @@ class UsersOrders extends Component {
 }
 
 const mapStateToProps = state => ({
-	usersOrders: state.usersOrders.orders
+	usersOrders: state.usersOrders.orders,
+	isFetching: state.usersOrders.isFetching
 })
 
 const mapDispatchToProps = {
-	setUsersOrders: actions.setUsersOrders
+	setUsersOrders: actions.setUsersOrders,
+	setCompleteOrder: actions.setCompleteOrder,
+	deleteUserOrder: actions.deleteUserOrder
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersOrders)

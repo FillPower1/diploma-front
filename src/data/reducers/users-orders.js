@@ -1,13 +1,16 @@
-import { SET_USERS_ORDERS } from '../action-types'
+import { SET_USERS_ORDERS_REQUEST, SET_USERS_ORDERS_SUCCESS } from '../action-types'
 
 const initialState = {
-	orders: []
+	orders: [],
+	isFetching: true
 }
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-	case SET_USERS_ORDERS:
-		return { ...state, orders: action.payload }
+	case SET_USERS_ORDERS_REQUEST:
+		return { ...state, isFetching: action.payload }
+	case SET_USERS_ORDERS_SUCCESS:
+		return { ...state, orders: action.payload, isFetching: false }
 	default:
 		return state
 	}

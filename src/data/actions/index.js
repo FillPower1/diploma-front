@@ -16,7 +16,7 @@ import {
 	setEmptyCart,
 } from './cart'
 
-import { setUsersOrders } from './users-orders'
+import { setUsersOrders, setCompleteOrder, deleteUserOrder } from './users-orders'
 
 export {
 	calcCart,
@@ -37,5 +37,7 @@ export {
 	logoutUser,
 	updateProfile,
 	countOrder,
-	setUsersOrders
+	setUsersOrders,
+	setCompleteOrder,
+	deleteUserOrder
 }

@@ -13,6 +13,7 @@
         &-info {
             font-size: 16px;
         }
+
         &-comments {
             max-width: 250px;
             font-size: 14px;
@@ -30,6 +31,80 @@
 
         &__title {
             font-weight: 700;
+        }
+
+        &-btn {
+            cursor: pointer;
+            transition: all .5s;
+
+            i {
+                font-size: 28px;
+            }
+
+            &:hover {
+                color: green;
+            }
+
+            &:last-child {
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+
+        & .tooltiptext {
+            visibility: hidden;
+            width: 100px;
+            left: 50%;
+            margin-left: -40px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            font-size: 14px;
+
+            position: absolute;
+            z-index: 1;
+
+            &-top {
+                bottom: 100%;
+            }
+
+            &-bottom {
+                top: 100%;
+            }
+        }
+
+        &:hover .tooltiptext {
+            visibility: visible;
+        }
+    }
+
+    .modal {
+        &-order {
+            padding: 1rem;
+            &__content {
+                text-align: center;
+                font-size: 22px;
+                color: #000;
+                margin-bottom: 1rem;
+            }
+
+            &__footer {
+                display: flex;
+                justify-content: center;
+
+                button {
+                    width: 150px;
+                    margin-left: 10px;
+                }
+            }
         }
     }
 }

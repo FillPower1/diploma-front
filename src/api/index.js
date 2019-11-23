@@ -23,10 +23,8 @@ export default {
 					}
 
 					const response = await this.registration(data)
-					// console.log(response)
 					return response.data
 				}
-				// console.log(res)
 				return res.data
 			})
 			.catch(err => err.response.data)
@@ -38,18 +36,21 @@ export default {
 		return axios.post('/auth/login', data).then(res => res)
 	},
 	getProfile(token) {
-		// console.log(token)
 		return axios.get('/profile', { headers: { 'Authorization': token } }).then(res => res)
 	},
 	updateProfile(id, data) {
-		console.log(data)
 		return axios.patch(`/profile/${id}`, data).then(res => res.data)
 	},
 	getCountOrders(email) {
-		console.log(email)
 		return axios.post(`/orders/count`, {email}).then(res => res.data)
 	},
 	getUsersOrders() {
 		return axios.get('/orders/users').then(res => res.data)
+	},
+	updateUserOrder(id) {
+		return axios.patch(`/orders/${id}`).then(res => res.data)
+	},
+	deleteUserOrder(id) {
+		return axios.delete(`/orders/${id}`).then(res => res.data)
 	}
 }
