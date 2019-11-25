@@ -7,7 +7,6 @@ const initialState = {
 	newsList: [],
 	currentNews: {},
 	ischangedNews: false,
-	editingCurrentdNews: {},
 	isFetching: true
 }
 

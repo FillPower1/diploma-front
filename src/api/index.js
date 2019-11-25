@@ -66,10 +66,6 @@ export default {
 		formData.append("description", data.description)
 
 		return axios.post('/news', formData).then(res => res.data)
-
-		// for (let [name, value] of formData) {
-		// 	console.log(`${name} = ${value}`) // key1=value1, потом key2=value2
-		// }
 	},
 	deleteNews(id) {
 		return axios.delete(`/news/${id}`).then(res => res.data)

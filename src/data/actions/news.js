@@ -52,10 +52,6 @@ export const addNewNews = data => {
 		api.createNews(data)
 			.then(res => {
 				console.log(res)
-				// dispatch({
-				// 	type: SET_CHANGE_NEWS,
-				// 	payload: true
-				// })
 				dispatch(setTrueChangedNews())
 				toast.success("Вы успешно добавили новость")
 			})
@@ -92,6 +88,10 @@ export const deleteNews = id => {
 				console.log(res)
 				dispatch(setNewsList())
 			})
+			.catch(err => {
+				toast.error("Что-то пошло не так...")
+				console.log(err)
+			})
 	}
 }
 
@@ -100,11 +100,11 @@ export const editNews = (id, data) => {
 		api.editNews(id, data)
 			.then(res => {
 				console.log(res)
-				// dispatch({
-				// 	type: SET_CHANGE_NEWS,
-				// 	payload: true
-				// })
 				dispatch(setTrueChangedNews())
+			})
+			.catch(err => {
+				console.log(err)
+				toast.error("Что-то пошло не так...")
 			})
 	}
 }

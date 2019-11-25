@@ -1,5 +1,5 @@
 import React from 'react'
-import UsersOrdersItems from '../users-orders-items'
+import UsersOrdersItem from '../users-orders-item'
 import UsersOrdersModal from '../users-orders-modal'
 
 const UsersOrdersTable = props => {
@@ -20,7 +20,7 @@ const UsersOrdersTable = props => {
 			<td>
 				{items.map(item => {
 					const { id, title, count } = item
-					return <UsersOrdersItems key={id} title={title} count={count} />
+					return <UsersOrdersItem key={id} title={title} count={count} />
 				})}
 			</td>
 			<td>

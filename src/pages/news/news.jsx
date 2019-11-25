@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../data/actions'
 import { withRouter, Link } from 'react-router-dom'
-import ShortNewsItem from './short-news-item'
+import ShortNewsItem from '../../components/short-news-item'
 import Spinner from '../../components/common/spinner'
 import './news.scss'
 

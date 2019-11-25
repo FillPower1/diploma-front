@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../data/actions'
-import Cart from '../pages/cart'
+import CartTable from '../components/cart-table'
 
 const CartPageContainer = (props) => {
 
@@ -11,20 +11,13 @@ const CartPageContainer = (props) => {
 		<h4 className="center-align">Корзина пуста</h4>
 	)
 
-	return (
-		<div className="cart">
-			<div className="container">
-				{!items.length ? emptyCart : <Cart {...props} />}
-			</div>
-		</div>
-	)
+	return !items.length ? emptyCart : <CartTable {...props} />
 }
 
 const mapStateToProps = (state) => {
 	return {
 		items: state.cart.items,
-		totalPrice: state.cart.totalPrice,
-		orderStart: state.cart.orderStart
+		totalPrice: state.cart.totalPrice
 	}
 }
 

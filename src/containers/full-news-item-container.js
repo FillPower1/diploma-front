@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../data/actions'
 import Spinner from '../components/common/spinner'
-import FullNewsItem from '../pages/news/full-news-item'
+import FullNewsItem from '../components/full-news-item'
 
 class FullNewsItemContainer extends Component {
 

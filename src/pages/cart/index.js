@@ -1,2 +1,2 @@
-import CartPage from './cart'
-export default CartPage
+import Cart from './cart'
+export default Cart

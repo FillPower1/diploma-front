@@ -28,7 +28,9 @@ const Header = (props) => {
 						<ul className="right">
 							<li><Search field={searchField} onSearh={setSearhField} /></li>
 							{currentUser.role === 'admin' &&
-								<li><Link to="/users-orders" className="yellow-text">Заказы</Link></li>
+								<li>
+									<Link to="/users-orders" className="yellow-text">Заказы</Link>
+								</li>
 							}
 							<li><Link to="/">Главная</Link></li>
 							<li><Link to="/products" >Товары</Link></li>

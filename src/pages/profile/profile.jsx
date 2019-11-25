@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../data/actions'
-import ProfileField from './profile-field'
+import ProfileField from '../../components/profile-field'
 import './profile.scss'
 
 class Profile extends Component {
