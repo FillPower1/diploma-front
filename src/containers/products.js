@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import * as actions from '../data/actions'
 import ProductList from '../components/product-list'
 
-class ProductListContainer extends Component {
+class ProductsContainer extends Component {
 
 	static propTypes = {
 		products: PropTypes.array.isRequired
@@ -52,8 +52,9 @@ class ProductListContainer extends Component {
 			<ProductList
 				{...this.props}
 				products={items}
+				onAddToCart={addItemToCart}
 				selectedProductHandler={this.selectedProductHandler}
-				onAddToCart={addItemToCart} />
+			/>
 		)
 	}
 }
@@ -75,4 +76,4 @@ const mapDispatchToProps = {
 	toggleFetching: actions.toggleFetching
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProductListContainer))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProductsContainer))

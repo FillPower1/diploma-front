@@ -7,12 +7,11 @@ import {
 
 export const setNewsList = () => {
 	return dispatch => {
+		dispatch(deleteCurrentNews)
+
 		dispatch({
 			type: SET_NEWS_REQUEST
 		})
-
-		dispatch(deleteCurrentNews)
-
 		api.getNews()
 			.then(res => {
 				dispatch({

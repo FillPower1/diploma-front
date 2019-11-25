@@ -1,7 +1,7 @@
 import React from 'react'
-import ProductListContainer from '../../containers/product-list-container'
+import ProductListContainer from '../../containers/products'
 
-const Products = props => {
+const Products = () => {
 	return <ProductListContainer />
 }
 

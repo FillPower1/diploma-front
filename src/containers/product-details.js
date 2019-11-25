@@ -19,17 +19,7 @@ class ProductDetailsContainer extends Component {
 			return <ErrorIndicator />
 		}
 
-		return (
-			<div className="product-wrap">
-				<div className="container">
-					<div className="row">
-						<div className="col s9 offset-s2">
-							{isFetching ? <Spinner /> : <ProductDetails {...this.props} />}
-						</div>
-					</div>
-				</div>
-			</div>
-		)
+		return isFetching ? <Spinner /> : <ProductDetails {...this.props} />
 	}
 }
 

@@ -7,12 +7,10 @@ import Header from '../header'
 import {
 	News, CartOrder, CompleteOrder,
 	Profile, UsersOrders, AddNews, EditNews,
-	Authorization, Products, Cart
+	Authorization, Products, Cart, FullnewsItem,
+	ProductDetails
 } from '../../pages'
-import {
-	ProductDetailsContainer,
-	FullNewsItemContainer
-} from '../../containers'
+
 import 'react-toastify/dist/ReactToastify.css'
 import './app.scss'
 
@@ -36,10 +34,10 @@ class App extends Component {
 				<Route path="/users-orders" component={UsersOrders} />
 				<Route path="/news-add" exact component={AddNews} />
 				<Route path="/products/:productId" render={
-					({ match }) => <ProductDetailsContainer productId={match.params.productId} />
+					({ match }) => <ProductDetails productId={match.params.productId} />
 				} />
 				<Route path="/news/:id" render={
-					({ match }) => <FullNewsItemContainer id={match.params.id} />
+					({ match }) => <FullnewsItem id={match.params.id} />
 				} />
 				<Route path="/news-edit/:id" render={
 					({ match }) => <EditNews id={match.params.id} />

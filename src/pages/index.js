@@ -8,6 +8,8 @@ import AddNews from './add-news'
 import EditNews from './edit-news'
 import Products from './products'
 import Authorization from './authorization'
+import FullnewsItem from './full-news-item'
+import ProductDetails from './product-details'
 
 export {
 	Cart,
@@ -19,5 +21,7 @@ export {
 	AddNews,
 	EditNews,
 	Products,
-	Authorization
+	Authorization,
+	FullnewsItem,
+	ProductDetails
 }
