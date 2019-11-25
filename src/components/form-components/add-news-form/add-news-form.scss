@@ -1,0 +1,16 @@
+.add-news {
+    &-block {
+        margin-top: 1.5rem;
+    }
+
+    &-btn {
+        // float: none !important;
+        label {
+            color: #fff
+        }
+    }
+}
+
+.news-descr {
+    height: 200px !important;
+}

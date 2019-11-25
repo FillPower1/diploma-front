@@ -42,7 +42,7 @@ export default {
 		return axios.patch(`/profile/${id}`, data).then(res => res.data)
 	},
 	getCountOrders(email) {
-		return axios.post(`/orders/count`, {email}).then(res => res.data)
+		return axios.post(`/orders/count`, { email }).then(res => res.data)
 	},
 	getUsersOrders() {
 		return axios.get('/orders/users').then(res => res.data)
@@ -52,5 +52,23 @@ export default {
 	},
 	deleteUserOrder(id) {
 		return axios.delete(`/orders/${id}`).then(res => res.data)
+	},
+	getNews() {
+		return axios.get('/news').then(res => res.data)
+	},
+	getSpecificNews(id) {
+		return axios.get(`/news/${id}`).then(res => res.data)
+	},
+	createNews(data) {
+		const formData = new FormData()
+		formData.append("image", data.file)
+		formData.append("title", data.title)
+		formData.append("description", data.description)
+
+		return axios.post('/news', formData).then(res => res.data)
+
+		// for (let [name, value] of formData) {
+		// 	console.log(`${name} = ${value}`) // key1=value1, потом key2=value2
+		// }
 	}
 }

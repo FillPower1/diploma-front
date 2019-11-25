@@ -1,0 +1,21 @@
+.post {
+    &-news {
+        padding: 1.5rem;
+
+        &__title {
+            font-size: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        &__descr {
+            margin-bottom: 1rem;
+        }
+
+        &__btn {
+            text-align: right;
+        }
+    }
+}

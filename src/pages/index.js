@@ -1,15 +1,17 @@
 import Cart from './cart'
 import CartOrder from './cart-order'
 import CompleteOrder from './complete-order'
-import MainPage from './main'
+import News from './news'
 import Profile from './profile'
 import UsersOrders from './users-orders'
+import AddNews from './add-news'
 
 export {
 	Cart,
 	CartOrder,
 	CompleteOrder,
-	MainPage,
+	News,
 	Profile,
-	UsersOrders
+	UsersOrders,
+	AddNews
 }

@@ -29,7 +29,7 @@ const UsersOrdersTable = props => {
 				</div>
 			</td>
 			<td>
-				<div className="order-status">{!completed ? 'Не отправлен' : 'Отправлен'}</div>
+				<div className="order-status">{!completed ? 'Не завершен' : 'Завершен'}</div>
 			</td>
 			<td className="orders-actions">
 				<div className="order-btn">
@@ -38,10 +38,10 @@ const UsersOrdersTable = props => {
 							completed={completed}
 							id={id}
 							icon="done"
-							label="Отправить заказ?"
+							label="Завершить заказ?"
 							onUpdateOrder={updateOrder}
 						/>
-						<span className="tooltiptext tooltiptext-top">Отправить</span>
+						<span className="tooltiptext tooltiptext-top">Завершить</span>
 					</div>
 				</div>
 				<div className="order-btn">
