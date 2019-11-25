@@ -9,7 +9,6 @@ import {
 	minLength5
 } from '../validators'
 
-
 const cartOrderForm = props => {
 	return (
 		<form onSubmit={props.handleSubmit}>
@@ -67,13 +66,13 @@ const cartOrderForm = props => {
 			<div className="row">
 				<div className="input-field col s12">
 					<Field
+						id="notes"
 						name="notes"
 						type="text"
 						component="textarea"
-						label="Комментарии к заказу"
-						placeholder="Комментарии к заказу"
 						className="materialize-textarea"
 					/>
+					<label htmlFor="notes">Комментарии к заказу</label>
 				</div>
 			</div>
 			{!props.currentUser.firstName && <div className="row">

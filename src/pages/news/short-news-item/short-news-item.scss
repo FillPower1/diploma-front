@@ -1,13 +1,13 @@
 .post {
     &-news {
-        padding: 1.5rem;
+        padding: 2.5rem;
 
         &__title {
             font-size: 20px;
             text-align: center;
             text-transform: uppercase;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         &__descr {
@@ -16,6 +16,9 @@
 
         &__btn {
             text-align: right;
+            button {
+                margin-left: .5rem;
+            }
         }
     }
 }

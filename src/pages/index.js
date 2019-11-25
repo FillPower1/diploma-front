@@ -5,6 +5,7 @@ import News from './news'
 import Profile from './profile'
 import UsersOrders from './users-orders'
 import AddNews from './add-news'
+import EditNews from './edit-news'
 
 export {
 	Cart,
@@ -13,5 +14,6 @@ export {
 	News,
 	Profile,
 	UsersOrders,
-	AddNews
+	AddNews,
+	EditNews
 }

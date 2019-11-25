@@ -16,7 +16,7 @@ const Filter = (props) => {
 					to="#"
 					name="all"
 					onClick={handleItemClick}
-					className="waves-effect pink lighten-2 btn-small">
+					className="waves-effect grey darken-1 btn-small">
                     Все
 				</Link>
 			</div>
@@ -25,7 +25,7 @@ const Filter = (props) => {
 					to="#"
 					name="expensive"
 					onClick={handleItemClick}
-					className="btn-small blue lighten-1">
+					className="waves-effect waves-light btn-small red lighten-1">
                     Сначала дорогие
 				</Link>
 			</div>

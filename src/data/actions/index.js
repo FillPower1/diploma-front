@@ -17,7 +17,7 @@ import {
 } from './cart'
 
 import { setUsersOrders, setCompleteOrder, deleteUserOrder } from './users-orders'
-import { setNewsList, setCurrentNews, addNewNews } from './news'
+import { setNewsList, setCurrentNews, addNewNews, deleteNews, setFalseChangedNews, editNews } from './news'
 
 export {
 	calcCart,
@@ -43,5 +43,8 @@ export {
 	deleteUserOrder,
 	setNewsList,
 	setCurrentNews,
-	addNewNews
+	addNewNews,
+	deleteNews,
+	setFalseChangedNews,
+	editNews
 }

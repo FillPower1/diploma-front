@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../data/actions'
 import Header from '../header'
 import Authorization from '../../pages/authorization'
-import { News, CartOrder, CompleteOrder, Profile, UsersOrders, AddNews } from '../../pages'
+import { News, CartOrder, CompleteOrder, Profile, UsersOrders, AddNews, EditNews } from '../../pages'
 import { ProductListContainer, ProductDetailsContainer, CartContainer, FullNewsItemContainer } from '../../containers'
 import 'react-toastify/dist/ReactToastify.css'
 import './app.scss'
@@ -34,6 +34,9 @@ class App extends Component {
 				} />
 				<Route path="/news/:id" render={
 					({ match }) => <FullNewsItemContainer id={match.params.id} />
+				} />
+				<Route path="/news-edit/:id" render={
+					({ match }) => <EditNews id={match.params.id} />
 				} />
 
 				<ToastContainer

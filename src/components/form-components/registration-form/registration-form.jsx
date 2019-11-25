@@ -1,44 +1,48 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import renderField from '../render-field'
+import RenderFieldWithAnim from '../render-field-with-anim'
 import { required, email, minLength6 } from '../validators'
 
 const Registration = props => (
 	<form onSubmit={props.handleSubmit}>
 		<div className="input-field">
 			<Field
+				id="firstName"
 				name="firstName"
 				type="text"
-				component={renderField}
+				component={RenderFieldWithAnim}
 				validate={[required]}
-				label="Имя:"
+				label="Имя"
 			/>
 		</div>
 		<div className="input-field">
 			<Field
+				id="lastName"
 				name="lastName"
 				type="text"
-				component={renderField}
+				component={RenderFieldWithAnim}
 				validate={[required]}
-				label="Фамилия:"
+				label="Фамилия"
 			/>
 		</div>
 		<div className="input-field">
 			<Field
+				id="email"
 				name="email"
 				type="email"
-				component={renderField}
+				component={RenderFieldWithAnim}
 				validate={[required, email]}
-				label="Email:"
+				label="Email"
 			/>
 		</div>
 		<div className="input-field">
 			<Field
+				id="password"
 				name="password"
 				type="password"
-				component={renderField}
+				component={RenderFieldWithAnim}
 				validate={[required, minLength6]}
-				label="Пароль:"
+				label="Пароль"
 			/>
 		</div>
 		<div className="card-action">

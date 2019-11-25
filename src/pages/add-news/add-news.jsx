@@ -8,20 +8,37 @@ const AddNews = props => {
 
 	const onAddNews = data => {
 		props.addNewNews(data)
-		return <Redirect to="/" /> 
 	}
+
+	if (props.ischangedNews) {
+		props.setFalseChangedNews(false)
+		return <Redirect to="/" />
+	}
+
+	const { currentUser: { role } } = props
 
 	return (
 		<div className="container">
 			<div className="row">
-				<AddNewsForm onSubmit={onAddNews} />
+				<AddNewsForm 
+					role={role} 
+					submitLabel="Создать"
+					title="Добавление новости"
+					onSubmit={onAddNews} 
+				/>
 			</div>
 		</div>
 	)
 }
 
+const mapStateToProps = state => ({
+	currentUser: state.auth.currentUser,
+	ischangedNews: state.news.ischangedNews
+})
+
 const mapDispatchToProps = {
-	addNewNews: actions.addNewNews
+	addNewNews: actions.addNewNews,
+	setFalseChangedNews: actions.setFalseChangedNews
 }
 
-export default connect(null, mapDispatchToProps)(AddNews)
+export default connect(mapStateToProps, mapDispatchToProps)(AddNews)

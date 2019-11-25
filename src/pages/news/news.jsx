@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../data/actions'
 import { withRouter, Link } from 'react-router-dom'
-import PostNewsItem from './short-news-item'
+import ShortNewsItem from './short-news-item'
 import Spinner from '../../components/common/spinner'
 import './news.scss'
 
@@ -12,13 +12,17 @@ class News extends Component {
 		this.props.setNewsList()
 	}
 
-	onFullNewsHandler = (id) => {
+	onFullNewsHandler = id => {
 		this.props.history.push(`/news/${id}`)
+	}
+
+	onEditNewsHandler = id => {
+		this.props.history.push(`/news-edit/${id}`)
 	}
 
 	render() {
 
-		const { newsList, isFetching, currentUser: { role } } = this.props
+		const { newsList, isFetching, deleteNews, currentUser: { role } } = this.props
 
 		if (isFetching) {
 			return <Spinner />
@@ -30,9 +34,12 @@ class News extends Component {
 					<div className="news">
 						<h1 className="news__title">Новости StoreApp</h1>
 						{newsList.map(news => (
-							<PostNewsItem
+							<ShortNewsItem
+								role={role}
 								{...news}
 								key={news.id}
+								onEditNews={this.onEditNewsHandler}
+								onDeleteNews={deleteNews}
 								onFullNewsHandler={this.onFullNewsHandler}
 							/>
 						))}
@@ -58,7 +65,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-	setNewsList: actions.setNewsList
+	setNewsList: actions.setNewsList,
+	deleteNews: actions.deleteNews,
+	editNews: actions.editNews
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(News))

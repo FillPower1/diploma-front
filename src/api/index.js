@@ -70,5 +70,16 @@ export default {
 		// for (let [name, value] of formData) {
 		// 	console.log(`${name} = ${value}`) // key1=value1, потом key2=value2
 		// }
+	},
+	deleteNews(id) {
+		return axios.delete(`/news/${id}`).then(res => res.data)
+	},
+	editNews(id, data) {
+		const formData = new FormData()
+		formData.append("image", data.file)
+		formData.append("title", data.title)
+		formData.append("description", data.description)
+
+		return axios.patch(`/news/${id}`, formData).then(res => res.data)
 	}
 }

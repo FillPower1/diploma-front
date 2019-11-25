@@ -3,7 +3,7 @@ import './short-news-item.scss'
 
 const ShortNewsItem = props => {
 
-	const { title, description, id } = props
+	const { title, description, id, role, onDeleteNews, onEditNews } = props
 
 	return (
 		<div className="row">
@@ -17,6 +17,20 @@ const ShortNewsItem = props => {
 							{description.slice(0, 200) + '...'}
 						</div>
 						<div className="post-news__btn">
+							{role === 'admin' &&
+								<>
+									<button
+										onClick={() => onDeleteNews(id)}
+										className="waves-effect waves-light btn-small red lighten-1">
+										Удалить
+									</button>
+									<button
+										onClick={() => onEditNews(id)}
+										className="waves-effect waves-light btn-small orange lighten-1">
+										Изменить
+									</button>
+								</>
+							}
 							<button onClick={() => props.onFullNewsHandler(id)} className="btn-small">
 								Перейти
 							</button>
