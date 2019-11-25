@@ -2,7 +2,8 @@ import api from '../../api'
 import { toast } from "react-toastify"
 import {
 	LOGIN_USER, AUTH_STATUS, LOGOUT_USER,
-	UPDATE_CURRENT_USER, SET_COUNT_ORDERS
+	UPDATE_CURRENT_USER, SET_COUNT_ORDERS,
+	SET_EMPTY_ORDERS
 } from '../action-types'
 import { setEmptyUserInfo } from '../actions/user'
 
@@ -68,7 +69,7 @@ export const getProfileFetch = () => {
 }
 
 const setEmptyOrders = () => ({
-	type: 'SET_EMPTY_ORDERS'
+	type: SET_EMPTY_ORDERS
 })
 
 export const logoutUser = () => {

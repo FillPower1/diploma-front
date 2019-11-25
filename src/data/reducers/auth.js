@@ -1,7 +1,7 @@
 import {
 	LOGIN_USER, AUTH_STATUS,
 	LOGOUT_USER, UPDATE_CURRENT_USER,
-	SET_COUNT_ORDERS
+	SET_COUNT_ORDERS, SET_EMPTY_ORDERS
 } from '../action-types'
 
 const initialState = {
@@ -22,7 +22,7 @@ const reducer = (state = initialState, action) => {
 		return { ...state, currentUser: action.payload }
 	case SET_COUNT_ORDERS:
 		return { ...state, countOrders: action.payload }
-	case 'SET_EMPTY_ORDERS':
+	case SET_EMPTY_ORDERS:
 		return { ...state, countOrders: 0 }
 	default:
 		return state

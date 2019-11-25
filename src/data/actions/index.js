@@ -18,11 +18,16 @@ import {
 
 import {
 	setUsersOrders,
-	setCompleteOrder, deleteUserOrder
+	setCompleteOrder,
+	deleteUserOrder
 } from './users-orders'
 import {
-	setNewsList, setCurrentNews, addNewNews,
-	deleteNews, setFalseChangedNews, editNews
+	setNewsList,
+	setCurrentNews,
+	addNewNews,
+	deleteNews,
+	setFalseChangedNews,
+	editNews
 } from './news'
 
 export {
