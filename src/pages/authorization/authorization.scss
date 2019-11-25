@@ -5,7 +5,11 @@
     padding-top: 50px;
 
     .card {
-        width: 400px
+        width: 400px;
+
+        &-title {
+            margin-bottom: 2rem !important;
+        }
     }
 
     .tab-list {

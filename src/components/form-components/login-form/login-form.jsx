@@ -2,6 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import RenderFieldWithAnim from '../render-field-with-anim'
 import { required, email } from '../validators'
+import './login-form.scss'
 
 const LoginForm = props => (
 	<form onSubmit={props.handleSubmit}>
