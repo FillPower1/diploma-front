@@ -23,9 +23,8 @@ const Header = (props) => {
 			<nav className="grey darken-2">
 				<div className="container">
 					<div className="nav-wrapper">
-						<Link to="/" className="brand-logo">StoreApp</Link>
+						<Link to="/" className="brand-logo">GoodStore</Link>
 						<ul className="right">
-							{/* <li><Search field={searchField} onSearh={setSearhField} /></li> */}
 							{currentUser.role === 'admin' &&
 								<li>
 									<Link to="/users-orders" className="yellow-text">Заказы</Link>

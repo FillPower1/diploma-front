@@ -13,8 +13,8 @@ const ShortNewsItem = props => {
 						<div className="post-news__title">
 							{title}
 						</div>
-						<div className="post-news__descr">
-							{description.slice(0, 200) + '...'}
+						<div className="post-news__descr" 
+							dangerouslySetInnerHTML={{ __html: description.slice(0, 200) + '...'}}>
 						</div>
 						<div className="post-news__btn">
 							{role === 'admin' &&

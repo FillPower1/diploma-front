@@ -38,7 +38,7 @@ const Filter = (props) => {
 					Сначала дешевые
 				</Link>
 			</div>
-			<div className="col offset-s5">
+			<div className="col offset-s4">
 				<Search
 					field={props.searchFieldValue}
 					onSearh={props.setSearchField}

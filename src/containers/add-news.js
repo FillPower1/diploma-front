@@ -21,7 +21,7 @@ const AddNews = props => {
 		<AddNewsForm
 			role={role}
 			submitLabel="Создать"
-			title="Добавление новости"
+			title="Добавление поста"
 			onSubmit={onAddNews}
 		/>
 	)

@@ -1,7 +1,13 @@
 .post {
     &-news {
         padding: 2.5rem;
-
+        &__item {
+            h5 {
+                font-size: 15px;
+                color: #000 !important;
+                line-height: 24px;
+            }
+        }
         &__title {
             font-size: 20px;
             text-align: center;

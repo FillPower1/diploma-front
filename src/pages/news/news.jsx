@@ -7,7 +7,7 @@ const News = props => {
 		<div className="container">
 			<div className="row">
 				<div className="news">
-					<h1 className="news__title">Новости StoreApp</h1>
+					<h1 className="news__title">Блог GoodStore</h1>
 					<NewsContainer />
 				</div>
 			</div>

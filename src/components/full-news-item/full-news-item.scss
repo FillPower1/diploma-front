@@ -1,24 +1,29 @@
 .full-post-news {
-    margin-top: 1.5rem;
     padding: 1.5rem;
 
+    &-block {
+        background-color: #f2f2f2;
+        padding-top: 1.5rem;
+    }
+
+    &__date {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+
     &__img {
-        // height: 450px;
         margin: 0 auto;
         margin-bottom: 1rem;
-        background-position: center center;
-        background-size: cover;
+        text-align: center;
         img {
             max-width: 100%;
-            display: block;
-            margin: 0 auto;
-            // height: 100%;
+            height: auto;
         }
     }
 
     &__title {
-        // padding: 1rem;
-        font-size: 20px;
+        font-size: 2rem;
         text-align: center;
         text-transform: uppercase;
         font-weight: 700;
@@ -26,6 +31,17 @@
     }
 
     &__descr {
-        // padding: 1rem;
+        padding: 1rem;
+        font-size: 1.2rem;
     }
+
+}
+.mb-1 {
+    margin-bottom: 1rem;
+}
+.mb-2 {
+    margin-bottom: 2rem;
+}
+.fw-700 {
+    font-weight: 700;
 }

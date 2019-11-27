@@ -31,7 +31,7 @@ class EditNews extends Component {
 		return (
 			<AddNewsForm
 				role={role}
-				title="Изменение новости"
+				title="Изменение поста"
 				submitLabel="Изменить"
 				currentNews={currentNews}
 				onSubmit={this.onEditedSubmitNews}

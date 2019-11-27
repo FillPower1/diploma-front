@@ -28,7 +28,7 @@ class News extends Component {
 		}
 
 		if (!newsList.length) {
-			return <h5 className="center-align">Новостей нет</h5>
+			return <h5 className="center-align">Постов нет</h5>
 		}
 
 		return (
@@ -47,7 +47,7 @@ class News extends Component {
 				{role === 'admin' &&
 					<div className="news__add-btn">
 						<Link to="/news-add">
-							<button className="btn-small">Добавить новость</button>
+							<button className="btn-small">Добавить пост</button>
 						</Link>
 					</div>
 				}
