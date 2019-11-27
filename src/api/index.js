@@ -2,10 +2,10 @@ import axios from 'axios'
 
 export default {
 	getData() {
-		return axios.get('/products').then(res => res.data)
+		return axios.get('/items').then(res => res.data)
 	},
 	getSpecificProduct(id) {
-		return axios.get(`/products/${id}`).then(res => res.data)
+		return axios.get(`/items/${id}`).then(res => res.data)
 	},
 	setOrder(userData, items) {
 		const formData = {
@@ -36,10 +36,10 @@ export default {
 		return axios.post('/auth/login', data).then(res => res)
 	},
 	getProfile(token) {
-		return axios.get('/profile', { headers: { 'Authorization': token } }).then(res => res)
+		return axios.get('/user-profile', { headers: { 'Authorization': token } }).then(res => res)
 	},
 	updateProfile(id, data) {
-		return axios.patch(`/profile/${id}`, data).then(res => res.data)
+		return axios.patch(`/user-profile/${id}`, data).then(res => res.data)
 	},
 	getCountOrders(email) {
 		return axios.post(`/orders/count`, { email }).then(res => res.data)

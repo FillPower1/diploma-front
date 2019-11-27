@@ -24,7 +24,7 @@ const FullNewsItem = ({ currentNews }) => {
 						{title}
 					</div>
 					<div className="full-post-news__date">
-						<span>Дата создания:</span> {dateCreated}
+						<span>{dateCreated}</span>
 					</div>
 					<div className="row">
 						<div className="col s10 offset-s1">
