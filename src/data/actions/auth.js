@@ -7,7 +7,7 @@ import {
 } from '../action-types'
 import { setEmptyUserInfo } from '../actions/user'
 
-const setUserStatusAuth = status => ({
+export const setUserStatusAuth = status => ({
 	type: AUTH_STATUS,
 	payload: status
 })

@@ -7,7 +7,8 @@ import {
 	getProfileFetch,
 	logoutUser,
 	updateProfile,
-	countOrder
+	countOrder,
+	setUserStatusAuth
 } from './auth'
 import {
 	addItemToCart, calcCart,
@@ -57,5 +58,6 @@ export {
 	addNewNews,
 	deleteNews,
 	setFalseChangedNews,
-	editNews
+	editNews,
+	setUserStatusAuth
 }
