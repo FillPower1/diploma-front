@@ -4,7 +4,7 @@ import {
 	SET_COUNT_ORDERS, SET_EMPTY_ORDERS
 } from '../action-types'
 
-const initialState = {
+export const initialState = {
 	currentUser: {},
 	registered: false,
 	countOrders: 0

@@ -1,6 +1,6 @@
 import { SET_USERS_ORDERS_REQUEST, SET_USERS_ORDERS_SUCCESS } from '../action-types'
 
-const initialState = {
+export const initialState = {
 	orders: [],
 	isFetching: true
 }

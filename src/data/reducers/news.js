@@ -3,7 +3,7 @@ import {
 	SET_CHANGE_NEWS, DELETE_CURRENT_NEWS
 } from '../action-types'
 
-const initialState = {
+export const initialState = {
 	newsList: [],
 	currentNews: {},
 	ischangedNews: false,

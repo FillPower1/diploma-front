@@ -6,7 +6,7 @@ import {
 	SET_EMPTY_CART
 } from '../action-types'
 
-const initialState = {
+export const initialState = {
 	items: [],
 	totalPrice: 0,
 	totalCountItems: 0,

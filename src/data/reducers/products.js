@@ -5,7 +5,7 @@ import {
 	FETCH_PRODUCT_SUCCESS
 } from '../action-types'
 
-const initialState = {
+export const initialState = {
 	products: [],
 	specificProduct: null,
 	isFetching: true,

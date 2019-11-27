@@ -3,7 +3,7 @@ import {
 	SET_SEARCH_FIELD
 } from '../action-types'
 
-const initialState = {
+export const initialState = {
 	searchField: '',
 	filterBy: 'all'
 }

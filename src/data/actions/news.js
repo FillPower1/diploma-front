@@ -84,7 +84,7 @@ export const deleteNews = id => {
 	return dispatch => {
 		api.deleteNews(id)
 			.then(res => {
-				console.log(res)
+				// console.log(res)
 				dispatch(setNewsList())
 			})
 			.catch(err => {
@@ -98,7 +98,7 @@ export const editNews = (id, data) => {
 	return dispatch => {
 		api.editNews(id, data)
 			.then(res => {
-				console.log(res)
+				// console.log(res)
 				dispatch(setTrueChangedNews())
 			})
 			.catch(err => {

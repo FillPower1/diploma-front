@@ -1,6 +1,6 @@
 import { SET_EMPTY_USER_INFO, FETCH_USER_SUCCESS } from '../action-types'
 
-const initialState = {
+export const initialState = {
 	userInfo: {},
 	isFetching: true
 }
