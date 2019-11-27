@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Search from '../search'
 import './filter.scss'
 
 const Filter = (props) => {
 	const { setFilter } = props
-
 	const handleItemClick = (e) => {
 		setFilter(e.target.name)
 	}
@@ -17,7 +17,7 @@ const Filter = (props) => {
 					name="all"
 					onClick={handleItemClick}
 					className="waves-effect grey darken-1 btn-small">
-                    Все
+					Все
 				</Link>
 			</div>
 			<div className="col">
@@ -26,7 +26,7 @@ const Filter = (props) => {
 					name="expensive"
 					onClick={handleItemClick}
 					className="waves-effect waves-light btn-small red lighten-1">
-                    Сначала дорогие
+					Сначала дорогие
 				</Link>
 			</div>
 			<div className="col">
@@ -35,8 +35,14 @@ const Filter = (props) => {
 					name="cheap"
 					onClick={handleItemClick}
 					className="waves-effect waves-light btn-small">
-                    Сначала дешевые
+					Сначала дешевые
 				</Link>
+			</div>
+			<div className="col offset-s5">
+				<Search
+					field={props.searchFieldValue}
+					onSearh={props.setSearchField}
+				/>
 			</div>
 		</div>
 	)

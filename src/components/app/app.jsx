@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import { connect } from 'react-redux'
 import * as actions from '../../data/actions'
@@ -42,7 +42,7 @@ class App extends Component {
 				<Route path="/news-edit/:id" render={
 					({ match }) => <EditNews id={match.params.id} />
 				} />
-				<Route path="*" render={() => <Redirect to="/" />} />
+				{/* <Route path="*" render={() => <Redirect to="/" />} /> */}
 
 				<ToastContainer
 					position="bottom-right"

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../data/actions'
-import Spinner from '../components/common/spinner'
 import FullNewsItem from '../components/full-news-item'
 
 class FullNewsItemContainer extends Component {
@@ -10,21 +9,20 @@ class FullNewsItemContainer extends Component {
 		this.props.setCurrentNews(this.props.id)
 	}
 
+	state = {
+		isLoadedImage: false
+	}
+
 	render() {
 
-		const { isFetching, currentNews } = this.props
-
-		if (isFetching) {
-			return <Spinner />
-		}
+		const { currentNews } = this.props
 
 		return <FullNewsItem currentNews={currentNews} />
 	}
 }
 
 const mapStateToProps = state => ({
-	currentNews: state.news.currentNews,
-	isFetching: state.news.isFetching
+	currentNews: state.news.currentNews
 })
 
 const mapDispatchToProps = {

@@ -3,13 +3,12 @@ import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import * as actions from '../../data/actions'
 import CartModal from '../cart-modal'
-import Search from '../search'
 import Popup from "reactjs-popup"
 
 import './header.scss'
 
 const Header = (props) => {
-	const { totalCountItems, searchField, setSearhField, currentUser } = props
+	const { totalCountItems, currentUser } = props
 
 	const logoutUserHandler = () => {
 		// удаление token из localStorage
@@ -26,7 +25,7 @@ const Header = (props) => {
 					<div className="nav-wrapper">
 						<Link to="/" className="brand-logo">StoreApp</Link>
 						<ul className="right">
-							<li><Search field={searchField} onSearh={setSearhField} /></li>
+							{/* <li><Search field={searchField} onSearh={setSearhField} /></li> */}
 							{currentUser.role === 'admin' &&
 								<li>
 									<Link to="/users-orders" className="yellow-text">Заказы</Link>

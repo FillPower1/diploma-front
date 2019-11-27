@@ -73,7 +73,8 @@ const mapDispatchToProps = {
 	getData: actions.getData,
 	setFilter: actions.setFilter,
 	addItemToCart: actions.addItemToCart,
-	toggleFetching: actions.toggleFetching
+	toggleFetching: actions.toggleFetching,
+	setSearhField: actions.setSearhField,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProductsContainer))

@@ -5,7 +5,7 @@ const UsersOrdersItems = props => {
 	return (
 		<div className="order">
 			<div className="order__title">{title}</div>
-			<div className="blue-text">Количество: {count}</div>
+			<div className="order__count">Количество: {count}</div>
 		</div>
 	)
 }
