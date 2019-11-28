@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart Item Full News Item render renders properly 1`] = `ShallowWrapper {}`;

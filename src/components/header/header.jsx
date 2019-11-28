@@ -15,7 +15,7 @@ const Header = (props) => {
 		localStorage.removeItem("token")
 		// удаление из Redux хранилища
 		props.logoutUser()
-		props.history.push('/auth') // тут почему-то Redirect не работает, поэтому я использовал history
+		props.history.push('/auth')
 	}
 
 	return (

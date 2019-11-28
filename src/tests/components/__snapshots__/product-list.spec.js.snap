@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductList ProductList render renders properly 1`] = `ShallowWrapper {}`;
