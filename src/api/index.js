@@ -45,13 +45,19 @@ export default {
 		return axios.post(`/orders/count`, { email }).then(res => res.data)
 	},
 	getUsersOrders() {
-		return axios.get('/orders/users').then(res => res.data)
+		return axios.post('/orders/users', '',
+			{ headers: { 'Authorization': localStorage.getItem('token') } })
+			.then(res => res.data)
 	},
 	updateUserOrder(id) {
-		return axios.patch(`/orders/${id}`).then(res => res.data)
+		return axios.patch(`/orders/${id}`, '',
+			{ headers: { 'Authorization': localStorage.getItem('token') } })
+			.then(res => res.data)
 	},
 	deleteUserOrder(id) {
-		return axios.delete(`/orders/${id}`).then(res => res.data)
+		return axios.post(`/orders/${id}`, '',
+			{ headers: { 'Authorization': localStorage.getItem('token') } })
+			.then(res => res.data)
 	},
 	getNews() {
 		return axios.get('/news').then(res => res.data)
@@ -65,10 +71,15 @@ export default {
 		formData.append("title", data.title)
 		formData.append("description", data.description)
 
-		return axios.post('/news', formData).then(res => res.data)
+		return axios.post('/news',
+			formData, { headers: { 'Authorization': localStorage.getItem('token') } })
+			.then(res => res.data)
+
 	},
 	deleteNews(id) {
-		return axios.delete(`/news/${id}`).then(res => res.data)
+		return axios.post(`/news/${id}`, '',
+			{ headers: { 'Authorization': localStorage.getItem('token') } })
+			.then(res => res.data)
 	},
 	editNews(id, data) {
 		const formData = new FormData()
@@ -76,6 +87,8 @@ export default {
 		formData.append("title", data.title)
 		formData.append("description", data.description)
 
-		return axios.patch(`/news/${id}`, formData).then(res => res.data)
+		return axios.patch(`/news/${id}`,
+			formData, { headers: { 'Authorization': localStorage.getItem('token') } })
+			.then(res => res.data)
 	}
 }
