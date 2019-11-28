@@ -36,7 +36,7 @@ export default {
 		return axios.post('/auth/login', data).then(res => res)
 	},
 	getProfile(token) {
-		return axios.get('/user-profile', { headers: { 'Authorization': token } }).then(res => res)
+		return axios.get('/user-profile', { headers: { 'Authorization': 'Bearer ' + token } }).then(res => res)
 	},
 	updateProfile(id, data) {
 		return axios.patch(`/user-profile/${id}`, data).then(res => res.data)
