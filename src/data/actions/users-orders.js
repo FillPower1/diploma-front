@@ -1,7 +1,7 @@
 import api from '../../api'
 import { SET_USERS_ORDERS_SUCCESS, SET_USERS_ORDERS_REQUEST } from '../action-types'
 
-const setOrders = data => ({
+export const setOrders = data => ({
 	type: SET_USERS_ORDERS_SUCCESS,
 	payload: data
 })

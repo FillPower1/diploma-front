@@ -20,7 +20,8 @@ import {
 import {
 	setUsersOrders,
 	setCompleteOrder,
-	deleteUserOrder
+	deleteUserOrder,
+	setOrders
 } from './users-orders'
 import {
 	setNewsList,
@@ -59,5 +60,6 @@ export {
 	deleteNews,
 	setFalseChangedNews,
 	editNews,
-	setUserStatusAuth
+	setUserStatusAuth,
+	setOrders
 }

@@ -61,7 +61,7 @@ export const getUserProfile = () => {
 					dispatch(loginUser(res.data))
 				})
 				.catch(err => {
-					// console.log({err})
+					console.log({err})
 					localStorage.removeItem("token")
 				})
 		}
