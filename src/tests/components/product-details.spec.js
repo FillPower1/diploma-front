@@ -40,13 +40,5 @@ describe('ProductDetails', () => {
 		it('render ProductPrice > Characteristics', () => {
 			expect(productDetails.find('Characteristics')).toHaveLength(1)
 		})
-
-		// it('render Header popup cart count', () => {
-		// 	expect(header.find('.badge').text()).toEqual(nextProps.totalCountItems)
-		// })
-
-		// it('render Cart Item title', () => {
-		// 	expect(header.find('tr td').first().text()).toEqual('title')
-		// })
 	})
 })

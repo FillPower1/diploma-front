@@ -5,7 +5,7 @@ import Search from '../../components/search'
 describe('Search', () => {
 	const props = {}
 
-	describe('Cart Item render', () => {
+	describe('Search render', () => {
 
 		const nextProps = {
 			...props,
@@ -17,7 +17,7 @@ describe('Search', () => {
 			expect(cartItem).toMatchSnapshot()
 		})
 
-		it('render ProductPrice', () => {
+		it('render search input', () => {
 			expect(cartItem.find('.input').matchesElement(<input />)).toEqual(true)
 		})
 	})
