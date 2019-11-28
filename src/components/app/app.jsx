@@ -17,7 +17,7 @@ import './app.scss'
 class App extends Component {
 
 	componentDidMount() {
-		this.props.getProfileFetch()
+		this.props.getUserProfile()
 	}
 
 	render() {
@@ -61,7 +61,7 @@ class App extends Component {
 }
 
 const mapDispatchToProps = {
-	getProfileFetch: actions.getProfileFetch
+	getUserProfile: actions.getUserProfile
 }
 
 export default connect(null, mapDispatchToProps)(App)

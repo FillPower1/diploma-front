@@ -4,7 +4,7 @@ import { setUserInfo, setEmptyUserInfo } from './user'
 import {
 	userRegisterFetch,
 	userLoginFetch,
-	getProfileFetch,
+	getUserProfile,
 	logoutUser,
 	updateProfile,
 	countOrder,
@@ -46,7 +46,7 @@ export {
 	setEmptyUserInfo,
 	userRegisterFetch,
 	userLoginFetch,
-	getProfileFetch,
+	getUserProfile,
 	logoutUser,
 	updateProfile,
 	countOrder,

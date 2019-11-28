@@ -16,7 +16,7 @@ export const userRegisterFetch = user => {
 	return dispatch => {
 		api.registration(user)
 			.then(() => {
-				console.log('success')
+				// console.log('success')
 				toast.success("Вы успешно зарегистрировались")
 				dispatch(setUserStatusAuth({ registered: true }))
 			})
@@ -38,7 +38,7 @@ export const userLoginFetch = data => {
 		api.login(data)
 			.then(res => {
 				setEmptyUserInfo() // очищаю юзера, если он зарегистрировался покупая товар
-				console.log('все ок', res)
+				// console.log('все ок', res)
 				localStorage.setItem("token", res.data.token)
 				toast.success("Вы вошли успешно")
 				dispatch(loginUser(res.data.user))
@@ -51,7 +51,7 @@ export const userLoginFetch = data => {
 	}
 }
 
-export const getProfileFetch = () => {
+export const getUserProfile = () => {
 	return dispatch => {
 		const token = localStorage.token
 		if (token) {
@@ -86,7 +86,7 @@ export const updateProfile = (id, data) => {
 	return dispatch => {
 		api.updateProfile(id, data)
 			.then(res => {
-				console.log(res)
+				// console.log(res)
 
 				dispatch({
 					type: UPDATE_CURRENT_USER,
@@ -101,7 +101,7 @@ export const countOrder = email => {
 	return dispatch => {
 		api.getCountOrders(email)
 			.then(res => {
-				console.log(res)
+				// console.log(res)
 				dispatch({
 					type: SET_COUNT_ORDERS,
 					payload: res
