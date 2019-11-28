@@ -31,6 +31,14 @@ describe('Cart Item', () => {
 		it('render Cart Item', () => {
 			expect(cartItem.find('tr')).toHaveLength(1)
 		})
+		
+		it('render Cart Item btn onDecrease', () => {
+			expect(cartItem.find('.btn').first().simulate('click')).toHaveLength(1)
+		})
+
+		it('render Cart Item btn onIncrease', () => {
+			expect(cartItem.find('.btn').first().first().simulate('click')).toHaveLength(1)
+		})
 
 		it('render Cart Item title', () => {
 			expect(cartItem.find('tr td').first().text()).toEqual('title')
