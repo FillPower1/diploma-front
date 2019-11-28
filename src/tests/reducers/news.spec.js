@@ -3,7 +3,6 @@ import {
 	SET_NEWS, SET_CURRENT_NEWS, SET_NEWS_REQUEST,
 	SET_CHANGE_NEWS, DELETE_CURRENT_NEWS
 } from '../../data/action-types'
-import { bindActionCreators } from '../../../../../../AppData/Local/Microsoft/TypeScript/3.6/node_modules/redux'
 
 describe('news/posts reducer', () => {
 	it('SET_NEWS_REQUEST', () => {
