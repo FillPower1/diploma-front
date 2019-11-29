@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import UsersOrdersItems from '../../components/users-orders-item'
+import UsersOrdersItems from './users-orders-item'
 
 describe('Users Orders Items', () => {
 	const props = {}

@@ -1,0 +1,20 @@
+.btn-small i {
+    font-size: 0.9rem !important;
+}
+
+.cart {
+    margin-top: 1.5rem;
+    &-counter {
+        padding: 0 10px;
+        font-size: 1.2rem;
+    }
+
+    &-price {
+        font-size: 1.2rem;
+    }
+    &-info {
+        h5 {
+            margin-bottom: 1.2rem;
+        }
+    }
+}

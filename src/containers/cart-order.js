@@ -14,8 +14,8 @@ const CartOrder = props => {
 
 		api.setOrder(data, items).then(res => setUserInfo(res))
 
-		setEmptyCart() // обнуляю корзину
-		props.history.push('/cart/order-complete') // переход на страницу завершения заказа
+		setEmptyCart()
+		props.history.push('/cart/order-complete')
 	}
 
 	return !items.length ? <Redirect to="/" /> : <CartOrderForm onSubmit={submitHandler} />

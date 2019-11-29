@@ -50,7 +50,6 @@ export const addNewNews = data => {
 	return dispatch => {
 		api.createNews(data)
 			.then(res => {
-				console.log(res)
 				dispatch(setTrueChangedNews())
 				toast.success("Вы успешно добавили новость")
 			})
@@ -84,7 +83,6 @@ export const deleteNews = id => {
 	return dispatch => {
 		api.deleteNews(id)
 			.then(res => {
-				// console.log(res)
 				dispatch(setNewsList())
 			})
 			.catch(err => {
@@ -98,7 +96,6 @@ export const editNews = (id, data) => {
 	return dispatch => {
 		api.editNews(id, data)
 			.then(res => {
-				// console.log(res)
 				dispatch(setTrueChangedNews())
 			})
 			.catch(err => {

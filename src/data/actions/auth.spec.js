@@ -2,13 +2,13 @@
 // import thunk from 'redux-thunk'
 // import fetchMock from 'fetch-mock'
 // import expect from 'expect'
-import * as actions from '../../data/actions'
+import * as actions from '.'
 
 import {
 	LOGIN_USER, AUTH_STATUS, LOGOUT_USER,
 	UPDATE_CURRENT_USER, SET_COUNT_ORDERS,
 	SET_EMPTY_ORDERS
-} from '../../data/action-types'
+} from '../action-types'
 
 // const middlewares = [thunk]
 // const mockStore = configureMockStore(middlewares)

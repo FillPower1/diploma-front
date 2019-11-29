@@ -1,9 +1,9 @@
-import reducer, { initialState } from '../../data/reducers/cart'
+import reducer, { initialState } from './cart'
 import {
 	REMOVE_ALL_FROM_CART,
 	CALC_CART,
 	SET_EMPTY_CART
-} from '../../data/action-types'
+} from '../action-types'
 
 describe('cart reducer', () => {
 	it('REMOVE_ALL_FROM_CART', () => {

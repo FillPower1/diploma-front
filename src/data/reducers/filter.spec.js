@@ -1,8 +1,8 @@
-import reducer, { initialState } from '../../data/reducers/filter'
+import reducer, { initialState } from './filter'
 import {
 	SET_FILTER,
 	SET_SEARCH_FIELD
-} from '../../data/action-types'
+} from '../action-types'
 
 describe('filter reducer', () => {
 	it('SET_FILTER', () => {

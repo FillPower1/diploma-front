@@ -1,10 +1,10 @@
-import reducer, { initialState } from '../../data/reducers/products'
+import reducer, { initialState } from './products'
 import {
 	FETCH_DATA_REQUEST,
 	FETCH_DATA_SUCCESS,
 	FETCH_DATA_FAIL,
 	FETCH_PRODUCT_SUCCESS
-} from '../../data/action-types'
+} from '../action-types'
 
 describe('filter reducer', () => {
 	it('FETCH_DATA_REQUEST', () => {

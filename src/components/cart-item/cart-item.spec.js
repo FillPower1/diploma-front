@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import CartItem from '../../components/cart-item'
+import CartItem from './cart-item'
 
 describe('Cart Item', () => {
 	const props = {

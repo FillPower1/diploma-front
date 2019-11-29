@@ -1,9 +1,9 @@
-import reducer, { initialState } from '../../data/reducers/auth'
+import reducer, { initialState } from './auth'
 import {
 	LOGIN_USER, AUTH_STATUS,
 	LOGOUT_USER, UPDATE_CURRENT_USER,
 	SET_COUNT_ORDERS, SET_EMPTY_ORDERS
-} from '../../data/action-types'
+} from '../action-types'
 
 describe('authorization reducer', () => {
 	it('LOGIN_USER', () => {

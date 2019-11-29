@@ -1,5 +1,5 @@
-import * as actions from '../../data/actions'
-import { SET_EMPTY_USER_INFO } from '../../data/action-types'
+import * as actions from '.'
+import { SET_EMPTY_USER_INFO } from '../action-types'
 
 describe('user actions', () => {
 	it('setEmptyUserInfo', () => {

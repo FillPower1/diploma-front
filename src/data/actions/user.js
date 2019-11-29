@@ -3,7 +3,6 @@ import {
 } from '../action-types'
 
 export const setUserInfo = data => {
-	console.log(data)
 	return dispatch => {
 		dispatch({
 			type: FETCH_USER_SUCCESS,

@@ -1,8 +1,8 @@
-import reducer, { initialState } from '../../data/reducers/news'
+import reducer, { initialState } from './news'
 import {
 	SET_NEWS, SET_CURRENT_NEWS, SET_NEWS_REQUEST,
 	SET_CHANGE_NEWS, DELETE_CURRENT_NEWS
-} from '../../data/action-types'
+} from '../action-types'
 
 describe('news/posts reducer', () => {
 	it('SET_NEWS_REQUEST', () => {

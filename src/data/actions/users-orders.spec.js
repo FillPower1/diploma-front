@@ -1,5 +1,5 @@
-import { SET_USERS_ORDERS_SUCCESS } from '../../data/action-types'
-import * as actions from '../../data/actions'
+import { SET_USERS_ORDERS_SUCCESS } from '../action-types'
+import * as actions from '.'
 
 
 describe('users-orders actions', () => {

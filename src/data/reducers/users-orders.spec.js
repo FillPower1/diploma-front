@@ -1,5 +1,5 @@
-import reducer, { initialState } from '../../data/reducers/users-orders'
-import { SET_USERS_ORDERS_REQUEST, SET_USERS_ORDERS_SUCCESS } from '../../data/action-types'
+import reducer, { initialState } from './users-orders'
+import { SET_USERS_ORDERS_REQUEST, SET_USERS_ORDERS_SUCCESS } from '../action-types'
 
 describe('users-orders reducer', () => {
 	it('SET_USERS_ORDERS_REQUEST', () => {

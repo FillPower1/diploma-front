@@ -53,11 +53,11 @@ const updateCartItem = (startingProducts, item, action, quantity) => {
 const updateOrder = (state, action, quantity) => {
 	const itemId = action.payload.id
 	state.startingProductsPrices.add(action.payload)
-	const startingProducts = [...state.startingProductsPrices].find(item => item.id === itemId)
+	const startingProduct = [...state.startingProductsPrices].find(item => item.id === itemId)
 	const itemIndx = state.items.findIndex(item => item.id === itemId)
 	const item = state.items[itemIndx]
 
-	const newItem = updateCartItem(startingProducts, item, action, quantity)
+	const newItem = updateCartItem(startingProduct, item, action, quantity)
 
 	return {
 		...state,

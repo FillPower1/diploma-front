@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import ProductList from '../../components/product-list'
+import ProductList from './product-list'
 
 describe('ProductList', () => {
 	const props = {
