@@ -41,6 +41,7 @@ export const userLoginFetch = data => {
 				toast.success("Вы вошли успешно")
 				dispatch(loginUser(res.data.user))
 				dispatch(setUserStatusAuth(false)) // убираю статус логина (true/false), если юзер зарегистрировался в данный момент
+				window.location.reload(true)
 			})
 			.catch(err => {
 				console.log(err)

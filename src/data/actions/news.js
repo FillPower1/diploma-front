@@ -22,9 +22,12 @@ export const setNewsList = () => {
 	}
 }
 
-const deleteCurrentNews = ({
-	type: DELETE_CURRENT_NEWS
-})
+const deleteCurrentNews = () => {
+	return {
+		type: DELETE_CURRENT_NEWS
+	}
+}
+
 
 export const setCurrentNews = id => {
 	return dispatch => {

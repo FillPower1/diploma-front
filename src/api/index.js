@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+const token = localStorage.getItem('token')
+
 export default {
 	getData() {
 		return axios.get('/items').then(res => res.data)
@@ -36,7 +38,9 @@ export default {
 		return axios.post('/auth/login', data).then(res => res)
 	},
 	getProfile(token) {
-		return axios.get('/user-profile', { headers: { 'Authorization': 'Bearer ' + token } }).then(res => res)
+		return axios.get('/user-profile',
+			{ headers: { 'Authorization': 'Bearer ' + token } })
+			.then(res => res)
 	},
 	updateProfile(id, data) {
 		return axios.patch(`/user-profile/${id}`, data).then(res => res.data)
@@ -46,17 +50,17 @@ export default {
 	},
 	getUsersOrders() {
 		return axios.post('/orders/users', '',
-			{ headers: { 'Authorization': localStorage.getItem('token') } })
+			{ headers: { 'Authorization': token } })
 			.then(res => res.data)
 	},
 	updateUserOrder(id) {
 		return axios.patch(`/orders/${id}`, '',
-			{ headers: { 'Authorization': localStorage.getItem('token') } })
+			{ headers: { 'Authorization': token } })
 			.then(res => res.data)
 	},
 	deleteUserOrder(id) {
 		return axios.post(`/orders/${id}`, '',
-			{ headers: { 'Authorization': localStorage.getItem('token') } })
+			{ headers: { 'Authorization': token } })
 			.then(res => res.data)
 	},
 	getNews() {
@@ -72,13 +76,13 @@ export default {
 		formData.append("description", data.description)
 
 		return axios.post('/news',
-			formData, { headers: { 'Authorization': localStorage.getItem('token') } })
+			formData, { headers: { 'Authorization': token } })
 			.then(res => res.data)
 
 	},
 	deleteNews(id) {
 		return axios.post(`/news/${id}`, '',
-			{ headers: { 'Authorization': localStorage.getItem('token') } })
+			{ headers: { 'Authorization': token } })
 			.then(res => res.data)
 	},
 	editNews(id, data) {
@@ -88,7 +92,7 @@ export default {
 		formData.append("description", data.description)
 
 		return axios.patch(`/news/${id}`,
-			formData, { headers: { 'Authorization': localStorage.getItem('token') } })
+			formData, { headers: { 'Authorization': token } })
 			.then(res => res.data)
 	}
 }

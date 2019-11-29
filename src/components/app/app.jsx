@@ -42,7 +42,6 @@ class App extends Component {
 				<Route path="/news-edit/:id" render={
 					({ match }) => <EditNews id={match.params.id} />
 				} />
-				{/* <Route path="*" render={() => <Redirect to="/" />} /> */}
 
 				<ToastContainer
 					position="bottom-right"
